@@ -101,7 +101,113 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
 </div></section>
 </main>
 <footer><p><strong>TGTWR JUNIOR COLLEGE (COE) BOYS</strong></p><p>NARSAPUR, MEDAK DIST, TG-502313</p><p>Telangana Tribal Welfare Residential Educational Institutions Society</p><p class="small">Please verify institutional details and add approved logo, photographs and contact information before publishing.</p></footer>
+
 <script>
-// EMMS opens in a separate tab; the existing EMMS application is not modified.
+/*
+ * College website live data bridge.
+ * Reads only the public website data endpoint of the separate Website Admin Apps Script.
+ * EMMS V20.8.7 is intentionally untouched.
+ */
+(function () {
+  'use strict';
+  const ADMIN_API_URL = 'https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec';
+  const EMMS_URL = 'https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec';
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const safeUrl = v => {
+    const x = String(v || '').trim();
+    return /^(https?:\/\/|data:image\/)/i.test(x) ? x : '';
+  };
+  const img = (url, alt, cls='') => {
+    const u=safeUrl(url);
+    return u ? `<img class="${cls}" src="${esc(u)}" alt="${esc(alt)}" loading="lazy">` : '';
+  };
+  const text = (v, fallback='') => String(v == null || v === '' ? fallback : v);
+  function render(d) {
+    if (!d || typeof d !== 'object') return;
+    const school = text(d.schoolName, 'TGTWR JUNIOR COLLEGE (COE) BOYS');
+    const address = text(d.address, 'NARSAPUR, MEDAK DIST, TG-502313');
+    const society = text(d.societyName, 'TELANGANA TRIBAL WELFARE RESIDENTIAL EDUCATIONAL INSTITUTIONS SOCIETY');
+    const motto = text(d.motto, 'Academic Excellence • Discipline • Student Success');
+    document.title = school + ', Narsapur';
+    const topbar = $('.topbar'); if (topbar) topbar.textContent = school + ', ' + address;
+    const h1 = $('.school'); if (h1) h1.textContent = school;
+    const soc = $('.society'); if (soc) soc.textContent = society;
+    const addr = $('.address-line'); if (addr) addr.textContent = address;
+    const mot = $('.motto'); if (mot) mot.textContent = motto;
+    const logos = d.logos || {};
+    const logoImgs = document.querySelectorAll('.logo-images img');
+    if (logoImgs[0] && safeUrl(logos.society)) logoImgs[0].src = safeUrl(logos.society);
+    if (logoImgs[1] && safeUrl(logos.government)) logoImgs[1].src = safeUrl(logos.government);
+    const building = safeUrl(d.buildingImage);
+    const buildingImg = $('.building-photo');
+    if (buildingImg && building) buildingImg.src = building;
+
+    const aboutSection = $('#about');
+    if (aboutSection && d.about) {
+      const card = $('.card', aboutSection);
+      if (card) card.innerHTML = `<p>${esc(d.about)}</p>`;
+    }
+    const academicsSection = $('#academics');
+    if (academicsSection && Array.isArray(d.academics)) {
+      const cards = d.academics.map(a => {
+        const groups = Array.isArray(a.groups) ? a.groups : String(a.groups || '').split(/\n/).filter(Boolean);
+        return `<div class="card"><h3>${esc(a.title || 'Academic Programme')}</h3>${groups.length ? `<div class="pill-list">${groups.map(g=>`<span class="pill">${esc(g)}</span>`).join('')}</div>` : ''}</div>`;
+      }).join('');
+      academicsSection.innerHTML = `<div class="section-head"><h2>Academic Programmes</h2><p>Programmes and groups</p></div><div class="cards">${cards || '<div class="card">Academic details will be updated soon.</div>'}</div>`;
+    }
+
+    const staffSection = $('#administration');
+    if (staffSection && Array.isArray(d.staff)) {
+      const leadership = d.staff.filter(x => /principal/i.test(String(x.role || '')));
+      const leaders = leadership.slice(0,2).map(x=>`<div class="card">${img(x.photo,x.name,'gallery-photo')}<h3>${esc(x.role)}</h3><p><strong>${esc(x.name)}</strong></p><p class="small">${esc(x.subject)}${x.qualification ? ' · '+esc(x.qualification):''}</p></div>`).join('');
+      const rows = d.staff.map((x,i)=>`<tr><td>${i+1}</td><td>${x.photo ? img(x.photo,x.name,'staff-photo') : ''}${esc(x.name)}</td><td>${esc(x.subject)}</td><td>${esc(x.qualification)}</td></tr>`).join('');
+      staffSection.innerHTML = `<div class="section-head"><h2>Administration &amp; Faculty</h2><p>${esc(school)} — Teaching Staff Particulars</p></div>${leaders ? `<div class="cards leadership-cards">${leaders}<div class="card"><h3>Total Teaching Staff</h3><p><strong>${d.staff.length} Members</strong></p><p class="small">Teaching and academic support staff</p></div></div>` : ''}<div class="staff-table-wrap" role="region" aria-label="Teaching staff particulars" tabindex="0"><table class="staff-table"><thead><tr><th>Sl. No.</th><th>Name of the Employee</th><th>Subject</th><th>Qualification</th></tr></thead><tbody>${rows}</tbody></table></div><p class="small">Total staff: ${d.staff.length} members.</p>`;
+    }
+
+    const noticesSection = $('#notices');
+    if (noticesSection && Array.isArray(d.notices)) {
+      const notices = d.notices.map(n=>`<div class="notice"><div class="notice-icon">📌</div><div><strong>${n.url && safeUrl(n.url) ? `<a href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener noreferrer">${esc(n.title || 'Notice')}</a>` : esc(n.title || 'Notice')}</strong>${n.date ? `<small>${esc(n.date)} · </small>` : ''}<small>${esc(n.description || '')}</small></div></div>`).join('');
+      noticesSection.innerHTML = `<div class="section-head"><h2>Latest Notices &amp; Circulars</h2><p>Official updates for students, parents and staff</p></div>${notices || '<div class="notice"><div class="notice-icon">📌</div><div><strong>No notices published yet</strong><small>New approved notices will appear here.</small></div></div>'}<div class="callout"><strong>Publication guidance</strong><br>Only approved public notices are shown here.</div>`;
+    }
+
+    const examsSection = $('#examinations');
+    if (examsSection && Array.isArray(d.examinations)) {
+      const cards = d.examinations.map(e=>`<div class="card"><h3>${esc(e.title || 'Examination Update')}</h3><p>${esc(e.description || '')}</p>${safeUrl(e.url) ? `<p><a href="${esc(safeUrl(e.url))}" target="_blank" rel="noopener noreferrer">Open details ↗</a></p>`:''}</div>`).join('');
+      examsSection.innerHTML = `<div class="section-head"><h2>Examinations &amp; Results</h2><p>Examination-related public information</p></div><div class="cards">${cards || '<div class="card"><h3>Exam Updates</h3><p>Approved examination information will appear here.</p></div>'}</div><p class="small">Individual marks and student records remain inside the authorised EMMS system.</p>`;
+    }
+
+    const gallerySection = $('#gallery');
+    if (gallerySection && Array.isArray(d.gallery)) {
+      const items = d.gallery.map(g=>`<div class="card gallery-item">${img(g.url,g.title || 'College photo','gallery-photo') || '<div class="gallery-photo" style="display:grid;place-items:center;background:var(--pale);color:var(--muted)">Photo unavailable</div>'}<p>${esc(g.title || 'Campus Photo')}</p></div>`).join('');
+      gallerySection.innerHTML = `<div class="section-head"><h2>College Gallery</h2><p>Approved campus and activity photographs</p></div><div class="gallery-grid">${items || '<div class="card">Gallery photos will be added soon.</div>'}</div>`;
+    }
+
+    const c = d.contact || {};
+    const contactSection = $('#contact');
+    if (contactSection) {
+      const phone = text(c.phone, '');
+      const email = text(c.email, '');
+      const fullAddress = text(c.address, address);
+      contactSection.innerHTML = `<div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid"><div class="card"><h3>${esc(school)}</h3><p>${esc(fullAddress)}</p></div><div class="card"><h3>Official Enquiries</h3><p>Phone: ${phone ? `<a href="tel:${esc(phone.replace(/[^\d+]/g,''))}">${esc(phone)}</a>`:'To be updated'}</p><p>Email: ${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>`:'To be updated'}</p></div></div>`;
+    }
+    document.querySelectorAll('a[href*="AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte"]').forEach(a=>a.href=EMMS_URL);
+    const footer = $('footer');
+    if (footer) footer.innerHTML = `<p><strong>${esc(school)}</strong></p><p>${esc(address)}</p><p>${esc(society)}</p><p class="small">Official institutional information and approved updates.</p>`;
+  }
+  // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
+  window.tgtwrWebsiteDataCallback = function (result) {
+    const data = result && result.data && typeof result.data === 'object' ? result.data : result;
+    if (data && typeof data === 'object' && !data.error) render(data);
+    else console.warn('Website live data is not available; built-in content remains visible.');
+  };
+  const apiScript = document.createElement('script');
+  apiScript.src = ADMIN_API_URL + '?api=public&callback=tgtwrWebsiteDataCallback';
+  apiScript.async = true;
+  apiScript.onerror = function () {
+    console.warn('Could not load website data from Admin Panel. Built-in content remains visible.');
+  };
+  document.head.appendChild(apiScript);
+})();
 </script>
 </body></html>
