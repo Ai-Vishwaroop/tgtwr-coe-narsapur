@@ -46,12 +46,12 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
 .leadership-photo-placeholder{width:145px;height:180px;display:grid;place-items:center;background:var(--pale);border-radius:9px;margin:0 auto 12px;color:var(--muted);font-size:.85rem}
 .leadership-card h3{font-size:1.02rem;margin:0 0 5px}
 .leadership-card p{margin:2px 0}
-.faculty-card{padding:10px}
+.faculty-card{padding:10px}.faculty-card-leadership{border-color:#b9a16a;background:#fffdf7}.faculty-card-leadership .faculty-photo,.faculty-card-leadership .faculty-photo-placeholder{height:175px}.faculty-card-leadership h3{font-size:1rem}
 .faculty-photo,.faculty-photo-placeholder{height:145px;object-fit:cover;object-position:center top}
 .faculty-card h3{font-size:.94rem;margin-top:1px}
 .faculty-card p{font-size:.84rem;margin-top:4px}
 .staff-total{margin-top:10px}.staff-table-title{margin:22px 0 8px;color:var(--navy);font-size:1.15rem}
-@media(max-width:760px){.leadership-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.leadership-card{padding:12px}.leadership-photo,.leadership-photo-placeholder{width:112px;height:145px}.staff-directory .faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px}.faculty-photo,.faculty-photo-placeholder{height:135px}.staff-directory summary{padding:14px 12px;font-size:.92rem}}
+@media(max-width:760px){.leadership-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.leadership-card{padding:12px}.leadership-photo,.leadership-photo-placeholder{width:112px;height:145px}.staff-directory .faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px}.faculty-photo,.faculty-photo-placeholder{height:135px}.faculty-card-leadership .faculty-photo,.faculty-card-leadership .faculty-photo-placeholder{height:155px}.staff-directory summary{padding:14px 12px;font-size:.92rem}}
 @media(max-width:380px){.leadership-photo,.leadership-photo-placeholder{width:96px;height:125px}.faculty-photo,.faculty-photo-placeholder{height:115px}.directory-count{font-size:.7rem;padding:4px 6px}}
 
 
@@ -82,7 +82,7 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
   <div class="logo-images" aria-label="Government of Telangana logo"><img src="assets/telangana-govt-logo.webp" alt="Government of Telangana logo"></div>
 </div></header>
 <nav aria-label="Main navigation"><div class="nav-inner">
-<a href="#home">Home</a><a href="#about">About Us</a><a href="#leaders">Our Leaders</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
+<a href="#home">Home</a><a href="#about">About Us</a><a href="#leaders">Leadership &amp; Governance</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
 </div></nav>
 <main id="main">
 <div class="hero-banner">
@@ -103,7 +103,7 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
 </div>
 <section id="about"><div class="section-head"><h2>About Our Institution</h2><p>Institution profile</p></div>
 <div class="card"><p>TGTWR COE (Boys), Narsapur is a residential educational institution under the Telangana Tribal Welfare Residential Educational Institutions Society. This website is intended to share verified institutional information, academic announcements and approved updates.</p></div></section>
-<section id="leaders"><div class="section-head"><h2>Our Leaders</h2><p>Leadership supporting tribal education in Telangana</p></div>
+<section id="leaders"><div class="section-head"><h2>Leadership &amp; Governance</h2><p>Institutional leadership guiding quality education and administration</p></div>
 <div class="leaders-grid" id="leadersGrid">
   <article class="leader-card"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Chief Minister</h3><p>Government of Telangana</p></article>
   <article class="leader-card"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Tribal Welfare Minister</h3><p>Government of Telangana</p></article>
@@ -114,7 +114,7 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
 <section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p>A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p>Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal · TGTWRJC / COE Boys, Narsapur</span></p><p class="small">Suggested message draft — publish after the Principal’s approval.</p></div></div></section>
 <section id="academics"><div class="section-head"><h2>Academic Programmes</h2><p>Intermediate groups</p></div><div class="cards"><div class="card"><h3>Science Groups</h3><div class="pill-list"><span class="pill">MPC-I</span><span class="pill">MPC-II</span><span class="pill">BIPC-I</span><span class="pill">BIPC-II</span></div></div><div class="card"><h3>Arts Groups</h3><div class="pill-list"><span class="pill">CEC-I</span><span class="pill">CEC-II</span></div></div><div class="card"><h3>Vocational Groups</h3><div class="pill-list"><span class="pill">ACCOUNTANCY &amp; TAXATION-I</span><span class="pill">ACCOUNTANCY &amp; TAXATION-II</span></div></div></div><p class="small">Subject details, academic calendars and schedules will be added after official verification.</p></section>
 <section id="administration"><div class="section-head"><h2>Administration & Faculty</h2><p>TGTWRJC / COE Boys, Narsapur — Teaching Staff Particulars</p></div>
-<div class="cards leadership-cards"><div class="card"><h3>Principal</h3><p><strong>E. Balaram</strong></p><p class="small">Commerce · M.Com, MA, B.Ed</p></div><div class="card"><h3>Vice Principal</h3><p><strong>A. Mamatha</strong></p><p class="small">Telugu · MA, B.Ed</p></div><div class="card"><h3>Total Teaching Staff</h3><p><strong>18 Members</strong></p><p class="small">Teaching and academic support staff</p></div></div>
+
 <div class="staff-table-wrap" role="region" aria-label="Teaching staff particulars" tabindex="0"><table class="staff-table"><thead><tr><th>Sl. No.</th><th>Name of the Employee</th><th>Subject</th><th>Qualification</th></tr></thead><tbody>
 <tr><td>1</td><td>E. Balaram (Principal)</td><td>Commerce</td><td>M.Com, MA, B.Ed</td></tr>
 <tr><td>2</td><td>A. Mamatha (Vice Principal)</td><td>Telugu</td><td>MA, B.Ed</td></tr>
@@ -247,17 +247,14 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
 
     const staffSection = $('#administration');
     if (staffSection && Array.isArray(d.staff)) {
-      const leadership = d.staff.filter(x => /principal/i.test(String(x.role || '')));
-      const principal = leadership.find(x => /^principal$/i.test(String(x.role || '').trim()) || (/principal/i.test(String(x.role || '')) && !/vice/i.test(String(x.role || ''))));
-      const vicePrincipal = leadership.find(x => /vice/i.test(String(x.role || '')));
-      const leadersList = [principal, vicePrincipal].filter(Boolean);
-      const leaders = leadersList.map(x => `<article class="card leadership-card">${x.photo ? img(x.photo,x.name,'leadership-photo') : '<div class="leadership-photo-placeholder">Photo not uploaded</div>'}<h3>${esc(x.role)}</h3><p><strong>${esc(x.name)}</strong></p>${x.qualification ? `<p class="small">${esc(x.qualification)}</p>` : ''}</article>`).join('');
-      const leadershipSet = new Set(leadersList);
-      const faculty = d.staff.filter(x => !leadershipSet.has(x));
-      const facultyCards = faculty.map(x => `<article class="faculty-card">${x.photo ? img(x.photo,x.name,'faculty-photo') : '<div class="faculty-photo-placeholder">Photo not uploaded</div>'}<h3>${esc(x.name)}</h3>${x.qualification ? `<p>${esc(x.qualification)}</p>` : ''}</article>`).join('');
+      const faculty = d.staff;
+      const facultyCards = faculty.map(x => {
+        const isLeadership = /principal/i.test(String(x.role || ''));
+        return `<article class="faculty-card ${isLeadership ? 'faculty-card-leadership' : ''}">${x.photo ? img(x.photo,x.name,'faculty-photo') : '<div class="faculty-photo-placeholder">Photo not uploaded</div>'}<h3>${esc(x.name)}</h3>${x.qualification ? `<p>${esc(x.qualification)}</p>` : ''}</article>`;
+      }).join('');
       const officeRows = (Array.isArray(d.officeStaff)?d.officeStaff:[]).filter(x=>x.name||x.role).map(x=>`<article class="faculty-card">${x.photo ? img(x.photo,x.name||x.role,'faculty-photo') : '<div class="faculty-photo-placeholder">Photo not uploaded</div>'}<h3>${esc(x.name||'Name to be updated')}</h3><p>${esc(x.role||'Office / Lab Staff')}</p>${x.qualification ? `<p>${esc(x.qualification)}</p>` : ''}<p>${esc(x.duties||'Duties will be updated by the administration.')}</p></article>`).join('');
       const staffTableRows = d.staff.map((x,i)=>`<tr><td>${i+1}</td><td>${esc(x.name||'')}</td><td>${esc(x.subject||'')}</td><td>${esc(x.qualification||'')}</td></tr>`).join('');
-      staffSection.innerHTML = `<div class="section-head"><h2>Administration &amp; Faculty</h2><p>${esc(school)} — Teaching Staff Particulars</p></div>${leaders ? `<div class="cards leadership-cards">${leaders}</div>` : ''}<details class="staff-directory"><summary>Teaching Staff Directory <span class="directory-count">${faculty.length} Members</span></summary><p class="directory-intro">Click to view faculty photographs.</p><div class="faculty-grid">${facultyCards}</div></details>${officeRows ? `<details class="staff-directory office-directory"><summary>Office &amp; Laboratory Staff <span class="directory-count">${(Array.isArray(d.officeStaff)?d.officeStaff:[]).filter(x=>x.name||x.role).length} Members</span></summary><p class="directory-intro">College office and laboratory support staff.</p><div class="faculty-grid">${officeRows}</div></details>` : ''}<h3 class="staff-table-title">Teaching Staff Particulars</h3><div class="staff-table-wrap" role="region" aria-label="Teaching staff particulars" tabindex="0"><table class="staff-table"><thead><tr><th>Sl. No.</th><th>Name of the Employee</th><th>Subject</th><th>Qualification</th></tr></thead><tbody>${staffTableRows}</tbody></table></div><p class="small staff-total">Total teaching staff: ${d.staff.length} members.</p>`;
+      staffSection.innerHTML = `<div class="section-head"><h2>Administration &amp; Faculty</h2><p>${esc(school)} — Teaching Staff Particulars</p></div><details class="staff-directory"><summary>Teaching Staff Directory <span class="directory-count">${faculty.length} Members</span></summary><p class="directory-intro">Click to view faculty photographs.</p><div class="faculty-grid">${facultyCards}</div></details>${officeRows ? `<details class="staff-directory office-directory"><summary>Office &amp; Laboratory Staff <span class="directory-count">${(Array.isArray(d.officeStaff)?d.officeStaff:[]).filter(x=>x.name||x.role).length} Members</span></summary><p class="directory-intro">College office and laboratory support staff.</p><div class="faculty-grid">${officeRows}</div></details>` : ''}<h3 class="staff-table-title">Teaching Staff Particulars</h3><div class="staff-table-wrap" role="region" aria-label="Teaching staff particulars" tabindex="0"><table class="staff-table"><thead><tr><th>Sl. No.</th><th>Name of the Employee</th><th>Subject</th><th>Qualification</th></tr></thead><tbody>${staffTableRows}</tbody></table></div><p class="small staff-total">Total teaching staff: ${d.staff.length} members.</p>`;
     }
 
     const noticesSection = $('#notices');
