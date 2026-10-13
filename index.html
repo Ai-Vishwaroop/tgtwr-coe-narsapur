@@ -31,6 +31,22 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
 @media(max-width:760px){.header-inner{grid-template-columns:48px minmax(0,1fr) 48px;padding:18px 9px;gap:7px}.logo-images img{width:46px;height:46px;padding:2px}.society{font-size:.54rem;line-height:1.35}.school{font-size:clamp(.9rem,4vw,1.35rem)}.address-line{font-size:.68rem;line-height:1.3}.motto{font-size:.72rem;margin-top:6px}.gallery-grid{grid-template-columns:1fr}.gallery-photo{height:auto;max-height:300px}}
 .staff-table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-top:16px;background:#fff}.staff-table{width:100%;border-collapse:collapse;min-width:620px;font-size:.92rem;line-height:1.45}.staff-table th,.staff-table td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}.staff-table th{background:var(--navy);color:#fff;font-weight:750}.staff-table tbody tr:nth-child(even){background:var(--pale)}.staff-table tbody tr:last-child td{border-bottom:0}.leadership-cards{margin-bottom:18px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}.leadership-cards .card p+p{margin-top:5px}.leadership-card{text-align:center;padding:16px}.leadership-photo{display:block;width:100%;height:260px;object-fit:cover;object-position:top center;border-radius:12px;border:1px solid var(--line);margin:0 auto 12px}.faculty-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:16px 0 22px}.faculty-card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;min-width:0}.faculty-photo{display:block;width:100%;height:160px;object-fit:cover;object-position:top center;border-radius:9px;border:1px solid var(--line);margin-bottom:10px}.faculty-photo-placeholder{height:160px;display:grid;place-items:center;background:var(--pale);border-radius:9px;color:var(--muted);margin-bottom:10px;font-size:.86rem}.faculty-card h3{font-size:1rem;line-height:1.35;margin:0 0 4px;color:var(--navy)}.faculty-card p{margin:3px 0;color:var(--muted);font-size:.88rem}.leadership-photo-placeholder{height:260px;display:grid;place-items:center;background:var(--pale);border-radius:12px;margin-bottom:12px;color:var(--muted)}@media(max-width:760px){.faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.faculty-photo,.faculty-photo-placeholder{height:145px}.leadership-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.leadership-photo,.leadership-photo-placeholder{height:190px}.leadership-card{padding:10px}.staff-table{min-width:560px}}@media(max-width:380px){.faculty-grid{grid-template-columns:1fr}.faculty-photo,.faculty-photo-placeholder{height:220px}}
 
+/* Compact top navigation: title above bar, live date/time, three-dot menu and EMMS on right */
+.site-nav-title{max-width:1160px;margin:0 auto;padding:12px 18px 9px;color:var(--navy);font-size:clamp(1.15rem,3vw,1.65rem);font-weight:850;line-height:1.2}
+nav{position:sticky;top:0;z-index:20}
+.nav-inner{max-width:1160px;margin:auto;display:flex;align-items:center;gap:10px;flex-wrap:nowrap;padding:8px 14px;overflow:visible}
+.menu-toggle{width:44px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:9px;background:var(--navy);color:#fff;font-size:1.35rem;font-weight:900;cursor:pointer;flex:none;padding:0}
+.nav-datetime{display:flex;align-items:center;gap:14px;flex:1;min-width:0;color:var(--navy);font-size:.9rem;font-weight:750;white-space:nowrap}
+.nav-datetime span{display:inline-flex;align-items:center;gap:6px}
+.nav-emms{margin-left:auto!important;flex:none;background:var(--gold);color:#17283a;font-weight:850;text-decoration:none;padding:10px 13px;border-radius:9px;white-space:nowrap;font-size:.88rem}
+.nav-links{display:none;position:absolute;top:calc(100% + 1px);left:max(10px,calc((100% - 1160px)/2));width:min(320px,calc(100vw - 20px));padding:8px;background:#fff;border:1px solid var(--line);border-radius:0 0 13px 13px;box-shadow:0 12px 30px #0b223c20;flex-direction:column;align-items:stretch;gap:2px;max-height:75vh;overflow-y:auto}
+.nav-links.open{display:flex}
+.nav-links a{display:block;white-space:normal;text-decoration:none;padding:10px 12px;border-radius:8px;font-size:.92rem}
+.nav-links a:hover,.nav-links a:focus{background:var(--pale);color:var(--blue)}
+.nav-links .emms{margin-left:0;background:var(--pale);color:var(--navy)}
+@media(max-width:760px){.site-nav-title{padding:10px 12px 8px}.nav-inner{padding:7px 10px;gap:8px}.nav-datetime{gap:8px;font-size:.76rem}.nav-datetime span{gap:4px}.nav-emms{padding:10px 11px;font-size:.8rem}.nav-links{left:8px;width:min(310px,calc(100vw - 16px))}}
+@media(max-width:370px){.nav-datetime{font-size:.68rem;gap:6px}.nav-emms{font-size:.72rem;padding:9px 8px}.menu-toggle{width:38px;height:40px}}
+
 /* Professional staff directory: leaders remain visible; other photos are expandable */
 .staff-directory{margin:16px 0;border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden}
 .staff-directory summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--navy);color:#fff;padding:16px 18px;font-weight:800;font-size:1rem}
@@ -89,10 +105,13 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
   <p class="motto">Academic Excellence • Discipline • Student Success</p></div>
   <div class="logo-images" aria-label="Government of Telangana logo"><img src="assets/telangana-govt-logo.webp" alt="Government of Telangana logo"></div>
 </div></header>
+<div class="site-nav-title">Leadership &amp; Governance</div>
 <nav aria-label="Main navigation"><div class="nav-inner">
-<button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks">☰ Menu</button>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" title="Menu">⋮</button>
+<div class="nav-datetime" aria-label="Current date and time"><span><span aria-hidden="true">📅</span><time id="liveDate">Loading date…</time></span><span><span aria-hidden="true">🕒</span><time id="liveTime">Loading time…</time></span></div>
+<a class="nav-emms" href="https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec" target="_blank" rel="noopener noreferrer">📘 EMMS</a>
 <div class="nav-links" id="navLinks">
-<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
+<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#gallery">Gallery</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
 </div></div></nav>
 <main id="main">
 <section id="leaders"><div class="section-head"><h2>Leadership &amp; Governance</h2><p>Institutional leadership guiding quality education and administration</p></div>
@@ -177,19 +196,30 @@ footer{background:#0b223c;color:#e9f1fa;padding:28px 20px;text-align:center}foot
 (function(){
   const button=document.getElementById('menuToggle');
   const links=document.getElementById('navLinks');
-  if(!button||!links)return;
-  button.addEventListener('click',function(){
-    const isOpen=links.classList.toggle('open');
-    button.setAttribute('aria-expanded',String(isOpen));
-    button.innerHTML=isOpen?'✕ Close Menu':'☰ Menu';
-  });
-  links.querySelectorAll('a[href^="#"]').forEach(function(link){
-    link.addEventListener('click',function(){
-      if(window.matchMedia('(max-width: 760px)').matches){
-        links.classList.remove('open');button.setAttribute('aria-expanded','false');button.innerHTML='☰ Menu';
+  if(button && links){
+    button.addEventListener('click',function(){
+      const isOpen=links.classList.toggle('open');
+      button.setAttribute('aria-expanded',String(isOpen));
+      button.setAttribute('aria-label',isOpen?'Close menu':'Open menu');
+      button.innerHTML=isOpen?'×':'⋮';
+    });
+    document.addEventListener('click',function(event){
+      if(!links.contains(event.target) && !button.contains(event.target)){
+        links.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu');button.innerHTML='⋮';
       }
     });
-  });
+    links.querySelectorAll('a[href^="#"]').forEach(function(link){
+      link.addEventListener('click',function(){links.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu');button.innerHTML='⋮';});
+    });
+  }
+  function updateDateTime(){
+    const now=new Date();
+    const dateEl=document.getElementById('liveDate');
+    const timeEl=document.getElementById('liveTime');
+    if(dateEl) dateEl.textContent=new Intl.DateTimeFormat('en-IN',{day:'2-digit',month:'short',year:'numeric',timeZone:'Asia/Kolkata'}).format(now);
+    if(timeEl) timeEl.textContent=new Intl.DateTimeFormat('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true,timeZone:'Asia/Kolkata'}).format(now);
+  }
+  updateDateTime();window.setInterval(updateDateTime,1000);
 })();
 </script>
 <script>
