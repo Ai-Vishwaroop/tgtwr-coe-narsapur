@@ -168,6 +168,20 @@ nav{position:sticky;top:0;z-index:20}
 }
 
 </style>
+
+<script id="open-page-at-top">
+(function(){
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch(e) {}
+  function startAtTop(){
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+      requestAnimationFrame(function(){ window.scrollTo(0, 0); });
+    }
+  }
+  window.addEventListener('pageshow', startAtTop);
+  document.addEventListener('DOMContentLoaded', startAtTop, {once:true});
+})();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -215,8 +229,8 @@ nav{position:sticky;top:0;z-index:20}
 <section id="about"><div class="section-head"><h2>About Our Institution</h2><p>Institution profile</p></div>
 <div class="card"><p>TGTWR COE (Boys), Narsapur is a residential educational institution under the Telangana Tribal Welfare Residential Educational Institutions Society. This website is intended to share verified institutional information, academic announcements and approved updates.</p></div></section>
 
-<section id="vision"><div class="section-head"><h2>Vision &amp; Mission</h2><p>Our commitment to quality residential education</p></div><div class="vision-grid"><article class="vision-card"><h3>Our Vision</h3><p>To provide quality education to tribal students and empower them to become confident, responsible citizens through academic excellence, discipline, values and holistic development.</p></article><article class="vision-card"><h3>Our Mission</h3><p>To create a supportive learning environment that promotes equal opportunities, scientific temper, character building, physical well-being and the potential of every student.</p></article></div><p class="small">Suggested draft wording — replace with the institution’s officially approved Vision and Mission when available.</p></section>
-<section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p id="principalMessageHeading">A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p class="principal-message-copy">Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal · TGTWRJC / COE Boys, Narsapur</span></p><p class="small">Suggested message draft — publish after the Principal’s approval.</p></div></div></section>
+<section id="vision"><div class="section-head"><h2>Vision &amp; Mission</h2><p>Our commitment to quality residential education</p></div><div class="vision-grid"><article class="vision-card"><h3>Our Vision</h3><p>To provide quality education to tribal students and empower them to become confident, responsible citizens through academic excellence, discipline, values and holistic development.</p></article><article class="vision-card"><h3>Our Mission</h3><p>To create a supportive learning environment that promotes equal opportunities, scientific temper, character building, physical well-being and the potential of every student.</p></article></div></section>
+<section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p id="principalMessageHeading">A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p class="principal-message-copy">Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal- TGTWR JUNIOR COLLEGE (COE) BOYS, NARSAPUR</span></p></div></div></section>
 <section id="academics"><div class="section-head"><h2>Academic Programmes</h2><p>Intermediate groups</p></div><div class="cards"><div class="card"><h3>Science Groups</h3><div class="pill-list"><span class="pill">MPC-I</span><span class="pill">MPC-II</span><span class="pill">BIPC-I</span><span class="pill">BIPC-II</span></div></div><div class="card"><h3>Arts Groups</h3><div class="pill-list"><span class="pill">CEC-I</span><span class="pill">CEC-II</span></div></div><div class="card"><h3>Vocational Groups</h3><div class="pill-list"><span class="pill">ACCOUNTANCY &amp; TAXATION-I</span><span class="pill">ACCOUNTANCY &amp; TAXATION-II</span></div></div></div><p class="small">Subject details, academic calendars and schedules will be added after official verification.</p></section>
 <section id="administration"><div class="section-head"><h2>Administration & Faculty</h2><p>TGTWRJC / COE Boys, Narsapur — Teaching Staff Particulars</p></div>
 
@@ -381,7 +395,7 @@ nav{position:sticky;top:0;z-index:20}
         const holder = message.querySelector('div:first-child');
         if (holder && safeUrl(principal.photo)) holder.outerHTML = img(principal.photo, principal.name || 'Principal','principal-photo');
         const sign = message.querySelector('.principal-sign');
-        if (sign) sign.innerHTML = `${esc(principal.name || 'Principal')}<br><span class="small">${esc(principal.role || 'Principal')} · TGTWRJC / COE Boys, Narsapur</span>`;
+        if (sign) sign.innerHTML = `${esc(principal.name || 'Principal')}<br><span class="small">Principal- TGTWR JUNIOR COLLEGE (COE) BOYS, NARSAPUR</span>`;
       }
     }
 
