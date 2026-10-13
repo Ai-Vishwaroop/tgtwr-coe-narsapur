@@ -128,22 +128,22 @@ nav{position:sticky;top:0;z-index:20}
 .section-head{border-bottom:3px solid var(--official-navy);padding:0 0 10px;margin-bottom:18px}
 .section-head h2{font-weight:850;letter-spacing:.005em}
 .card,.panel,.leader-card,.vision-card,.emms-panel,.staff-table-wrap,.gallery-category{border-width:2px;border-color:var(--official-border)}
-.hero-banner{grid-template-columns:minmax(0,2fr) minmax(190px,.62fr);border:2px solid var(--official-border)}
-.hero-banner .building-photo{height:340px;object-fit:cover}
-.hero-message{padding:18px 15px}
+.hero-banner{grid-template-columns:minmax(0,1fr);border:2px solid var(--official-border)}
+.hero-banner .building-photo{height:clamp(300px,48vw,560px);max-height:560px;object-fit:cover;margin:0}
+.hero-message{padding:18px 22px;display:flex;align-items:flex-start}
 .hero-message h2{font-size:clamp(1.15rem,2vw,1.65rem);line-height:1.2;margin-bottom:8px}
 .hero-message p{font-size:.93rem;line-height:1.5}
 .hero-message .eyebrow{font-size:.7rem;margin-bottom:6px}
 .hero-message .btn{font-size:.82rem;padding:8px 10px;margin:6px 4px 0 0}
 .nav-inner{gap:8px!important}
-.nav-datetime{flex:0 1 auto!important;flex-direction:row!important;align-items:center!important;gap:13px!important;white-space:nowrap!important;font-size:.86rem!important;line-height:1.2}
+.nav-datetime{flex:1 1 auto!important;margin-left:auto!important;justify-content:flex-end!important;flex-direction:row!important;align-items:center!important;gap:13px!important;white-space:nowrap!important;font-size:.86rem!important;line-height:1.2}
 .nav-datetime span{display:inline-flex!important;align-items:center;gap:5px}
 .nav-emms{margin-left:auto!important;font-size:.83rem!important;padding:10px 12px!important;letter-spacing:.025em}
 .contact-grid .card h3,.card h3{font-weight:850}
 .location-link{margin-top:7px}
 @media(max-width:760px){
- .hero-banner{grid-template-columns:minmax(0,1.8fr) minmax(120px,.8fr)}
- .hero-banner .building-photo{height:230px;min-height:230px;object-fit:cover}
+ .hero-banner{grid-template-columns:1fr}
+ .hero-banner .building-photo{height:clamp(260px,68vw,390px);min-height:260px;object-fit:cover}
  .hero-message{padding:11px 9px}
  .hero-message h2{font-size:1rem;line-height:1.17;margin-bottom:6px}
  .hero-message p{font-size:.76rem;line-height:1.4}
@@ -157,8 +157,8 @@ nav{position:sticky;top:0;z-index:20}
  .section-head{padding-bottom:8px}
 }
 @media(max-width:390px){
- .hero-banner{grid-template-columns:minmax(0,1.55fr) minmax(112px,.85fr)}
- .hero-banner .building-photo{height:210px;min-height:210px}
+ .hero-banner{grid-template-columns:1fr}
+ .hero-banner .building-photo{height:250px;min-height:250px}
  .hero-message{padding:9px 7px}
  .hero-message h2{font-size:.9rem}
  .hero-message p{font-size:.7rem}
@@ -167,6 +167,20 @@ nav{position:sticky;top:0;z-index:20}
  .nav-emms{font-size:.62rem!important;padding:8px 6px!important}
 }
 
+
+/* Scrolling Latest Notices & Circulars */
+.notice-ticker{border:2px solid var(--official-border);border-radius:12px;overflow:hidden;background:#fff;margin:10px 0 16px}
+.notice-ticker-head{background:var(--navy);color:#fff;font-weight:850;padding:10px 14px;display:flex;align-items:center;gap:8px}
+.notice-ticker-window{height:190px;overflow:hidden;position:relative;padding:8px 12px}
+.notice-ticker-track{display:flex;flex-direction:column;gap:8px;animation:noticeScroll 24s linear infinite}
+.notice-ticker:hover .notice-ticker-track,.notice-ticker:focus-within .notice-ticker-track{animation-play-state:paused}
+.notice-ticker-item{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:10px;background:#fff}
+.notice-ticker-item strong{display:block;color:var(--navy)}
+.notice-ticker-item small{display:block;color:var(--muted)}
+.notice-attachment{display:inline-flex;margin-top:5px;font-size:.85rem;font-weight:800;color:var(--blue);text-decoration:underline}
+@keyframes noticeScroll{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+@media(prefers-reduced-motion:reduce){.notice-ticker-track{animation:none}}
+@media(max-width:760px){.nav-datetime{justify-content:flex-end!important;gap:6px!important;font-size:.66rem!important}.nav-datetime span{gap:2px}.hero-message{padding:16px 14px}.hero-message h2{font-size:1.25rem}.hero-message p{font-size:.88rem}.hero-message .btn{font-size:.78rem;padding:8px 10px}.notice-ticker-window{height:175px}}
 </style>
 </head>
 <body>
@@ -402,8 +416,14 @@ nav{position:sticky;top:0;z-index:20}
 
     const noticesSection = $('#notices');
     if (noticesSection && Array.isArray(d.notices)) {
-      const notices = d.notices.map(n=>`<div class="notice"><div class="notice-icon">📌</div><div><strong>${n.url && safeUrl(n.url) ? `<a href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener noreferrer">${esc(n.title || 'Notice')}</a>` : esc(n.title || 'Notice')}</strong>${n.date ? `<small>${esc(n.date)} · </small>` : ''}<small>${esc(n.description || '')}</small></div></div>`).join('');
-      noticesSection.innerHTML = `<div class="section-head"><h2>Latest Notices &amp; Circulars</h2><p>Official updates for students, parents and staff</p></div>${notices || '<div class="notice"><div class="notice-icon">📌</div><div><strong>No notices published yet</strong><small>New approved notices will appear here.</small></div></div>'}<div class="callout"><strong>Publication guidance</strong><br>Only approved public notices are shown here.</div>`;
+      const noticeCards = d.notices.map(n=>{
+        const attachment = safeUrl(n.attachmentUrl || n.fileUrl || n.pdfUrl || n.photoUrl || n.url || n.file || n.image);
+        const title = esc(n.title || 'Notice / Circular');
+        const body = `<div class="notice-ticker-item"><div class="notice-icon">📌</div><div><strong>${title}</strong>${n.date ? `<small>${esc(n.date)} · </small>` : ''}<small>${esc(n.description || '')}</small>${attachment ? `<a class="notice-attachment" href="${esc(attachment)}" target="_blank" rel="noopener noreferrer">📎 View / Download Attachment ↗</a>` : ''}</div></div>`;
+        return body;
+      });
+      const tickerItems = noticeCards.length ? noticeCards.join('') : '<div class="notice-ticker-item"><div class="notice-icon">📌</div><div><strong>No notices published yet</strong><small>Approved notices and circulars will appear here.</small></div></div>';
+      noticesSection.innerHTML = `<div class="section-head"><h2>Latest Notices &amp; Circulars</h2><p>Official updates for students, parents and staff</p></div><div class="notice-ticker" aria-label="Scrolling latest notices"><div class="notice-ticker-head">📢 Latest Notices &amp; Circulars <span style="font-weight:500;font-size:.8rem;margin-left:auto">Hover or focus to pause</span></div><div class="notice-ticker-window"><div class="notice-ticker-track">${tickerItems}${tickerItems}</div></div></div><div class="callout"><strong>Publication guidance</strong><br>Only approved public notices are shown here. Admin Panel notice records can provide an attachment URL using attachmentUrl, fileUrl, pdfUrl, photoUrl or url. Direct file upload and URL creation must be supported by the Admin Panel / Apps Script backend.</div>`;
     }
 
     const examsSection = $('#examinations');
