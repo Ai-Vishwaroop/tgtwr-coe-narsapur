@@ -93,6 +93,34 @@ nav{position:sticky;top:0;z-index:20}
 .nav-links .emms{margin-left:0}
 @media(max-width:760px){.nav-inner{display:block;padding:8px 10px}.menu-toggle{width:100%;justify-content:flex-start}.nav-links{display:none;flex-direction:column;align-items:stretch;width:100%;padding-top:8px;gap:3px}.nav-links.open{display:flex}.nav-links a{white-space:normal;padding:11px 12px}.nav-links .emms{margin-left:0}.nav-links a:hover{background:var(--pale)}}
 
+
+/* Final mobile navigation and Leadership layout fixes */
+.menu-toggle{width:44px!important;height:42px!important;min-width:44px;display:inline-flex!important;align-items:center;justify-content:center!important;font-size:1.55rem!important;line-height:1;padding:0!important}
+.nav-inner{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:8px!important;overflow:visible!important;position:relative}
+.nav-datetime{flex:1 1 auto!important;min-width:0!important;white-space:normal!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:2px!important;font-size:.76rem!important;line-height:1.25}
+.nav-emms{margin-left:auto!important;flex:none!important;font-size:.76rem!important;padding:10px 9px!important}
+.nav-links{display:none!important;position:absolute!important;top:100%!important;left:8px!important;right:auto!important;z-index:9999!important;width:min(310px,calc(100vw - 16px))!important;max-height:75vh!important;overflow-y:auto!important;flex-direction:column!important;align-items:stretch!important;background:#fff!important}
+.nav-links.open{display:flex!important}
+.nav-links a{display:block!important}
+.leaders-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;align-items:stretch}
+.leader-photo,.leader-placeholder{width:76px!important;height:96px!important;max-width:76px!important;object-fit:cover!important;border-radius:6px!important;font-size:.65rem!important}
+.leader-card{padding:9px!important}
+.leader-card h3{font-size:.82rem!important;line-height:1.25}
+.leader-card p{font-size:.72rem!important;line-height:1.3}
+.tgtwries-center{display:flex;flex-direction:column;justify-content:center;align-items:center;border:2px solid #b91c1c!important;background:#fff8f8!important}
+.tgtwries-wordmark{font-size:clamp(1rem,2vw,1.55rem);font-weight:950;color:#c1121f;letter-spacing:.04em;line-height:1.15;overflow-wrap:anywhere}
+.tgtwries-center p{font-weight:700!important;color:#b91c1c!important;margin-top:8px!important}
+@media(max-width:760px){
+ .nav-inner{padding:7px 8px!important;gap:7px!important}
+ .menu-toggle{width:40px!important;min-width:40px;height:40px!important}
+ .nav-datetime{font-size:.68rem!important;gap:3px!important}
+ .nav-emms{font-size:.68rem!important;padding:9px 7px!important;max-width:112px;white-space:normal!important;text-align:center;line-height:1.1}
+ .leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+ .leader-photo,.leader-placeholder{width:66px!important;height:82px!important;max-width:66px!important}
+ .tgtwries-center{grid-column:1/-1;min-height:90px}
+ .tgtwries-wordmark{font-size:1.35rem}
+}
+
 </style>
 </head>
 <body>
@@ -107,19 +135,20 @@ nav{position:sticky;top:0;z-index:20}
 </div></header>
 <div class="site-nav-title">Leadership &amp; Governance</div>
 <nav aria-label="Main navigation"><div class="nav-inner">
-<button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" title="Menu">⋮</button>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" title="Menu">☰</button>
 <div class="nav-datetime" aria-label="Current date and time"><span><span aria-hidden="true">📅</span><time id="liveDate">Loading date…</time></span><span><span aria-hidden="true">🕒</span><time id="liveTime">Loading time…</time></span></div>
-<a class="nav-emms" href="https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec" target="_blank" rel="noopener noreferrer">📘 EMMS</a>
+<a class="nav-emms" href="https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec" target="_blank" rel="noopener noreferrer">📘 EMMS Login</a>
 <div class="nav-links" id="navLinks">
 <a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#gallery">Gallery</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
 </div></div></nav>
 <main id="main">
 <section id="leaders"><div class="section-head"><h2>Leadership &amp; Governance</h2><p>Institutional leadership guiding quality education and administration</p></div>
 <div class="leaders-grid" id="leadersGrid">
-  <article class="leader-card"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Chief Minister</h3><p>Government of Telangana</p></article>
-  <article class="leader-card"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Tribal Welfare Minister</h3><p>Government of Telangana</p></article>
-  <article class="leader-card"><div class="leader-placeholder">Official photo to be added</div><h3>Secretary</h3><p>TGTWRIES</p></article>
-  <article class="leader-card"><div class="leader-placeholder">Official photo to be added</div><h3>Regional Coordinator</h3><p>Official designation to be confirmed</p></article>
+  <article class="leader-card leader-secretary"><div class="leader-placeholder">Official photo to be added</div><h3>Secretary</h3><p>TGTWRIES</p></article>
+  <article class="leader-card leader-coordinator"><div class="leader-placeholder">Official photo to be added</div><h3>Regional Coordinator</h3><p>Official designation to be confirmed</p></article>
+  <article class="leader-card tgtwries-center"><div class="tgtwries-wordmark">TGTWRIES</div><p>Telangana Tribal Welfare Residential Educational Institutions Society</p></article>
+  <article class="leader-card leader-minister"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Tribal Welfare Minister</h3><p>Government of Telangana</p></article>
+  <article class="leader-card leader-cm"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Chief Minister</h3><p>Government of Telangana</p></article>
 </div><p class="small">Leadership names and photographs will be published after official verification.</p></section>
 
 <div class="hero-banner">
@@ -197,19 +226,21 @@ nav{position:sticky;top:0;z-index:20}
   const button=document.getElementById('menuToggle');
   const links=document.getElementById('navLinks');
   if(button && links){
-    button.addEventListener('click',function(){
-      const isOpen=links.classList.toggle('open');
-      button.setAttribute('aria-expanded',String(isOpen));
-      button.setAttribute('aria-label',isOpen?'Close menu':'Open menu');
-      button.innerHTML=isOpen?'×':'⋮';
+    button.addEventListener('click',function(event){
+      event.preventDefault(); event.stopPropagation();
+      const isOpen=links.classList.contains('open');
+      links.classList.toggle('open',!isOpen);
+      button.setAttribute('aria-expanded',String(!isOpen));
+      button.setAttribute('aria-label',!isOpen?'Close menu':'Open menu');
+      button.innerHTML=!isOpen?'×':'☰';
     });
     document.addEventListener('click',function(event){
       if(!links.contains(event.target) && !button.contains(event.target)){
-        links.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu');button.innerHTML='⋮';
+        links.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu');button.innerHTML='☰';
       }
     });
     links.querySelectorAll('a[href^="#"]').forEach(function(link){
-      link.addEventListener('click',function(){links.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu');button.innerHTML='⋮';});
+      link.addEventListener('click',function(){links.classList.remove('open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open menu');button.innerHTML='☰';});
     });
   }
   function updateDateTime(){
@@ -265,7 +296,13 @@ nav{position:sticky;top:0;z-index:20}
     // Optional leader profiles: show only records supplied and approved through public Admin data.
     if (Array.isArray(d.leaders) && d.leaders.length) {
       const leadersGrid = $('#leadersGrid');
-      if (leadersGrid) leadersGrid.innerHTML = d.leaders.map(x => `<article class="leader-card">${safeUrl(x.photo) ? img(x.photo,x.name || x.role,'leader-photo') : '<div class="leader-placeholder">Official photo to be added</div>'}<h3>${esc(x.name || x.role || 'Leadership')}</h3><p>${esc(x.role || '')}</p>${x.organization ? `<p>${esc(x.organization)}</p>` : ''}</article>`).join('');
+      if (leadersGrid) {
+        const rank = x => { const r=String(x.role||x.name||'').toLowerCase(); if(r.includes('secretary')) return 0; if(r.includes('regional')) return 1; if(r.includes('chief minister') || r.includes('chiefminister')) return 4; if(r.includes('minister')) return 3; return 2; };
+        const ordered = d.leaders.slice().sort((a,b)=>rank(a)-rank(b));
+        const cards = ordered.map(x => `<article class="leader-card">${safeUrl(x.photo) ? img(x.photo,x.name || x.role,'leader-photo') : '<div class="leader-placeholder">Official photo to be added</div>'}<h3>${esc(x.name || x.role || 'Leadership')}</h3><p>${esc(x.role || '')}</p>${x.organization ? `<p>${esc(x.organization)}</p>` : ''}</article>`);
+        cards.splice(Math.min(2,cards.length),0,'<article class="leader-card tgtwries-center"><div class="tgtwries-wordmark">TGTWRIES</div><p>Telangana Tribal Welfare Residential Educational Institutions Society</p></article>');
+        leadersGrid.innerHTML = cards.join('');
+      }
     }
     if (d.vision || d.mission) {
       const vision = $('#vision');
