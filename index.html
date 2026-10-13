@@ -68,13 +68,13 @@ nav{position:sticky;top:0;z-index:20}
 .faculty-card p{font-size:.84rem;margin-top:4px}
 .staff-total{margin-top:10px}.staff-table-title{margin:22px 0 8px;color:var(--navy);font-size:1.15rem}
 @media(max-width:760px){.leadership-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.leadership-card{padding:12px}.leadership-photo,.leadership-photo-placeholder{width:112px;height:145px}.staff-directory .faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:10px}.faculty-photo,.faculty-photo-placeholder{height:135px}.faculty-card-leadership .faculty-photo,.faculty-card-leadership .faculty-photo-placeholder{height:155px}.staff-directory summary{padding:14px 12px;font-size:.92rem}}
-@media(max-width:380px){.leadership-photo,.leadership-photo-placeholder{width:96px;height:125px}.faculty-photo,.faculty-photo-placeholder{height:115px}.directory-count{font-size:.7rem;padding:4px 6px}}
+@media(max-width:380px){.hero-banner{grid-template-columns:1.25fr 1fr}.hero-banner .building-photo{height:165px}.hero-message{padding:8px 7px}.hero-message h2{font-size:.78rem}.hero-message p{font-size:.65rem}.leadership-photo,.leadership-photo-placeholder{width:96px;height:125px}.faculty-photo,.faculty-photo-placeholder{height:115px}.directory-count{font-size:.7rem;padding:4px 6px}}
 
 
 /* Refined institutional homepage additions */
-.hero-banner{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(220px,.75fr);align-items:stretch;gap:0;overflow:hidden;border-radius:16px;border:1px solid var(--line);margin:0 0 20px;background:var(--pale)}
-.hero-banner .building-photo{height:320px;max-height:none;object-fit:cover;border:0;border-radius:0;margin:0}
-.hero-message{padding:26px 22px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#f5f8fc,#fff)}
+.hero-banner{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(180px,.65fr);align-items:stretch;gap:0;overflow:hidden;border-radius:16px;border:1px solid var(--line);margin:0 0 20px;background:var(--pale)}
+.hero-banner .building-photo{height:340px;max-height:none;object-fit:cover;border:0;border-radius:0;margin:0}
+.hero-message{padding:14px 12px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#f5f8fc,#fff);min-width:0}.hero-message h2{font-size:clamp(1.05rem,2vw,1.5rem);line-height:1.2;color:var(--navy);margin:0 0 8px}.hero-message p{font-size:.9rem;line-height:1.45;margin:0;color:var(--muted)}.hero-message .eyebrow{font-size:.68rem;margin-bottom:6px}
 .hero-message h2{font-size:clamp(1.35rem,2.4vw,2rem);line-height:1.2;color:var(--navy);margin:0 0 12px}.hero-message p{margin:0;color:var(--muted)}
 .leaders-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .leader-card{border:1px solid var(--line);border-radius:13px;padding:14px;text-align:center;background:#fff;min-width:0}
@@ -83,7 +83,7 @@ nav{position:sticky;top:0;z-index:20}
 .vision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.vision-card{border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(145deg,#f6f9fd,#fff)}.vision-card h3{margin:0 0 7px;color:var(--navy)}.vision-card p{margin:0;color:var(--muted)}
 .principal-message{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:center}.principal-message img,.principal-message .principal-photo{width:145px;height:180px;object-fit:cover;object-position:top center;border-radius:10px;border:1px solid var(--line)}.principal-message .photo-placeholder{width:145px;height:180px;display:grid;place-items:center;border-radius:10px;background:var(--pale);color:var(--muted)}.principal-sign{font-weight:800;color:var(--navy);margin-top:12px}
 .gallery-categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.gallery-category{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:white}.gallery-category summary{list-style:none;cursor:pointer;background:var(--navy);color:white;padding:13px 14px;font-weight:800;display:flex;justify-content:space-between;gap:10px;align-items:center}.gallery-category summary::-webkit-details-marker{display:none}.gallery-category summary:after{content:'＋';font-size:1.1rem}.gallery-category[open] summary:after{content:'−'}.gallery-category .category-body{padding:12px}.category-body p{font-size:.86rem;color:var(--muted);margin:0 0 10px}.category-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.category-photos img{width:100%;height:115px;object-fit:cover;border-radius:8px}.category-photos .no-photo{min-height:90px;display:grid;place-items:center;text-align:center;background:var(--pale);border-radius:8px;color:var(--muted);font-size:.8rem;padding:8px}.category-photos small{grid-column:1/-1;color:var(--muted)}
-@media(max-width:760px){.hero-banner{grid-template-columns:1fr}.hero-banner .building-photo{height:220px}.hero-message{padding:18px}.leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.leader-photo,.leader-placeholder{height:125px;max-width:112px}.vision-grid{grid-template-columns:1fr}.principal-message{grid-template-columns:100px minmax(0,1fr);gap:12px}.principal-message img,.principal-message .principal-photo,.principal-message .photo-placeholder{width:100px;height:130px}.gallery-categories{grid-template-columns:1fr}.category-photos img{height:130px}}
+@media(max-width:760px){.hero-banner{grid-template-columns:minmax(0,1fr)}.hero-banner .building-photo{height:clamp(210px,58vw,330px);min-width:0;width:100%}.hero-message{padding:12px 14px}.hero-message h2{font-size:clamp(1rem,4vw,1.25rem);margin-bottom:5px}.hero-message p{font-size:.78rem;line-height:1.35}.hero-message .eyebrow{font-size:.62rem;letter-spacing:.07em}.leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.leader-photo,.leader-placeholder{height:125px;max-width:112px}.vision-grid{grid-template-columns:1fr}.principal-message{grid-template-columns:100px minmax(0,1fr);gap:12px}.principal-message img,.principal-message .principal-photo,.principal-message .photo-placeholder{width:100px;height:130px}.gallery-categories{grid-template-columns:1fr}.category-photos img{height:130px}}
 
 
 .menu-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;border:1px solid var(--line);border-radius:9px;background:var(--navy);color:#fff;padding:10px 14px;font-weight:800;font-size:.92rem;cursor:pointer;flex:none}
@@ -97,8 +97,8 @@ nav{position:sticky;top:0;z-index:20}
 /* Final mobile navigation and Leadership layout fixes */
 .menu-toggle{width:44px!important;height:42px!important;min-width:44px;display:inline-flex!important;align-items:center;justify-content:center!important;font-size:1.55rem!important;line-height:1;padding:0!important}
 .nav-inner{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;gap:8px!important;overflow:visible!important;position:relative}
-.nav-datetime{flex:1 1 auto!important;min-width:0!important;white-space:normal!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:2px!important;font-size:.76rem!important;line-height:1.25}
-.nav-emms{margin-left:auto!important;flex:none!important;font-size:.76rem!important;padding:10px 9px!important}
+.nav-datetime{flex:1 1 auto!important;min-width:0!important;white-space:nowrap!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;text-align:center!important;gap:clamp(6px,2vw,16px)!important;font-size:clamp(.62rem,2.1vw,.82rem)!important;line-height:1.25!important}.nav-datetime span{display:inline-flex!important;align-items:center!important;gap:3px!important}
+.nav-emms{margin-left:auto!important;flex:none!important;font-size:clamp(.62rem,2vw,.76rem)!important;padding:10px 8px!important}
 .nav-links{display:none!important;position:absolute!important;top:100%!important;left:8px!important;right:auto!important;z-index:9999!important;width:min(310px,calc(100vw - 16px))!important;max-height:75vh!important;overflow-y:auto!important;flex-direction:column!important;align-items:stretch!important;background:#fff!important}
 .nav-links.open{display:flex!important}
 .nav-links a{display:block!important}
@@ -153,13 +153,13 @@ nav{position:sticky;top:0;z-index:20}
 
 <div class="hero-banner">
   <img class="building-photo" src="assets/college-building.webp" alt="TGTWR Junior College COE Boys, Narsapur campus building" fetchpriority="high">
-  <div class="hero-message"><p class="eyebrow">Empowering tribal youth</p><h2>Quality Education for a Brighter Tomorrow</h2><p>Academic excellence, discipline and holistic development for every student.</p><div><a class="btn" href="#academics">Explore Academics →</a><a class="btn secondary" href="#notices">Latest Notices</a></div></div>
+  <div class="hero-message"><p class="eyebrow">Empowering tribal youth</p><h2>Quality Education for a Brighter Tomorrow</h2><p>Academic excellence, discipline and holistic development for every student.</p></div>
 </div>
 <div class="hero">
   <div class="panel"><p class="eyebrow">Welcome to our institution</p><h2>Learning, Growth and Opportunity</h2>
   <p>TGTWR COE (Boys), Narsapur is a residential educational institution functioning under the Telangana Tribal Welfare Residential Educational Institutions Society.</p>
   <p>Official announcements and verified institutional information will be published on this website.</p>
-  <a class="btn" href="#academics">Explore Academics →</a><a class="btn secondary" href="#notices">Latest Notices</a></div>
+  </div>
   <div class="panel"><h2>Quick Access</h2><div class="quick">
     <a href="#academics">Academics<small>MPC, BiPC, CEC and vocational groups</small></a>
     <a href="#notices">Notices<small>Circulars and updates</small></a>
@@ -215,7 +215,7 @@ nav{position:sticky;top:0;z-index:20}
 </div></section>
 <section id="emms"><div class="emms-panel"><h3>Exam Marks Management System (EMMS)</h3><p>Secure access for authorised Principal, Vice Principal and staff. The existing EMMS V20.8.7 application remains separate and unchanged.</p><a class="btn" href="https://script.google.com/macros/s/AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte/exec" id="emmsButton" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><p class="small" style="color:#d7e6f5">Opens the existing authorised EMMS application in a new tab.</p></div></section>
 <section id="contact"><div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid">
-<div class="card"><h3>TGTWR COE (Boys), Narsapur</h3><p>Medak District, Telangana, India</p></div>
+<div class="card"><h3>College Address</h3><p><strong>TGTWR Junior College (COE) Boys</strong><br>Narsapur, Medak District, Telangana – 502313, India</p><p style="margin-top:12px"><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=TGTWR+Junior+College+COE+Boys+Narsapur+Medak+Telangana" target="_blank" rel="noopener noreferrer">📍 View College Location</a></p></div>
 <div class="card"><h3>Official Enquiries</h3><p>Phone: To be added after verification</p><p>Email: To be added after verification</p></div>
 </div></section>
 </main>
