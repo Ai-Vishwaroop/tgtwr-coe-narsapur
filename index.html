@@ -216,7 +216,7 @@ nav{position:sticky;top:0;z-index:20}
 <div class="card"><p>TGTWR COE (Boys), Narsapur is a residential educational institution under the Telangana Tribal Welfare Residential Educational Institutions Society. This website is intended to share verified institutional information, academic announcements and approved updates.</p></div></section>
 
 <section id="vision"><div class="section-head"><h2>Vision &amp; Mission</h2><p>Our commitment to quality residential education</p></div><div class="vision-grid"><article class="vision-card"><h3>Our Vision</h3><p>To provide quality education to tribal students and empower them to become confident, responsible citizens through academic excellence, discipline, values and holistic development.</p></article><article class="vision-card"><h3>Our Mission</h3><p>To create a supportive learning environment that promotes equal opportunities, scientific temper, character building, physical well-being and the potential of every student.</p></article></div><p class="small">Suggested draft wording — replace with the institution’s officially approved Vision and Mission when available.</p></section>
-<section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p id="principalMessageHeading">A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p>Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal · TGTWRJC / COE Boys, Narsapur</span></p><p class="small">Suggested message draft — publish after the Principal’s approval.</p></div></div></section>
+<section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p id="principalMessageHeading">A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p class="principal-message-copy">Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal · TGTWRJC / COE Boys, Narsapur</span></p><p class="small">Suggested message draft — publish after the Principal’s approval.</p></div></div></section>
 <section id="academics"><div class="section-head"><h2>Academic Programmes</h2><p>Intermediate groups</p></div><div class="cards"><div class="card"><h3>Science Groups</h3><div class="pill-list"><span class="pill">MPC-I</span><span class="pill">MPC-II</span><span class="pill">BIPC-I</span><span class="pill">BIPC-II</span></div></div><div class="card"><h3>Arts Groups</h3><div class="pill-list"><span class="pill">CEC-I</span><span class="pill">CEC-II</span></div></div><div class="card"><h3>Vocational Groups</h3><div class="pill-list"><span class="pill">ACCOUNTANCY &amp; TAXATION-I</span><span class="pill">ACCOUNTANCY &amp; TAXATION-II</span></div></div></div><p class="small">Subject details, academic calendars and schedules will be added after official verification.</p></section>
 <section id="administration"><div class="section-head"><h2>Administration & Faculty</h2><p>TGTWRJC / COE Boys, Narsapur — Teaching Staff Particulars</p></div>
 
@@ -353,19 +353,26 @@ nav{position:sticky;top:0;z-index:20}
         leadersGrid.innerHTML = cards.join('');
       }
     }
-    if (d.vision || d.mission) {
+    {
       const vision = $('#vision');
       if (vision) {
         const cards = vision.querySelectorAll('.vision-card p');
-        if (cards[0] && d.vision) cards[0].textContent = d.vision;
-        if (cards[1] && d.mission) cards[1].textContent = d.mission;
+        if (cards[0] && Object.prototype.hasOwnProperty.call(d, 'vision')) cards[0].textContent = String(d.vision == null ? '' : d.vision);
+        if (cards[1] && Object.prototype.hasOwnProperty.call(d, 'mission')) cards[1].textContent = String(d.mission == null ? '' : d.mission);
       }
-    }
-    if (d.principalMessage) {
       const message = $('#principalMessage');
-      const p = message && message.querySelector('.principal-sign');
-      const body = message && message.querySelector('div:nth-child(2) > p:first-child');
-      if (body) body.textContent = d.principalMessage;
+      if (message && Object.prototype.hasOwnProperty.call(d, 'principalMessage')) {
+        let body = message.querySelector('.principal-message-copy');
+        if (!body) {
+          const contentColumn = message.querySelector('div:nth-child(2)');
+          body = contentColumn ? contentColumn.querySelector('p:first-child') : null;
+        }
+        if (body) body.textContent = String(d.principalMessage == null ? '' : d.principalMessage);
+      }
+      const messageHeading = $('#principalMessageHeading');
+      if (messageHeading && Object.prototype.hasOwnProperty.call(d, 'principalMessageHeading')) {
+        messageHeading.textContent = String(d.principalMessageHeading == null ? '' : d.principalMessageHeading);
+      }
     }
     if (Array.isArray(d.staff)) {
       const principal = d.staff.find(x => /principal/i.test(String(x.role || '')) && !/vice/i.test(String(x.role || '')));
@@ -433,7 +440,7 @@ nav{position:sticky;top:0;z-index:20}
       const catHtml = categories.map(cat => {
         const photos = d.gallery.filter(g => {
           const catValue = String(g.category || g.type || '');
-          return catValue ? catValue.toLowerCase().includes(cat.key) || cat.match.test(catValue) : cat.match.test(getTitle(g));
+          return catValue ? (catValue.toLowerCase().includes(cat.key) || cat.match.test(catValue)) : cat.match.test(getTitle(g));
         }).filter(g => getUrl(g));
         const photosHtml = photos.length ? photos.map(g => `${img(getUrl(g),getTitle(g),'')}<small>${esc(getTitle(g))}</small>`).join('') : `<div class="no-photo">Photos will be added</div>`;
         return `<details class="gallery-category"><summary>${esc(cat.title)}</summary><div class="category-body"><p>${esc(cat.desc)}</p><div class="category-photos">${photosHtml}</div></div></details>`;
@@ -472,3 +479,20 @@ nav{position:sticky;top:0;z-index:20}
 })();
 </script>
 </body></html>
+<style id="requested-final-layout-fixes">
+/* User-requested layout: hero text below full-width building image */
+.hero-banner{display:flex!important;flex-direction:column!important}
+.hero-banner .building-photo{display:block!important;width:100%!important;height:clamp(260px,48vw,520px)!important;max-height:none!important;object-fit:cover!important;margin:0!important}
+.hero-message{display:block!important;width:100%!important;padding:clamp(16px,3vw,26px)!important}
+.hero-message h2{font-size:clamp(1.3rem,3vw,2rem)!important}
+.hero-message p{font-size:1rem!important}
+.hero-message .btn{font-size:.9rem!important;padding:9px 13px!important}
+.tgtwries-center{background:linear-gradient(145deg,#e7f1fb,#f5f9ff 58%,#fff3d1)!important;border-color:#b58a35!important;box-shadow:inset 0 0 0 1px #fff}
+.tgtwries-center p{color:#8d2028!important}
+@media(max-width:760px){.hero-banner .building-photo{height:auto!important;aspect-ratio:16/9!important;min-height:0!important}.hero-message{padding:16px!important}.hero-message h2{font-size:1.35rem!important}.hero-message p{font-size:.9rem!important}}
+/* Keep date and time on the right, beside EMMS LOGIN */
+.nav-inner{display:flex!important;align-items:center!important;flex-wrap:nowrap!important}
+.nav-datetime{margin-left:auto!important;flex:0 1 auto!important;justify-content:flex-end!important;align-items:center!important;flex-direction:row!important;white-space:nowrap!important;gap:clamp(5px,1.2vw,13px)!important}
+.nav-emms{margin-left:8px!important;flex:0 0 auto!important}
+@media(max-width:460px){.nav-inner{gap:5px!important;padding-left:7px!important;padding-right:7px!important}.nav-datetime{font-size:.62rem!important;gap:4px!important}.nav-emms{font-size:.61rem!important;padding:8px 5px!important;max-width:100px}.menu-toggle{width:36px!important;min-width:36px!important;height:38px!important}}
+</style>
