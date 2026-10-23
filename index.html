@@ -182,6 +182,76 @@ nav{position:sticky;top:0;z-index:20}
   document.addEventListener('DOMContentLoaded', startAtTop, {once:true});
 })();
 </script>
+<style id="v2-modern-layout-and-resources">
+/* V2.0 modern wide-screen layout and requested interactive resources */
+:root{--content-max:1680px}
+@media(min-width:1200px){
+  .header-inner,.site-nav-title,.nav-inner{max-width:1680px!important}
+  main{max-width:1680px!important;padding-left:clamp(24px,3vw,64px)!important;padding-right:clamp(24px,3vw,64px)!important}
+  .section-head h2{font-size:clamp(1.8rem,2vw,2.35rem)}
+  .hero{grid-template-columns:minmax(0,1.25fr) minmax(420px,.9fr);gap:24px}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .gallery-categories{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+  .hero-banner .building-photo{height:clamp(420px,34vw,600px)!important}
+}
+@media(min-width:1700px){
+  main{max-width:1840px!important}
+  .header-inner,.site-nav-title,.nav-inner{max-width:1840px!important}
+}
+#subjectVideosGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.subject-video-folder{border:2px solid var(--official-border,#b8c8d8);border-radius:14px;background:#fff;overflow:hidden;min-width:0}
+.subject-video-folder>summary{cursor:pointer;list-style:none;background:var(--navy);color:#fff;padding:14px 18px;font-weight:850;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.subject-video-folder>summary::-webkit-details-marker{display:none}
+.subject-video-folder>summary:after{content:"▾";font-size:1.2rem}
+.subject-video-folder:not([open])>summary:after{content:"＋"}
+.subject-video-list{padding:12px;display:grid;grid-template-columns:1fr;gap:10px}
+.subject-video-item{padding:14px;border:1px solid var(--line);border-radius:10px;background:#f8fbff}
+.subject-video-item h3{margin:4px 0 6px}
+.subject-video-item .btn{margin-top:10px}
+.gallery-categories{grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery-category{height:100%;overflow:visible}
+.gallery-category>summary{border-radius:10px 10px 0 0}
+.gallery-category[open] .category-body{display:block}
+.category-photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.category-photos img{height:clamp(180px,18vw,300px);width:100%;object-fit:cover;border-radius:10px;cursor:zoom-in;transition:transform .18s ease,box-shadow .18s ease}
+.category-photos img:hover{transform:scale(1.015);box-shadow:0 8px 24px #102f5322}
+.category-photos small{font-size:.85rem;line-height:1.4}
+.gallery-category[open] .category-body{padding:14px}
+.contact-grid{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:stretch}
+.contact-map-card{display:flex;flex-direction:column;gap:12px}
+.contact-map-layout{display:grid;grid-template-columns:minmax(180px,.65fr) minmax(0,1.35fr);gap:14px;align-items:stretch}
+.contact-map-layout .map-actions{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px}
+.college-map-frame{width:100%;height:320px;min-height:260px;border:1px solid var(--line);border-radius:12px;background:var(--pale)}
+@media(max-width:900px){#subjectVideosGrid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.contact-map-layout{grid-template-columns:1fr}.college-map-frame{height:300px}}
+@media(max-width:760px){.gallery-categories{grid-template-columns:1fr}.category-photos{grid-template-columns:repeat(2,minmax(0,1fr))}.category-photos img{height:clamp(135px,40vw,220px)}}
+@media(prefers-reduced-motion:reduce){.category-photos img{transition:none}}
+
+.gallery-photo-item{margin:0;min-width:0}
+.gallery-photo-large{display:block;width:100%;height:clamp(190px,20vw,320px);object-fit:cover;border-radius:10px;border:1px solid var(--line)}
+.gallery-photo-item figcaption{font-size:.86rem;font-weight:700;color:var(--muted);padding:7px 2px 2px}
+.category-photos:has(.gallery-photo-item){grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:1250px){.category-photos:has(.gallery-photo-item){grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.category-photos:has(.gallery-photo-item){grid-template-columns:repeat(2,minmax(0,1fr))}.gallery-photo-large{height:clamp(130px,38vw,220px)}}
+</style>
+
+<style id="v3-modern-brand-and-features">
+:root{--navy:#123B5B;--blue:#1769AA;--gold:#F2C14E;--ink:#182A3A;--muted:#5C6F82;--pale:#F2F7FC;--line:#D9E4EF;--official-border:#C3D3E2;--surface:#FFFFFF;--accent-teal:#16A085;--shadow-soft:0 12px 34px rgba(18,59,91,.09)}
+html{scroll-padding-top:100px}body{background:linear-gradient(180deg,#f7faff 0,#fff 34rem);color:var(--ink)}
+header{background:linear-gradient(120deg,#0b2540 0%,#123b5b 48%,#1769aa 100%);position:relative;overflow:hidden}header:after{content:"";position:absolute;width:360px;height:360px;right:-130px;top:-210px;border:1px solid #ffffff28;border-radius:50%;box-shadow:0 0 0 35px #ffffff0c,0 0 0 70px #ffffff08;pointer-events:none}.header-inner{position:relative;z-index:1}.logo-images img{box-shadow:0 5px 18px #001a332c;border:2px solid #ffffff70}.school{text-wrap:balance;text-shadow:0 2px 16px #00182a2b}.motto{font-weight:650}
+nav{backdrop-filter:blur(14px);background:rgba(255,255,255,.96);border-bottom-color:#cfdeec}nav .menu-toggle{box-shadow:0 5px 14px #123b5b25;transition:transform .18s,box-shadow .18s}nav .menu-toggle:hover{transform:translateY(-1px);box-shadow:0 8px 18px #123b5b30}.nav-emms{box-shadow:0 5px 14px #a7781325;transition:transform .18s,filter .18s}.nav-emms:hover{transform:translateY(-1px);filter:brightness(1.03)}
+main{width:100%}.section-head{position:relative;padding-bottom:12px;border-bottom:0!important}.section-head:after{content:"";position:absolute;bottom:0;left:0;width:74px;height:4px;border-radius:8px;background:linear-gradient(90deg,var(--blue),var(--gold))}.section-head h2{letter-spacing:-.025em}.panel,.card,.vision-card,.leader-card,.gallery-category,.subject-video-folder,.emms-panel{box-shadow:var(--shadow-soft);transition:transform .2s ease,box-shadow .2s ease}.card:hover,.vision-card:hover,.leader-card:hover{box-shadow:0 16px 36px rgba(18,59,91,.13)}.hero-banner{box-shadow:0 16px 40px rgba(18,59,91,.11);border-radius:20px}.hero-message{background:linear-gradient(145deg,#f0f7ff,#fff 70%)}.hero-message .eyebrow{color:#087f8c}.btn{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;box-shadow:0 4px 12px #102f5315}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #102f5326;filter:brightness(1.04)}.btn.secondary{background:linear-gradient(135deg,#f6d56e,#f2c14e)}
+.quick a{transition:transform .18s,border-color .18s,box-shadow .18s}.quick a:hover{box-shadow:0 9px 22px #123b5b12}.notice{box-shadow:0 4px 16px #123b5b08}.notice strong{color:#123b5b}.pill{background:linear-gradient(135deg,#edf6ff,#f8fbff);border-color:#cbdff0}.gallery-category>summary,.subject-video-folder>summary{background:linear-gradient(110deg,#123b5b,#1769aa);transition:filter .18s}.gallery-category>summary:hover,.subject-video-folder>summary:hover{filter:brightness(1.08)}.category-photos img,.gallery-photo-large{box-shadow:0 4px 14px #123b5b12}.contact-map-layout{background:#f5f9fd;border:1px solid #d9e6f2;border-radius:14px;padding:12px}.college-map-frame{box-shadow:inset 0 0 0 1px #fff}
+/* Floating tools */
+.site-tools{position:fixed;right:18px;bottom:18px;z-index:1000;display:flex;flex-direction:column;gap:9px}.site-tool{width:48px;height:48px;border:0;border-radius:15px;display:grid;place-items:center;background:#123b5b;color:#fff;font-size:1.22rem;box-shadow:0 8px 24px #0b223c35;cursor:pointer;transition:transform .18s,background .18s}.site-tool:hover{transform:translateY(-3px);background:#1769aa}.site-tool.theme-tool{background:#f2c14e;color:#182a3a}.site-tool[aria-label="Back to top"]{display:none}.site-tool[aria-label="Back to top"].visible{display:grid}
+/* Accessible quick search */
+.site-search-wrap{max-width:760px;margin:0 auto 18px;padding:0 2px}.site-search{width:100%;padding:13px 16px 13px 44px;border:1px solid #cbd9e7;border-radius:14px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%235c6f82' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-4-4'/%3E%3C/svg%3E") no-repeat 15px center;font:inherit;box-shadow:0 5px 18px #123b5b08}.site-search:focus{outline:3px solid #1769aa30;border-color:#1769aa}.search-status{font-size:.84rem;color:var(--muted);margin:7px 4px 0}
+/* Theme switch */
+body.dark-mode{--ink:#e7eef6;--muted:#b3c1d0;--pale:#172a3d;--line:#31475c;--surface:#102235;--official-border:#344d63;background:#0b1826;color:#e7eef6}body.dark-mode main{color:#e7eef6}body.dark-mode .card,body.dark-mode .panel,body.dark-mode .vision-card,body.dark-mode .leader-card,body.dark-mode .gallery-category,body.dark-mode .subject-video-folder,body.dark-mode .subject-video-item,body.dark-mode .staff-table-wrap,body.dark-mode .site-search{background:#102235;color:#e7eef6;border-color:#31475c}body.dark-mode .section-head h2,body.dark-mode .card h3,body.dark-mode .vision-card h3,body.dark-mode .leader-card h3,body.dark-mode .hero-message h2,body.dark-mode .quick a,body.dark-mode .principal-sign{color:#e7eef6}body.dark-mode .hero-message,body.dark-mode .hero,body.dark-mode .contact-map-layout{background:#13283b}body.dark-mode .quick a,body.dark-mode .pill{background:#172d42;border-color:#344d63;color:#e7eef6}body.dark-mode nav{background:rgba(12,29,45,.97);border-color:#31475c}body.dark-mode nav a{color:#e7eef6}body.dark-mode .nav-links{background:#102235!important;border-color:#31475c!important}body.dark-mode .nav-links a{color:#e7eef6}body.dark-mode .gallery-category>summary,body.dark-mode .subject-video-folder>summary{background:linear-gradient(110deg,#102b43,#174a70)}body.dark-mode .notice{background:#102235;border-color:#31475c}body.dark-mode .site-search{background-color:#102235}
+@media(min-width:1500px){.hero-banner .building-photo{height:clamp(500px,32vw,700px)!important}.hero-message{padding:clamp(28px,3vw,56px)!important}.hero-message h2{font-size:clamp(2rem,2.5vw,3rem)!important}.hero-message p{font-size:clamp(1.05rem,1.1vw,1.25rem)!important}.card,.panel,.vision-card{padding:clamp(22px,1.6vw,34px)}}
+@media(max-width:600px){.site-tools{right:10px;bottom:10px}.site-tool{width:43px;height:43px;border-radius:13px}.site-search-wrap{margin-bottom:12px}.site-search{padding-top:11px;padding-bottom:11px}.section-head h2{font-size:1.45rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -265,14 +335,14 @@ nav{position:sticky;top:0;z-index:20}
 <section id="useful-links"><div class="section-head"><h2>Useful Links for Students</h2><p>Trusted learning resources, entrance examinations and scholarships</p></div><div class="cards" id="usefulLinksGrid"><article class="card">Useful links will be added by the college.</article></div></section>
 <section id="subject-videos"><div class="section-head"><h2>Subject-wise Video Resources</h2><p>Approved YouTube lessons and learning videos shared by subject staff</p></div><div class="cards" id="subjectVideosGrid"><article class="card">Video resources will be added by subject staff.</article></div></section>
 <section id="gallery"><div class="section-head"><h2>College Facilities &amp; Gallery</h2><p>Select a category to view approved photographs</p></div><div class="gallery-categories" id="galleryCategories">
-<details class="gallery-category"><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
-<details class="gallery-category"><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
-<details class="gallery-category"><summary>Zoology Laboratory</summary><div class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
-<details class="gallery-category"><summary>Physics Laboratory</summary><div class="category-body"><p>Physics apparatus, optics, electricity experiments and practical facilities.</p><div class="category-photos"><div class="no-photo">Physics laboratory photos will be added</div></div></div></details>
-<details class="gallery-category"><summary>Chemistry Laboratory</summary><div class="category-body"><p>Laboratory apparatus, glassware, practical benches and safety equipment.</p><div class="category-photos"><div class="no-photo">Chemistry laboratory photos will be added</div></div></div></details>
-<details class="gallery-category"><summary>Sports &amp; Physical Education</summary><div class="category-body"><p>Sports facilities, training sessions, competitions and student participation.</p><div class="category-photos"><div class="no-photo">Sports photos will be added</div></div></div></details>
-<details class="gallery-category"><summary>Events &amp; Celebrations</summary><div class="category-body"><p>College functions, cultural programmes, science exhibitions and official visits.</p><div class="category-photos"><div class="no-photo">Event photos will be added</div></div></div></details>
-<details class="gallery-category"><summary>College Building &amp; Campus</summary><div class="category-body"><p>Campus, building and common facilities.</p><div class="category-photos"><img src="assets/college-building.webp" alt="College building"></div></div></details>
+<details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Zoology Laboratory</summary><div class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Physics Laboratory</summary><div class="category-body"><p>Physics apparatus, optics, electricity experiments and practical facilities.</p><div class="category-photos"><div class="no-photo">Physics laboratory photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Chemistry Laboratory</summary><div class="category-body"><p>Laboratory apparatus, glassware, practical benches and safety equipment.</p><div class="category-photos"><div class="no-photo">Chemistry laboratory photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Sports &amp; Physical Education</summary><div class="category-body"><p>Sports facilities, training sessions, competitions and student participation.</p><div class="category-photos"><div class="no-photo">Sports photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Events &amp; Celebrations</summary><div class="category-body"><p>College functions, cultural programmes, science exhibitions and official visits.</p><div class="category-photos"><div class="no-photo">Event photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>College Building &amp; Campus</summary><div class="category-body"><p>Campus, building and common facilities.</p><div class="category-photos"><img src="assets/college-building.webp" alt="College building"></div></div></details>
 </div></section>
 <section id="emms"><div class="emms-panel"><h3>Exam Marks Management System (EMMS)</h3><p>Secure access for authorised Principal, Vice Principal and staff. The existing EMMS V20.8.7 application remains separate and unchanged.</p><a class="btn" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" id="emmsButton" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><p class="small" style="color:#d7e6f5">Opens the existing authorised EMMS application in a new tab.</p></div></section>
 <section id="contact"><div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid">
@@ -440,7 +510,16 @@ nav{position:sticky;top:0;z-index:20}
     }
     const videosHolder = $('#subjectVideosGrid');
     if (videosHolder) {
-      const videos = (Array.isArray(d.subjectVideos)?d.subjectVideos:[]).filter(x=>safeUrl(x.url)).map(x=>`<article class="card"><p class="small">${esc(x.subject||'Subject')}</p><h3>${esc(x.title||'Learning Video')}</h3><p>${esc(x.description||'')}</p><a class="btn" href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener noreferrer">Watch Video ↗</a></article>`).join('');
+      const allVideos = (Array.isArray(d.subjectVideos)?d.subjectVideos:[]).filter(x=>safeUrl(x.url));
+      const subjectName = x => String(x.subject || 'Other Resources').trim() || 'Other Resources';
+      const groupedVideos = {};
+      allVideos.forEach(v => { const key=subjectName(v); (groupedVideos[key] ||= []).push(v); });
+      const subjectKeys = Object.keys(groupedVideos).sort((a,b)=>a.localeCompare(b,undefined,{sensitivity:'base'}));
+      const videos = subjectKeys.map(subject => {
+        const list = groupedVideos[subject].slice().sort((a,b)=>String(a.title||'Learning Video').localeCompare(String(b.title||'Learning Video'),undefined,{numeric:true,sensitivity:'base'}));
+        const items = list.map((x,i)=>`<article class="subject-video-item"><p class="small">Video ${i+1}</p><h3>${esc(x.title||'Learning Video')}</h3>${x.description?`<p>${esc(x.description)}</p>`:''}<a class="btn" href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener noreferrer">▶ Watch Video ↗</a></article>`).join('');
+        return `<details class="subject-video-folder" open><summary>${esc(subject)} <span class="directory-count">${list.length} video${list.length===1?'':'s'}</span></summary><div class="subject-video-list">${items}</div></details>`;
+      }).join('');
       videosHolder.innerHTML = videos || '<article class="card">Video resources will be added by subject staff.</article>';
     }
 
@@ -470,8 +549,8 @@ nav{position:sticky;top:0;z-index:20}
           const catValue = String(g.category || g.type || '');
           return catValue ? (catValue.toLowerCase().includes(cat.key) || cat.match.test(catValue)) : cat.match.test(getTitle(g));
         }).filter(g => getUrl(g));
-        const photosHtml = photos.length ? photos.map(g => `${img(getUrl(g),getTitle(g),'')}<small>${esc(getTitle(g))}</small>`).join('') : `<div class="no-photo">Photos will be added</div>`;
-        return `<details class="gallery-category"><summary>${esc(cat.title)}</summary><div class="category-body"><p>${esc(cat.desc)}</p><div class="category-photos">${photosHtml}</div></div></details>`;
+        const photosHtml = photos.length ? photos.map(g => `<figure class="gallery-photo-item">${img(getUrl(g),getTitle(g),'gallery-photo-large')}<figcaption>${esc(getTitle(g))}</figcaption></figure>`).join('') : `<div class="no-photo">Photos will be added</div>`;
+        return `<details class="gallery-category" open><summary>${esc(cat.title)} <span class="directory-count">${photos.length} photo${photos.length===1?'':'s'}</span></summary><div class="category-body"><p>${esc(cat.desc)}</p><div class="category-photos">${photosHtml}</div></div></details>`;
       }).join('');
       const categoriesHolder = $('#galleryCategories');
       if (categoriesHolder) categoriesHolder.innerHTML = catHtml;
@@ -485,7 +564,8 @@ nav{position:sticky;top:0;z-index:20}
       const fullAddress = text(c.address, address);
       const mapQuery = encodeURIComponent(`${school}, Narsapur, Medak District, Telangana, India`);
       const mapUrl = "https://maps.app.goo.gl/JHUpWanQ6yH6Lprg6?g_st=ac";
-      contactSection.innerHTML = `<div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid"><div class="card"><h3>${esc(school)}</h3><p>${esc(fullAddress)}</p><p><a class="btn outline location-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">📍 View College Location on Map ↗</a></p></div><div class="card"><h3>Official Enquiries</h3><p>Phone: ${phone ? `<a href="tel:${esc(phone.replace(/[^\d+]/g,''))}">${esc(phone)}</a>`:'To be updated'}</p><p>Email: ${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>`:'To be updated'}</p></div></div>`;
+      const embedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+      contactSection.innerHTML = `<div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid"><div class="card contact-map-card"><h3>${esc(school)}</h3><p>${esc(fullAddress)}</p><div class="contact-map-layout"><div class="map-actions"><p>Explore the college location using the interactive map. Drag with your mouse or move with your finger; use map controls to zoom.</p><a class="btn outline location-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">📍 Open Google Maps ↗</a></div><iframe class="college-map-frame" title="Interactive Google Map showing ${esc(school)}" src="${embedUrl}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div><div class="card"><h3>Official Enquiries</h3><p>Phone: ${phone ? `<a href="tel:${esc(phone.replace(/[^\d+]/g,''))}">${esc(phone)}</a>`:'To be updated'}</p><p>Email: ${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>`:'To be updated'}</p></div></div>`;
     }
     document.querySelectorAll('a[href*="AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte"]').forEach(a=>a.href=EMMS_URL);
     const footer = $('footer');
@@ -506,6 +586,32 @@ nav{position:sticky;top:0;z-index:20}
   document.head.appendChild(apiScript);
 })();
 </script>
+
+<script id="v3-modern-interactive-features">
+(function(){
+  'use strict';
+  const body=document.body;
+  const tools=document.createElement('div');tools.className='site-tools';tools.setAttribute('aria-label','Website tools');
+  tools.innerHTML='<button class="site-tool theme-tool" type="button" id="themeToggle" aria-label="Switch to dark mode" title="Switch colour theme">◐</button><button class="site-tool" type="button" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>';
+  body.appendChild(tools);
+  const theme=document.getElementById('themeToggle');
+  try{if(localStorage.getItem('tgtwr-theme')==='dark'){body.classList.add('dark-mode');theme.textContent='☀';theme.setAttribute('aria-label','Switch to light mode')}}catch(e){}
+  theme.addEventListener('click',function(){const dark=body.classList.toggle('dark-mode');theme.textContent=dark?'☀':'◐';theme.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');try{localStorage.setItem('tgtwr-theme',dark?'dark':'light')}catch(e){}});
+  const top=document.getElementById('backToTop');
+  function scrollState(){top.classList.toggle('visible',window.scrollY>450)}
+  window.addEventListener('scroll',scrollState,{passive:true});scrollState();top.addEventListener('click',function(){window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+  const target=document.querySelector('#subject-videos .section-head');
+  if(target&&!document.getElementById('siteResourceSearch')){const wrap=document.createElement('div');wrap.className='site-search-wrap';wrap.innerHTML='<input class="site-search" id="siteResourceSearch" type="search" placeholder="Search subjects or video titles…" aria-label="Search subject-wise video resources"><p class="search-status" id="siteSearchStatus" aria-live="polite">Search across subjects and video titles.</p>';target.insertAdjacentElement('afterend',wrap);
+    const input=wrap.querySelector('input'),status=wrap.querySelector('.search-status');
+    function applySearch(){const q=input.value.trim().toLocaleLowerCase();let visible=0;document.querySelectorAll('#subjectVideosGrid .subject-video-folder, #subjectVideosGrid .card').forEach(function(card){const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)visible++;if(card.tagName==='DETAILS'&&q&&match)card.open=true});status.textContent=q?(visible+' matching subject section(s) or video card(s).'):'Search across subjects and video titles.'}
+    input.addEventListener('input',applySearch);const holder=document.getElementById('subjectVideosGrid');if(holder){new MutationObserver(applySearch).observe(holder,{childList:true,subtree:true})}
+  }
+  // Open gallery photos in a keyboard-accessible lightbox.
+  const gallery=document.getElementById('galleryCategories');
+  if(gallery){const lightbox=document.createElement('dialog');lightbox.className='gallery-lightbox';lightbox.innerHTML='<button type="button" class="lightbox-close" aria-label="Close image">×</button><img alt=""><p></p>';lightbox.style.cssText='border:0;border-radius:18px;padding:14px;max-width:min(94vw,1300px);max-height:92vh;background:#102235;color:#fff;box-shadow:0 25px 90px #0008';const img=lightbox.querySelector('img');img.style.cssText='display:block;max-width:88vw;max-height:78vh;object-fit:contain;border-radius:10px';lightbox.querySelector('p').style.cssText='margin:10px 4px 2px';lightbox.querySelector('button').style.cssText='display:block;margin:0 0 8px auto;border:0;border-radius:9px;padding:6px 13px;font-size:1.4rem;cursor:pointer';body.appendChild(lightbox);lightbox.querySelector('button').addEventListener('click',()=>lightbox.close());lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close()});gallery.addEventListener('click',function(e){const photo=e.target.closest('.category-photos img, .gallery-photo-large');if(!photo)return;img.src=photo.currentSrc||photo.src;img.alt=photo.alt||'College gallery photograph';lightbox.querySelector('p').textContent=photo.alt||'';if(typeof lightbox.showModal==='function')lightbox.showModal()})}
+})();
+</script>
+
 </body></html>
 <style id="requested-final-layout-fixes">
 /* User-requested layout: hero text below full-width building image */
