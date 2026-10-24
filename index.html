@@ -228,7 +228,23 @@ body.dark-mode .calendar-day-label{background:#182b40}
   document.addEventListener('DOMContentLoaded', startAtTop, {once:true});
 })();
 </script>
-</head>
+<style id="final-professional-contact-map">
+/* Larger responsive map; compact phone/email cards */
+#contact .contact-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:860px;margin:0 auto 18px}
+#contact .contact-compact{padding:12px 15px;border-width:1px}
+#contact .contact-compact h3{font-size:1rem;margin-bottom:4px}
+#contact .contact-compact p{font-size:.88rem;line-height:1.45;margin:4px 0}
+#contact .contact-compact .btn{font-size:.8rem;padding:8px 10px}
+.college-map-wrap{width:100%;border:2px solid var(--official-border,#b8c8d8);border-radius:16px;overflow:hidden;background:var(--white,#fff);padding:12px}
+.map-heading{text-align:center;margin:0 0 10px}
+.map-heading h3{margin:0;color:var(--navy,#123b5b);font-size:1.25rem}
+.map-heading p{margin:3px 0;color:var(--muted,#5d6c7c);font-size:.88rem}
+.college-map{display:block;width:100%;height:clamp(340px,52vw,620px);border:0;border-radius:10px;background:#edf2f7}
+.map-open{text-align:center;margin:8px 0 0}
+body.dark-mode .college-map-wrap{background:#101d2b}
+body.dark-mode .map-heading h3{color:#d7e9ff}
+@media(max-width:600px){#contact .contact-grid{grid-template-columns:1fr;gap:8px}.college-map-wrap{padding:8px}.college-map{height:400px}.map-heading h3{font-size:1.08rem}}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header id="home"><div class="header-inner">
@@ -381,10 +397,10 @@ body.dark-mode .calendar-day-label{background:#182b40}
 <details class="gallery-category"><summary>College Building &amp; Campus</summary><div class="category-body"><p>Campus, building and common facilities.</p><div class="category-photos"><img src="assets/college-building.webp" alt="College building"></div></div></details>
 </div></section>
 <section id="emms"><div class="emms-panel"><h3>Exam Marks Management System (EMMS)</h3><p>Secure access for authorised Principal, Vice Principal and staff. The existing EMMS V20.8.7 application remains separate and unchanged.</p><a class="btn" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" id="emmsButton" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><p class="small" style="color:#d7e6f5">Opens the existing authorised EMMS application in a new tab.</p></div></section>
-<section id="contact"><div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid">
-<div class="card"><h3>TGTWR COE (Boys), Narsapur</h3><p>Medak District, Telangana, India</p><p><a class="btn outline location-link" href="https://maps.app.goo.gl/JHUpWanQ6yH6Lprg6?g_st=ac" target="_blank" rel="noopener noreferrer">📍 View College Location on Map ↗</a></p></div>
-<div class="card"><h3>Official Enquiries</h3><p>Phone: To be added after verification</p><p>Email: To be added after verification</p></div>
-</div></section>
+<section id="contact"><div class="section-head"><h2>Contact Us / సంప్రదించండి</h2><p>Institutional contact information / కళాశాల సంప్రదింపు వివరాలు</p></div><div class="contact-grid">
+<div class="card contact-compact"><h3>TGTWR COE (Boys), Narsapur</h3><p>Medak District, Telangana, India</p><p><a class="btn outline location-link" href="https://maps.app.goo.gl/JHUpWanQ6yH6Lprg6?g_st=ac" target="_blank" rel="noopener noreferrer">📍 View College Location on Map ↗</a></p></div>
+<div class="card contact-compact"><h3>Official Enquiries</h3><p>Phone: To be added after verification</p><p>Email: To be added after verification</p></div>
+</div><div class="college-map-wrap"><div class="map-heading"><h3>Find Our College / కళాశాల మార్గం</h3><p>Open the map to get directions.</p></div><iframe class="college-map" title="Map showing TGTWR Junior College COE Boys Narsapur" src="https://maps.google.com/maps?q=TGTWR%20Junior%20College%20COE%20Boys%20Narsapur%20Telangana&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><p class="map-open"><a class="btn" href="https://maps.app.goo.gl/JHUpWanQ6yH6Lprg6?g_st=ac" target="_blank" rel="noopener noreferrer">🧭 Get Directions in Google Maps</a></p></div></section>
 </main>
 <footer><p><strong>TGTWR JUNIOR COLLEGE (COE) BOYS</strong></p><p>NARSAPUR, MEDAK DIST, TG-502313</p><p>Telangana Tribal Welfare Residential Educational Institutions Society</p><p class="small">Please verify institutional details and add approved logo, photographs and contact information before publishing.</p></footer>
 
@@ -707,7 +723,7 @@ body.dark-mode .calendar-day-label{background:#182b40}
   function setupTheme(){
     const btn=$('#themeToggle');if(!btn)return;
     const apply=dark=>{document.body.classList.toggle('dark-mode',dark);btn.setAttribute('aria-pressed',String(dark));btn.textContent=dark?'☀️ Light / లైట్':'🌙 Dark / డార్క్';};
-    apply(false);btn.addEventListener('click',()=>apply(!document.body.classList.contains('dark-mode')));
+    let initialDark=false;try{initialDark=localStorage.getItem('tgtwr-theme')==='dark';}catch(_){}apply(initialDark);btn.addEventListener('click',()=>{const dark=!document.body.classList.contains('dark-mode');apply(dark);try{localStorage.setItem('tgtwr-theme',dark?'dark':'light');}catch(_){}});
   }
   function enhance(){
     setupSearch();setupVideos();setupNoticeFilter();setupGallery();
@@ -775,7 +791,7 @@ body.dark-mode .calendar-day-label{background:#182b40}
 })();
 </script>
 
-</body></html>
+
 <style id="requested-final-layout-fixes">
 /* User-requested layout: hero text below full-width building image */
 .hero-banner{display:flex!important;flex-direction:column!important}
@@ -797,3 +813,4 @@ body.dark-mode .calendar-day-label{background:#182b40}
 <style id="exam-results-styles">#examinations .cards{align-items:stretch}#examinations .exam-publication{margin:10px 0;padding:14px}#examinations .exam-announcement{margin:10px 0}#examinations .card .btn{display:inline-flex;margin-top:8px;align-items:center;gap:6px}#examinations .card h3{margin-top:0}</style>
 
 <style id="official-thick-navigation-border">nav{border-top:3px solid #123b5b!important;border-bottom:4px solid #123b5b!important;box-shadow:0 2px 0 #e8bd58!important}.nav-inner{border-left:2px solid #b8c8d8!important;border-right:2px solid #b8c8d8!important}</style>
+</body></html>
