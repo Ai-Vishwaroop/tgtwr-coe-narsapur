@@ -275,6 +275,46 @@ body.dark-mode .staff-table th{background:#0a1d31}body.dark-mode .staff-table tb
 body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .callout strong{color:#f5d889}
 @media(max-width:760px){.global-search-inner{grid-template-columns:1fr auto;gap:7px}.global-search-inner label{grid-column:1/-1}.global-search-inner input{grid-column:1/2}.global-search-inner #globalSearchStatus{grid-column:1/-1;grid-row:3}.contact-grid{grid-template-columns:1fr!important}.college-map-frame{height:420px!important;min-height:420px}.contact-map-layout .map-actions{align-items:flex-start}.contact-map-layout .map-actions p{flex:1 1 100%}}
 </style>
+
+<style id="v4-3-staff-gallery-accessibility-fixes">
+/* Staff portraits: use a portrait-shaped viewing area and show the complete photo */
+#administration .faculty-card img.faculty-photo,
+#administration img.faculty-photo,
+#administration img.leadership-photo {
+  display:block !important;
+  width:auto !important;
+  max-width:100% !important;
+  height:clamp(300px, 28vw, 430px) !important;
+  min-height:0 !important;
+  max-height:430px !important;
+  aspect-ratio:3 / 4 !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:0 auto 12px !important;
+  background:#f3f6fa;
+  border-radius:10px;
+}
+#administration .faculty-photo-placeholder,
+#administration .leadership-photo-placeholder {
+  width:100%; min-height:300px; height:clamp(300px, 28vw, 430px);
+  display:flex; align-items:center; justify-content:center; text-align:center;
+}
+#administration .faculty-card {display:flex; flex-direction:column; align-items:stretch; min-width:0;}
+#administration .faculty-card img {flex:0 0 auto;}
+#gallery .category-photos img {cursor:zoom-in;}
+.gallery-lightbox .lightbox-prev:disabled,.gallery-lightbox .lightbox-next:disabled{opacity:.45;cursor:default}
+/* Clearly named navigation controls */
+.nav-theme-toggle {display:inline-flex!important;align-items:center;justify-content:center;gap:7px;white-space:nowrap;flex:0 0 auto;padding:9px 12px;border:1px solid #cbd9e7;border-radius:10px;background:#f2c14e;color:#182a3a;font:inherit;font-weight:800;cursor:pointer;}
+.nav-theme-toggle .theme-label {display:inline;}
+.site-tools .site-tool#backToTop {display:none; width:auto; min-width:78px; height:46px; padding:0 13px; grid-auto-flow:column; gap:6px; border-radius:13px; font-size:1rem; font-weight:800;}
+.site-tools .site-tool#backToTop.visible {display:grid;}
+@media(max-width:760px){
+ #administration .faculty-card img.faculty-photo,#administration img.faculty-photo,#administration img.leadership-photo {height:clamp(240px,65vw,340px)!important;max-height:340px!important;}
+ #administration .faculty-photo-placeholder,#administration .leadership-photo-placeholder {min-height:240px;height:clamp(240px,65vw,340px);}
+ .nav-theme-toggle {padding:8px 9px;font-size:.86rem;}
+ .nav-theme-toggle .theme-label {display:inline;}
+}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -289,7 +329,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 <nav aria-label="Main navigation"><div class="nav-inner">
 <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" title="Menu">☰</button>
 <div class="nav-datetime" aria-label="Current date and time"><span><span aria-hidden="true">📅</span><time id="liveDate">Loading date…</time></span><span><span aria-hidden="true">🕒</span><time id="liveTime">Loading time…</time></span></div>
-<button class="nav-theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" title="Switch colour theme">◐</button>
+<button class="nav-theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" title="Switch colour theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Dark Mode</span></button>
 <a class="nav-emms" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" target="_blank" rel="noopener noreferrer">📘 EMMS LOGIN</a>
 <div class="nav-links" id="navLinks">
 <a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
@@ -628,11 +668,11 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
   'use strict';
   const body=document.body;
   const tools=document.createElement('div');tools.className='site-tools';tools.setAttribute('aria-label','Website tools');
-  tools.innerHTML='<button class="site-tool" type="button" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>'; 
+  tools.innerHTML='<button class="site-tool" type="button" id="backToTop" aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span><span>Top</span></button>'; 
   body.appendChild(tools);
   const theme=document.getElementById('themeToggle');
-  try{if(localStorage.getItem('tgtwr-theme')==='dark'){body.classList.add('dark-mode');theme.textContent='☀';theme.setAttribute('aria-label','Switch to light mode')}}catch(e){}
-  theme.addEventListener('click',function(){const dark=body.classList.toggle('dark-mode');theme.textContent=dark?'☀':'◐';theme.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');try{localStorage.setItem('tgtwr-theme',dark?'dark':'light')}catch(e){}});
+  try{if(localStorage.getItem('tgtwr-theme')==='dark'){body.classList.add('dark-mode');theme.querySelector('.theme-icon').textContent='☀';theme.querySelector('.theme-label').textContent='Light Mode';theme.setAttribute('aria-label','Switch to light mode')}}catch(e){}
+  theme.addEventListener('click',function(){const dark=body.classList.toggle('dark-mode');theme.querySelector('.theme-icon').textContent=dark?'☀':'◐';theme.querySelector('.theme-label').textContent=dark?'Light Mode':'Dark Mode';theme.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');theme.title=dark?'Switch to light mode':'Switch to dark mode';try{localStorage.setItem('tgtwr-theme',dark?'dark':'light')}catch(e){}});
   const top=document.getElementById('backToTop');
   function scrollState(){top.classList.toggle('visible',window.scrollY>450)}
   window.addEventListener('scroll',scrollState,{passive:true});scrollState();top.addEventListener('click',function(){window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
@@ -665,9 +705,22 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
     function applySearch(){const q=input.value.trim().toLocaleLowerCase();let visible=0;document.querySelectorAll('#subjectVideosGrid .subject-video-folder, #subjectVideosGrid .card').forEach(function(card){const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)visible++;if(card.tagName==='DETAILS'&&q&&match)card.open=true});status.textContent=q?(visible+' matching subject section(s) or video card(s).'):'Search across subjects and video titles.'}
     input.addEventListener('input',applySearch);const holder=document.getElementById('subjectVideosGrid');if(holder){new MutationObserver(applySearch).observe(holder,{childList:true,subtree:true})}
   }
-  // Open gallery photos in a keyboard-accessible lightbox.
+  // Full-screen gallery viewer with previous/next controls, keyboard arrows and touch swipe.
   const gallery=document.getElementById('galleryCategories');
-  if(gallery){const lightbox=document.createElement('dialog');lightbox.className='gallery-lightbox';lightbox.innerHTML='<button type="button" class="lightbox-close" aria-label="Close image">×</button><img alt=""><p></p>';lightbox.style.cssText='border:0;border-radius:18px;padding:14px;max-width:min(94vw,1300px);max-height:92vh;background:#102235;color:#fff;box-shadow:0 25px 90px #0008';const img=lightbox.querySelector('img');img.style.cssText='display:block;max-width:88vw;max-height:78vh;object-fit:contain;border-radius:10px';lightbox.querySelector('p').style.cssText='margin:10px 4px 2px';lightbox.querySelector('button').style.cssText='display:block;margin:0 0 8px auto;border:0;border-radius:9px;padding:6px 13px;font-size:1.4rem;cursor:pointer';body.appendChild(lightbox);lightbox.querySelector('button').addEventListener('click',()=>lightbox.close());lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close()});gallery.addEventListener('click',function(e){const photo=e.target.closest('.category-photos img, .gallery-photo-large');if(!photo)return;img.src=photo.currentSrc||photo.src;img.alt=photo.alt||'College gallery photograph';lightbox.querySelector('p').textContent=photo.alt||'';if(typeof lightbox.showModal==='function')lightbox.showModal()})}
+  if(gallery){
+    const lightbox=document.createElement('dialog');lightbox.className='gallery-lightbox';
+    lightbox.innerHTML='<div class="lightbox-toolbar"><span class="lightbox-counter" aria-live="polite"></span><button type="button" class="lightbox-close" aria-label="Close image">×</button></div><div class="lightbox-stage"><button type="button" class="lightbox-prev" aria-label="Previous photo">‹</button><img alt=""><button type="button" class="lightbox-next" aria-label="Next photo">›</button></div><p class="lightbox-caption"></p><small class="lightbox-hint">Swipe left/right or use the arrows to view photos</small>';
+    lightbox.style.cssText='border:0;border-radius:18px;padding:14px;width:min(96vw,1400px);max-width:96vw;max-height:96vh;background:#102235;color:#fff;box-shadow:0 25px 90px #0008';
+    const img=lightbox.querySelector('img'), caption=lightbox.querySelector('.lightbox-caption'), counter=lightbox.querySelector('.lightbox-counter');
+    const style=document.createElement('style');style.textContent='.gallery-lightbox::backdrop{background:rgba(0,0,0,.84)}.lightbox-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.lightbox-stage{display:flex;align-items:center;justify-content:center;gap:8px;min-height:45vh}.lightbox-stage img{display:block;max-width:calc(100% - 112px);width:auto;height:auto;max-height:76vh;object-fit:contain;border-radius:10px;touch-action:pan-y}.lightbox-close,.lightbox-prev,.lightbox-next{border:0;border-radius:10px;background:#fff;color:#123b5b;font-size:1.8rem;font-weight:800;cursor:pointer;min-width:44px;min-height:44px}.lightbox-close{font-size:1.5rem}.lightbox-caption{margin:10px 4px 2px;text-align:center;font-weight:700}.lightbox-hint{display:block;text-align:center;color:#cbd5e1}.lightbox-counter{font-size:.9rem;color:#e2e8f0}@media(max-width:600px){.gallery-lightbox{padding:8px!important}.lightbox-stage{gap:4px;min-height:35vh}.lightbox-stage img{max-width:calc(100% - 76px);max-height:70vh}.lightbox-prev,.lightbox-next{min-width:34px;min-height:42px;font-size:1.5rem}}';document.head.appendChild(style);body.appendChild(lightbox);
+    let photos=[],index=0,touchX=null;
+    function refreshPhotos(){photos=[...gallery.querySelectorAll('.category-photos img')].filter(el=>el.src && !el.closest('[hidden]'));}
+    function showPhoto(n){if(!photos.length)return;index=(n+photos.length)%photos.length;const photo=photos[index];img.src=photo.currentSrc||photo.src;img.alt=photo.alt||'College gallery photograph';caption.textContent=photo.alt||'College gallery photograph';counter.textContent=(index+1)+' / '+photos.length;lightbox.querySelector('.lightbox-prev').disabled=photos.length<2;lightbox.querySelector('.lightbox-next').disabled=photos.length<2;}
+    lightbox.querySelector('.lightbox-close').addEventListener('click',()=>lightbox.close());lightbox.querySelector('.lightbox-prev').addEventListener('click',()=>showPhoto(index-1));lightbox.querySelector('.lightbox-next').addEventListener('click',()=>showPhoto(index+1));
+    lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.close()});lightbox.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();showPhoto(index-1)}else if(e.key==='ArrowRight'){e.preventDefault();showPhoto(index+1)}});
+    lightbox.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX},{passive:true});lightbox.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>45)showPhoto(index+(dx<0?1:-1));touchX=null},{passive:true});lightbox.querySelector('.lightbox-stage').addEventListener('pointerdown',e=>{if(e.pointerType==='touch')touchX=e.clientX});lightbox.querySelector('.lightbox-stage').addEventListener('pointerup',e=>{if(touchX===null)return;const dx=e.clientX-touchX;if(Math.abs(dx)>45)showPhoto(index+(dx<0?1:-1));touchX=null});
+    gallery.addEventListener('click',function(e){const photo=e.target.closest('.category-photos img, .gallery-photo-large');if(!photo)return;refreshPhotos();index=Math.max(0,photos.indexOf(photo));showPhoto(index);if(typeof lightbox.showModal==='function')lightbox.showModal()});
+  }
 })();
 </script>
 
