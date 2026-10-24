@@ -38,14 +38,17 @@ nav{position:sticky;top:0;z-index:20}
 .menu-toggle{width:44px;height:42px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:9px;background:var(--navy);color:#fff;font-size:1.35rem;font-weight:900;cursor:pointer;flex:none;padding:0}
 .nav-datetime{display:flex;align-items:center;gap:14px;flex:1;min-width:0;color:var(--navy);font-size:.9rem;font-weight:750;white-space:nowrap}
 .nav-datetime span{display:inline-flex;align-items:center;gap:6px}
-.nav-emms{margin-left:auto!important;flex:none;background:var(--gold);color:#17283a;font-weight:850;text-decoration:none;padding:10px 13px;border-radius:9px;white-space:nowrap;font-size:.88rem}
+.nav-emms{margin-left:8px!important;flex:none;background:var(--gold);color:#17283a;font-weight:850;text-decoration:none;padding:10px 13px;border-radius:9px;white-space:nowrap;font-size:.88rem}
+.nav-theme-toggle{flex:none;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #b8c8d8;border-radius:9px;background:#123b5b;color:#fff;font-size:1.2rem;font-weight:800;cursor:pointer;box-shadow:0 4px 12px #123b5b20;transition:transform .18s,background .18s}
+.nav-theme-toggle:hover{transform:translateY(-1px);background:#1769aa}
+body.dark-mode .nav-theme-toggle{background:#f2c14e;color:#182a3a;border-color:#d6a72e}
 .nav-links{display:none;position:absolute;top:calc(100% + 1px);left:max(10px,calc((100% - 1160px)/2));width:min(320px,calc(100vw - 20px));padding:8px;background:#fff;border:1px solid var(--line);border-radius:0 0 13px 13px;box-shadow:0 12px 30px #0b223c20;flex-direction:column;align-items:stretch;gap:2px;max-height:75vh;overflow-y:auto}
 .nav-links.open{display:flex}
 .nav-links a{display:block;white-space:normal;text-decoration:none;padding:10px 12px;border-radius:8px;font-size:.92rem}
 .nav-links a:hover,.nav-links a:focus{background:var(--pale);color:var(--blue)}
 .nav-links .emms{margin-left:0;background:var(--pale);color:var(--navy)}
-@media(max-width:760px){.site-nav-title{padding:10px 12px 8px}.nav-inner{padding:7px 10px;gap:8px}.nav-datetime{gap:8px;font-size:.76rem}.nav-datetime span{gap:4px}.nav-emms{padding:10px 11px;font-size:.8rem}.nav-links{left:8px;width:min(310px,calc(100vw - 16px))}}
-@media(max-width:370px){.nav-datetime{font-size:.68rem;gap:6px}.nav-emms{font-size:.72rem;padding:9px 8px}.menu-toggle{width:38px;height:40px}}
+@media(max-width:760px){.site-nav-title{padding:10px 12px 8px}.nav-inner{padding:7px 10px;gap:8px}.nav-datetime{gap:8px;font-size:.76rem}.nav-datetime span{gap:4px}.nav-emms{padding:10px 11px;font-size:.8rem}.nav-theme-toggle{width:36px;height:38px;font-size:1rem}.nav-links{left:8px;width:min(310px,calc(100vw - 16px))}}
+@media(max-width:370px){.nav-datetime{font-size:.68rem;gap:6px}.nav-emms{font-size:.72rem;padding:9px 8px}.nav-theme-toggle{width:33px;height:36px}.menu-toggle{width:38px;height:40px}}
 
 /* Professional staff directory: leaders remain visible; other photos are expandable */
 .staff-directory{margin:16px 0;border:1px solid var(--line);border-radius:13px;background:#fff;overflow:hidden}
@@ -114,7 +117,7 @@ nav{position:sticky;top:0;z-index:20}
  .nav-inner{padding:7px 8px!important;gap:7px!important}
  .menu-toggle{width:40px!important;min-width:40px;height:40px!important}
  .nav-datetime{font-size:.68rem!important;gap:3px!important}
- .nav-emms{font-size:.68rem!important;padding:9px 7px!important;max-width:112px;white-space:normal!important;text-align:center;line-height:1.1}
+ .nav-emms{font-size:.68rem!important;padding:9px 7px!important;max-width:112px;white-space:normal!important;text-align:center;line-height:1.1}.nav-theme-toggle{width:32px!important;height:34px!important;font-size:.95rem!important}
  .leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
  .leader-photo,.leader-placeholder{width:66px!important;height:82px!important;max-width:66px!important}
  .tgtwries-center{grid-column:1/-1;min-height:90px}
@@ -286,6 +289,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 <nav aria-label="Main navigation"><div class="nav-inner">
 <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" title="Menu">☰</button>
 <div class="nav-datetime" aria-label="Current date and time"><span><span aria-hidden="true">📅</span><time id="liveDate">Loading date…</time></span><span><span aria-hidden="true">🕒</span><time id="liveTime">Loading time…</time></span></div>
+<button class="nav-theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" title="Switch colour theme">◐</button>
 <a class="nav-emms" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" target="_blank" rel="noopener noreferrer">📘 EMMS LOGIN</a>
 <div class="nav-links" id="navLinks">
 <a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
@@ -624,7 +628,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
   'use strict';
   const body=document.body;
   const tools=document.createElement('div');tools.className='site-tools';tools.setAttribute('aria-label','Website tools');
-  tools.innerHTML='<button class="site-tool theme-tool" type="button" id="themeToggle" aria-label="Switch to dark mode" title="Switch colour theme">◐</button><button class="site-tool" type="button" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>';
+  tools.innerHTML='<button class="site-tool" type="button" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>'; 
   body.appendChild(tools);
   const theme=document.getElementById('themeToggle');
   try{if(localStorage.getItem('tgtwr-theme')==='dark'){body.classList.add('dark-mode');theme.textContent='☀';theme.setAttribute('aria-label','Switch to light mode')}}catch(e){}
@@ -683,7 +687,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 .nav-inner{display:flex!important;align-items:center!important;flex-wrap:nowrap!important}
 .nav-datetime{margin-left:auto!important;flex:0 1 auto!important;justify-content:flex-end!important;align-items:center!important;flex-direction:row!important;white-space:nowrap!important;gap:clamp(5px,1.2vw,13px)!important}
 .nav-emms{margin-left:8px!important;flex:0 0 auto!important}
-@media(max-width:460px){.nav-inner{gap:5px!important;padding-left:7px!important;padding-right:7px!important}.nav-datetime{font-size:.62rem!important;gap:4px!important}.nav-emms{font-size:.61rem!important;padding:8px 5px!important;max-width:100px}.menu-toggle{width:36px!important;min-width:36px!important;height:38px!important}}
+@media(max-width:460px){.nav-inner{gap:5px!important;padding-left:7px!important;padding-right:7px!important}.nav-datetime{font-size:.62rem!important;gap:4px!important}.nav-emms{font-size:.61rem!important;padding:8px 5px!important;max-width:100px}.nav-theme-toggle{width:30px!important;height:32px!important;font-size:.9rem!important}.menu-toggle{width:36px!important;min-width:36px!important;height:38px!important}}
 </style>
 
 <style id="exam-results-styles">#examinations .cards{align-items:stretch}#examinations .exam-publication{margin:10px 0;padding:14px}#examinations .exam-announcement{margin:10px 0}#examinations .card .btn{display:inline-flex;margin-top:8px;align-items:center;gap:6px}#examinations .card h3{margin-top:0}</style>
