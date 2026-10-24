@@ -170,6 +170,73 @@ body.dark-mode .nav-theme-toggle{background:#f2c14e;color:#182a3a;border-color:#
  .nav-emms{font-size:.62rem!important;padding:8px 6px!important}
 }
 
+
+/* V4.6: hard override for small-screen navigation — fixed non-overlapping columns */
+@media screen and (max-width:760px) {
+  nav .nav-inner {
+    display:grid !important;
+    grid-template-columns: 34px minmax(0,1fr) minmax(78px,86px) minmax(88px,98px) !important;
+    align-items:center !important;
+    column-gap:4px !important;
+    row-gap:6px !important;
+    width:100% !important;
+    max-width:100% !important;
+    padding:8px 7px !important;
+    box-sizing:border-box !important;
+    overflow:visible !important;
+  }
+  nav .menu-toggle { grid-column:1 !important; grid-row:1 !important; width:36px !important; min-width:36px !important; height:38px !important; }
+  nav .nav-datetime {
+    grid-column:2 !important; grid-row:1 !important;
+    display:flex !important; flex-direction:column !important;
+    align-items:flex-start !important; justify-content:center !important;
+    width:100% !important; min-width:0 !important; max-width:100% !important;
+    gap:3px !important; white-space:normal !important;
+    font-size:clamp(9px,2.5vw,11px) !important; line-height:1.2 !important;
+    overflow:hidden !important;
+  }
+  nav .nav-datetime > span {
+    display:flex !important; align-items:center !important;
+    width:100% !important; min-width:0 !important; gap:3px !important;
+    white-space:nowrap !important; overflow:hidden !important;
+  }
+  nav .nav-datetime time {
+    display:inline-block !important; min-width:0 !important; max-width:100% !important;
+    white-space:nowrap !important; overflow:hidden !important;
+    font-variant-numeric:tabular-nums !important;
+  }
+  nav .nav-theme-toggle {
+    grid-column:3 !important; grid-row:1 !important;
+    display:flex !important; flex-direction:column !important;
+    align-items:center !important; justify-content:center !important;
+    width:100% !important; min-width:0 !important; max-width:none !important;
+    min-height:38px !important; height:auto !important;
+    padding:5px 3px !important; margin:0 !important; gap:2px !important;
+    white-space:normal !important; overflow-wrap:break-word !important;
+    word-break:normal !important; text-align:center !important;
+    font-size:clamp(9px,2.35vw,11px) !important; line-height:1.1 !important;
+  }
+  nav .nav-theme-toggle .theme-icon { display:block !important; line-height:1 !important; }
+  nav .nav-theme-toggle .theme-label { display:block !important; white-space:normal !important; max-width:100% !important; overflow-wrap:anywhere !important; }
+  nav .nav-emms {
+    grid-column:4 !important; grid-row:1 !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    width:100% !important; min-width:0 !important; max-width:none !important;
+    min-height:38px !important; height:auto !important;
+    box-sizing:border-box !important; padding:6px 3px !important; margin:0 !important;
+    white-space:normal !important; overflow-wrap:normal !important;
+    text-align:center !important; line-height:1.15 !important;
+    font-size:clamp(9px,2.3vw,11px) !important;
+  }
+  nav .nav-links { grid-column:1/-1 !important; grid-row:2 !important; }
+}
+@media screen and (max-width:360px) {
+  nav .nav-inner { grid-template-columns:30px minmax(0,1fr) 72px 80px !important; gap:3px !important; padding:7px 5px !important; }
+  nav .menu-toggle { width:32px !important; min-width:32px !important; }
+  nav .nav-theme-toggle, nav .nav-emms { font-size:9px !important; padding:5px 2px !important; }
+  nav .nav-datetime { font-size:9px !important; }
+}
+
 </style>
 
 <script id="open-page-at-top">
@@ -440,6 +507,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 <details class="gallery-category" open><summary>Events &amp; Celebrations</summary><div class="category-body"><p>College functions, cultural programmes, science exhibitions and official visits.</p><div class="category-photos"><div class="no-photo">Event photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>College Building &amp; Campus</summary><div class="category-body"><p>Campus, building and common facilities.</p><div class="category-photos"><img src="assets/college-building.webp" alt="College building"></div></div></details>
 </div></section>
+<section id="alumni-success"><div class="section-head"><h2>Our Alumni Success Stories</h2><p>Celebrating the progress and achievements of our former students</p></div><div class="callout"><strong>Are you our alumnus?</strong><p>Share your higher studies, university admission, entrance rank, job, scholarship, sports or other achievement. Every submission stays private until the College verifies and approves it.</p><a class="btn" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec?page=alumni" target="_blank" rel="noopener noreferrer">Submit Your Success Story ↗</a></div><div id="alumniStoriesGrid" class="cards" aria-live="polite"><article class="card"><h3>Alumni Success Stories</h3><p>Approved profiles will appear here after verification by the College.</p></article></div></section>
 <section id="emms"><div class="emms-panel"><h3>Exam Marks Management System (EMMS)</h3><p>Secure access for authorised Principal, Vice Principal and staff. The existing EMMS V20.8.7 application remains separate and unchanged.</p><a class="btn" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" id="emmsButton" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><p class="small" style="color:#d7e6f5">Opens the existing authorised EMMS application in a new tab.</p></div></section>
 <section id="contact"><div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid">
 <div class="card"><h3>TGTWR COE (Boys), Narsapur</h3><p>Medak District, Telangana, India</p><p><a class="btn outline location-link" href="https://maps.app.goo.gl/JHUpWanQ6yH6Lprg6?g_st=ac" target="_blank" rel="noopener noreferrer">📍 View College Location on Map ↗</a></p></div>
@@ -693,6 +761,15 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 })();
 </script>
 
+<script id="alumni-public-display">
+(function(){
+ const endpoint='https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec';
+ window.tgtwrAlumniCallback=function(rows){const grid=document.getElementById('alumniStoriesGrid');if(!grid||!Array.isArray(rows)||!rows.length)return;
+ const esc=v=>String(v||'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
+ grid.innerHTML=rows.map(x=>`<article class="card alumni-card">${x.photoUrl?`<img src="${esc(x.photoUrl)}" alt="Photo of ${esc(x.name)}" loading="lazy" style="width:100%;height:230px;object-fit:contain;background:#f2f6fb;border-radius:10px">`:''}<h3>${esc(x.name)}</h3><p><strong>Passout:</strong> ${esc(x.passoutYear)} · ${esc(x.group)}</p><p><strong>${esc(x.achievementType)}</strong></p><p>${esc(x.achievementDetails)}</p>${x.institution?`<p><strong>Institution:</strong> ${esc(x.institution)}</p>`:''}</article>`).join('');
+ };const el=document.createElement('script');el.src=endpoint+'?api=alumniPublic&callback=tgtwrAlumniCallback';el.onerror=()=>console.warn('Alumni public profiles unavailable');document.head.appendChild(el);
+})();
+</script>
 <script id="v3-modern-interactive-features">
 (function(){
   'use strict';
@@ -776,3 +853,4 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 <style id="exam-results-styles">#examinations .cards{align-items:stretch}#examinations .exam-publication{margin:10px 0;padding:14px}#examinations .exam-announcement{margin:10px 0}#examinations .card .btn{display:inline-flex;margin-top:8px;align-items:center;gap:6px}#examinations .card h3{margin-top:0}</style>
 
 <style id="official-thick-navigation-border">nav{border-top:3px solid #123b5b!important;border-bottom:4px solid #123b5b!important;box-shadow:0 2px 0 #e8bd58!important}.nav-inner{border-left:2px solid #b8c8d8!important;border-right:2px solid #b8c8d8!important}</style>
+ 
