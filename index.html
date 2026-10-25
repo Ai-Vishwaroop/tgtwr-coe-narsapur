@@ -344,7 +344,6 @@ body.dark-mode .staff-table th{background:#0a1d31}body.dark-mode .staff-table tb
 body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .callout strong{color:#f5d889}
 @media(max-width:760px){.global-search-inner{grid-template-columns:1fr auto;gap:7px}.global-search-inner label{grid-column:1/-1}.global-search-inner input{grid-column:1/2}.global-search-inner #globalSearchStatus{grid-column:1/-1;grid-row:3}.contact-grid{grid-template-columns:1fr!important}.college-map-frame{height:420px!important;min-height:420px}.contact-map-layout .map-actions{align-items:flex-start}.contact-map-layout .map-actions p{flex:1 1 100%}}
 </style>
-
 <style id="v4-3-staff-gallery-accessibility-fixes">
 /* Staff portraits: use a portrait-shaped viewing area and show the complete photo */
 #administration .faculty-card img.faculty-photo,
@@ -423,64 +422,6 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 .hero-slider .hero-slider-prev{left:14px}.hero-slider .hero-slider-next{right:14px}
 .hero-slider .hero-slider-dots{z-index:5}.hero-slider .hero-slider-hint{z-index:5;pointer-events:none}
 @media(max-width:420px){.hero-slider .hero-slider-arrow{width:36px;height:44px;font-size:1.6rem;border-radius:10px}.hero-slider .hero-slider-prev{left:8px}.hero-slider .hero-slider-next{right:8px}}
-</style>
-
-
-<!-- V5.8: Mobile full-viewport width correction; desktop layout preserved -->
-<style id="v5-8-mobile-full-width-fix">
-html, body {
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  margin-left: 0;
-  margin-right: 0;
-}
-html { overflow-x: clip; }
-body { overflow-x: clip; box-sizing: border-box; }
-*, *::before, *::after { box-sizing: border-box; }
-@media screen and (max-width: 760px) {
-  html, body, header, nav, main, footer,
-  .header-inner, .nav-inner, .site-nav-title,
-  .search-strip, .search-inner, .hero, .hero-banner,
-  .hero-message, .panel, .quick, .cards,
-  .leadership-cards, .leaders-grid, .leadership-grid,
-  .faculty-grid, .gallery-grid, .gallery-categories,
-  .contact-grid, .vision-grid, .staff-directory,
-  .section, section, .container, .content, .page,
-  #main, #app, #website, #content {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  body { padding-left: 0 !important; padding-right: 0 !important; }
-  main { padding-left: 12px !important; padding-right: 12px !important; }
-  header, nav, footer { margin-left: 0 !important; margin-right: 0 !important; }
-  .header-inner, .nav-inner, .site-nav-title { padding-left: 10px !important; padding-right: 10px !important; }
-  .hero > *, .hero-banner > *, .panel, .card, .leader-card,
-  .leadership-card, .faculty-card, .gallery-category, .vision-card,
-  .emms-panel, .staff-table-wrap {
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-  img, video, iframe, canvas { max-width: 100%; }
-  .quick, .cards, .leadership-cards, .leaders-grid,
-  .leadership-grid, .faculty-grid, .gallery-grid,
-  .gallery-categories, .contact-grid, .vision-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-  .hero, .hero-banner, .contact-grid, .vision-grid { grid-template-columns: minmax(0, 1fr) !important; }
-  .staff-table-wrap { overflow-x: auto !important; }
-}
-@media screen and (max-width: 380px) {
-  main { padding-left: 9px !important; padding-right: 9px !important; }
-  .quick, .cards, .leadership-cards, .leaders-grid,
-  .leadership-grid, .faculty-grid, .gallery-grid,
-  .gallery-categories, .contact-grid, .vision-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-  }
-}
 </style>
 
 </head>
@@ -864,7 +805,7 @@ body { overflow-x: clip; box-sizing: border-box; }
     const footer = $('footer');
     if (footer) footer.innerHTML = `<p><strong>${esc(school)}</strong></p><p>${esc(address)}</p><p>${esc(society)}</p><p class="small">Official institutional information and approved updates.</p>`;
   }
-    // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
+  // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
   window.tgtwrWebsiteDataCallback = function (result) {
     const data = result && result.data && typeof result.data === 'object' ? result.data : result;
     if (data && typeof data === 'object' && !data.error) render(data);
@@ -970,45 +911,37 @@ body { overflow-x: clip; box-sizing: border-box; }
 
 
 
-<script id="v5-notices-button-navigation-fix">
-(function(){
-  function goNotices(ev){
-    const target=document.getElementById('notices');
-    if(!target)return;
-    ev.preventDefault();
-    const globalSearch=document.getElementById('globalSiteSearch');
-    if(globalSearch && globalSearch.value){globalSearch.value='';globalSearch.dispatchEvent(new Event('input',{bubbles:true}));}
-    target.hidden=false;
-    target.scrollIntoView({behavior:'smooth',block:'start'});
-    if(location.hash!=='#notices') history.replaceState(null,'','#notices');
-  }
-  document.addEventListener('click',function(ev){
-    const link=ev.target.closest('#heroNoticesLink, a[href="#notices"]');
-    if(link)goNotices(ev);
-  });
-})();
-</script>
 <script id="v5-7-shared-notices-navigation">
 (function(){
   if(window.__v57NoticesNavigationBound)return;
   window.__v57NoticesNavigationBound=true;
+  var busy=false;
   document.addEventListener('click',function(event){
     var link=event.target.closest('#heroNoticesLink, #quickAccessNoticesLink, .quick a[href="#notices"], a[href="#notices"]');
     if(!link)return;
     var target=document.getElementById('notices');
     if(!target)return;
     event.preventDefault();
-    target.hidden=false;
-    target.removeAttribute('hidden');
+    if(busy)return;
+    busy=true;
+    var search=document.getElementById('globalSiteSearch');
+    if(search && search.value){search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));}
+    target.hidden=false; target.removeAttribute('hidden'); target.style.display='';
     var main=document.getElementById('main');
     if(main){main.hidden=false;main.removeAttribute('hidden');}
     try{if(location.hash!=='#notices')history.replaceState(null,'','#notices');}catch(e){}
+    function align(){
+      if(!target.isConnected)return;
+      var top=target.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0)-84;
+      window.scrollTo({top:Math.max(0,top),behavior:'auto'});
+    }
     requestAnimationFrame(function(){
-      target.scrollIntoView({behavior:window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-      target.classList.remove('v57-notices-focus');
-      void target.offsetWidth;
-      target.classList.add('v57-notices-focus');
-      setTimeout(function(){target.classList.remove('v57-notices-focus');},1400);
+      requestAnimationFrame(function(){
+        align();
+        target.classList.remove('v57-notices-focus'); void target.offsetWidth; target.classList.add('v57-notices-focus');
+        [250,600,1000].forEach(function(ms){setTimeout(align,ms);});
+        setTimeout(function(){target.classList.remove('v57-notices-focus');busy=false;},1200);
+      });
     });
   },true);
 })();
@@ -1068,4 +1001,4 @@ body.dark-mode .section-head h2,body.dark-mode .card h3,body.dark-mode .leader-c
 @media(max-width:760px){.header-inner{grid-template-columns:45px minmax(0,1fr) 45px!important;padding:15px 8px!important}.logo-images img{width:42px!important;height:42px!important}.hero-banner{grid-template-columns:1fr!important;border-radius:20px!important}.hero-slider{min-height:0;aspect-ratio:16/9}.hero-message{padding:20px!important}.hero-message h2{font-size:clamp(1.45rem,5vw,2rem)!important}.hero-message p{font-size:.92rem!important}.leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.leader-card{padding:10px!important}.faculty-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}.faculty-photo,.faculty-photo-placeholder{height:clamp(105px,28vw,165px)!important}.gallery-categories{grid-template-columns:1fr!important}.category-photos{grid-template-columns:repeat(3,minmax(0,1fr))!important}.category-photos img{height:clamp(90px,25vw,155px)!important}.subject-video-list{grid-template-columns:1fr!important}.nav-theme-toggle{width:34px!important;height:34px!important;min-width:34px!important}.nav-theme-toggle .theme-label{display:none!important}}
 @media(max-width:420px){.faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.category-photos{grid-template-columns:repeat(2,minmax(0,1fr))!important}.nav-datetime{font-size:.58rem!important}.nav-emms{font-size:.62rem!important}.hero-slider-dots{left:10px;bottom:10px}.hero-slider-hint{font-size:.58rem;right:7px;bottom:7px}}
 @media(prefers-reduced-motion:reduce){.hero-slider .building-photo{animation:none!important}.card,.vision-card,.leader-card,.faculty-card,.gallery-category{transition:none!important}}
-</style>
+                                                 </style>
