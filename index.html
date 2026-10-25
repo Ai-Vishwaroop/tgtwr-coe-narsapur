@@ -562,7 +562,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 })();
 </script>
 <script>
- /*
+/*
  * College website live data bridge.
  * Reads only the public website data endpoint of the separate Website Admin Apps Script.
  * EMMS V20.8.7 is intentionally untouched.
@@ -868,8 +868,8 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
   }
   const target=document.querySelector('#subject-videos .section-head');
   if(target&&!document.getElementById('siteResourceSearch')){const wrap=document.createElement('div');wrap.className='site-search-wrap';wrap.innerHTML='<input class="site-search" id="siteResourceSearch" type="search" placeholder="Search subjects or video titles…" aria-label="Search subject-wise video resources"><p class="search-status" id="siteSearchStatus" aria-live="polite">Search across subjects and video titles.</p>';target.insertAdjacentElement('afterend',wrap);
-    const input=wrap.querySelector('input'),status=wrap.querySelector('.search-status');
-    function applySearch(){const q=input.value.trim().toLocaleLowerCase();let visible=0;document.querySelectorAll('#subjectVideosGrid .subject-video-folder, #subjectVideosGrid .card').forEach(function(card){const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)visible++;if(card.tagName==='DETAILS'&&q&&match)card.open=true});status.textContent=q?(visible+' matching subject section(s) or video card(s).'):'Search across subjects and video titles.'}
+                                                                 const input=wrap.querySelector('input'),status=wrap.querySelector('.search-status');
+    function applySearch(){const q=input.value.trim().toLocaleLowerCase();let visible=0;document.querySelectorAll('#subjectVideosGrid .subject-video-folder, #subjectVideosGrid .card').forEach(function(card){const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)visible++;if(card.tagName==='DETAILS')card.open=!!q&&match});status.textContent=q?(visible+' matching subject section(s) or video card(s). Only matching subject folders are opened.'):'Search across subjects and video titles. Subject folders stay closed until you search.'}
     input.addEventListener('input',applySearch);const holder=document.getElementById('subjectVideosGrid');if(holder){new MutationObserver(applySearch).observe(holder,{childList:true,subtree:true})}
   }
   // Full-screen gallery viewer with previous/next controls, keyboard arrows and touch swipe.
@@ -892,21 +892,36 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 </script>
 
 
-<script id="v5-premium-notices-navigation">
+<script id="v5-2-notices-navigation">
 (function(){
-  var link=document.getElementById('heroNoticesLink');
-  if(!link || link.dataset.v5NoticeBound==='1') return;
-  link.dataset.v5NoticeBound='1';
-  link.addEventListener('click',function(event){
+  function goToNotices(event){
+    var link=event.target && event.target.closest && event.target.closest('#heroNoticesLink, a[href="#notices"]');
+    if(!link) return;
     var target=document.getElementById('notices');
     if(!target) return;
     event.preventDefault();
-    if(location.hash!=='#notices' && history && history.replaceState) history.replaceState(null,'','#notices');
     target.hidden=false;
-    target.scrollIntoView({behavior:window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-  });
+    target.removeAttribute('hidden');
+    var main=document.getElementById('main');
+    if(main) main.hidden=false;
+    if(window.location.hash!=='#notices'){
+      try{history.replaceState(null,'','#notices')}catch(e){}
+    }
+    requestAnimationFrame(function(){
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+      target.classList.remove('notice-navigation-highlight');
+      void target.offsetWidth;
+      target.classList.add('notice-navigation-highlight');
+      window.setTimeout(function(){target.classList.remove('notice-navigation-highlight')},1500);
+    });
+  }
+  document.addEventListener('click',goToNotices,true);
 })();
 </script>
+<style id="v5-2-notices-highlight">
+#notices{scroll-margin-top:90px}
+.notice-navigation-highlight{outline:3px solid #ffc928;outline-offset:3px;border-radius:12px;transition:outline-color .3s}
+</style>
 
 </body></html>
 <style id="requested-final-layout-fixes">
