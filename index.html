@@ -383,7 +383,8 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
  .nav-theme-toggle {padding:8px 9px;font-size:.86rem;}
  .nav-theme-toggle .theme-label {display:inline;}
 }
-  /* V4.4: prevent mobile navigation controls from overlapping */
+
+/* V4.4: prevent mobile navigation controls from overlapping */
 @media (max-width:760px){
   nav .nav-inner{display:grid!important;grid-template-columns:40px minmax(0,1fr) auto auto!important;align-items:center!important;gap:6px!important;padding:8px!important;width:100%;box-sizing:border-box}
   nav .menu-toggle{grid-column:1;grid-row:1;width:40px!important;min-width:40px!important;height:40px!important}
@@ -422,6 +423,64 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 .hero-slider .hero-slider-prev{left:14px}.hero-slider .hero-slider-next{right:14px}
 .hero-slider .hero-slider-dots{z-index:5}.hero-slider .hero-slider-hint{z-index:5;pointer-events:none}
 @media(max-width:420px){.hero-slider .hero-slider-arrow{width:36px;height:44px;font-size:1.6rem;border-radius:10px}.hero-slider .hero-slider-prev{left:8px}.hero-slider .hero-slider-next{right:8px}}
+</style>
+
+
+<!-- V5.8: Mobile full-viewport width correction; desktop layout preserved -->
+<style id="v5-8-mobile-full-width-fix">
+html, body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+html { overflow-x: clip; }
+body { overflow-x: clip; box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; }
+@media screen and (max-width: 760px) {
+  html, body, header, nav, main, footer,
+  .header-inner, .nav-inner, .site-nav-title,
+  .search-strip, .search-inner, .hero, .hero-banner,
+  .hero-message, .panel, .quick, .cards,
+  .leadership-cards, .leaders-grid, .leadership-grid,
+  .faculty-grid, .gallery-grid, .gallery-categories,
+  .contact-grid, .vision-grid, .staff-directory,
+  .section, section, .container, .content, .page,
+  #main, #app, #website, #content {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  body { padding-left: 0 !important; padding-right: 0 !important; }
+  main { padding-left: 12px !important; padding-right: 12px !important; }
+  header, nav, footer { margin-left: 0 !important; margin-right: 0 !important; }
+  .header-inner, .nav-inner, .site-nav-title { padding-left: 10px !important; padding-right: 10px !important; }
+  .hero > *, .hero-banner > *, .panel, .card, .leader-card,
+  .leadership-card, .faculty-card, .gallery-category, .vision-card,
+  .emms-panel, .staff-table-wrap {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  img, video, iframe, canvas { max-width: 100%; }
+  .quick, .cards, .leadership-cards, .leaders-grid,
+  .leadership-grid, .faculty-grid, .gallery-grid,
+  .gallery-categories, .contact-grid, .vision-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .hero, .hero-banner, .contact-grid, .vision-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .staff-table-wrap { overflow-x: auto !important; }
+}
+@media screen and (max-width: 380px) {
+  main { padding-left: 9px !important; padding-right: 9px !important; }
+  .quick, .cards, .leadership-cards, .leaders-grid,
+  .leadership-grid, .faculty-grid, .gallery-grid,
+  .gallery-categories, .contact-grid, .vision-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
 </style>
 
 </head>
@@ -805,7 +864,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
     const footer = $('footer');
     if (footer) footer.innerHTML = `<p><strong>${esc(school)}</strong></p><p>${esc(address)}</p><p>${esc(society)}</p><p class="small">Official institutional information and approved updates.</p>`;
   }
-  // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
+    // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
   window.tgtwrWebsiteDataCallback = function (result) {
     const data = result && result.data && typeof result.data === 'object' ? result.data : result;
     if (data && typeof data === 'object' && !data.error) render(data);
