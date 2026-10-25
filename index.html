@@ -5,7 +5,7 @@
   <meta name="google-site-verification" content="ye4xPW2udLxF9o23bfdGYuQPXoLYQAZJd-JmYiWaUj8" />
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Official website of TGTWR Junior College (COE) Boys, Narsapur, Medak District, Telangana.">
-<title>TGTWR Junior College (COE) Boys, Narsapur | Official Website</title>
+<title>TGTWR Junior College (COE) Boys, Narsapur | Official Website — V5.16</title>
 <style>
 :root{--navy:#102f53;--blue:#1d5e91;--gold:#e8bd58;--ink:#17283a;--muted:#5d6c7c;--pale:#f2f6fb;--line:#dce5ef;--white:#fff}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;font:16px/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:#fff}a{color:inherit}
@@ -239,6 +239,49 @@ body.dark-mode .nav-theme-toggle{background:#f2c14e;color:#182a3a;border-color:#
   nav .nav-datetime { font-size:9px !important; }
 }
 
+
+
+/* V5.16 colourful institutional layout polish — presentation-only, preserves existing features */
+:root{--v516-blue:#087bb5;--v516-teal:#0aa6a6;--v516-purple:#6b55d9;--v516-pink:#e94d91;--v516-green:#119d78;--v516-orange:#f19a22}
+body{background:linear-gradient(180deg,#f4fbff 0%,#fff 42%,#f4f9ff 100%)}
+.topbar{background:linear-gradient(100deg,#06305c,#087e9d 62%,#0b9b9b)!important;border-bottom:2px solid #ffd044}
+header{background:linear-gradient(115deg,#063366 0%,#075f91 55%,#078a9e 100%)!important;box-shadow:0 7px 22px #06345b25}
+nav{background:linear-gradient(90deg,#fff 0%,#f0f9ff 65%,#fff8df 100%)!important;border-bottom:2px solid #0c9bb2!important}
+nav a:nth-of-type(4n+1){--nav-accent:#7356dc}nav a:nth-of-type(4n+2){--nav-accent:#0a9b78}nav a:nth-of-type(4n+3){--nav-accent:#0c91c5}nav a:nth-of-type(4n){--nav-accent:#e99a16}
+nav a:hover,nav a:focus{background:color-mix(in srgb,var(--nav-accent,#0b88b2) 12%,white)!important;color:#073b68!important}
+main{max-width:1240px!important;padding-left:clamp(12px,2.2vw,26px)!important;padding-right:clamp(12px,2.2vw,26px)!important}
+.hero-banner{margin-top:12px!important}
+#leaders{margin:0 0 18px;padding:18px 16px 14px;border-radius:22px;background:linear-gradient(125deg,#eaf8ff,#fff 48%,#fff7df);border:1px solid #d5eaf6;box-shadow:0 12px 30px #0d47740c}
+#leaders .section-head h2,#about .section-head h2,#vision .section-head h2,#academics .section-head h2,#administration .section-head h2,#notices .section-head h2,#achievements .section-head h2,#examinations .section-head h2,#gallery .section-head h2,#alumni-success .section-head h2,#contact .section-head h2{color:#073d70}
+.leader-card{background:linear-gradient(150deg,#fff,#eef8ff)!important;border:1px solid #d7e6f3!important;border-radius:18px!important;box-shadow:0 8px 20px #144a7210!important}
+.leader-card.tgtwries-center{background:linear-gradient(135deg,#fff3f1,#fff,#fff4cc)!important;border:2px solid #e7c55e!important}
+#about .card{background:linear-gradient(120deg,#eef8ff,#fff 60%,#fff8e9)!important;border-left:5px solid #0b9fc1!important}
+#vision .vision-card:nth-child(1){background:linear-gradient(135deg,#e8f4ff,#fff)!important;border-top:4px solid #178fcb!important}
+#vision .vision-card:nth-child(2){background:linear-gradient(135deg,#e8fff5,#fff)!important;border-top:4px solid #12aa87!important}
+#principalMessage{background:linear-gradient(110deg,#fff0f5,#fff 52%,#edf7ff)!important;border-left:5px solid #e94d91!important}
+#academics .cards>.card:nth-child(1){background:linear-gradient(135deg,#e8f4ff,#fff)!important;border-top:4px solid #278fd0!important}
+#academics .cards>.card:nth-child(2){background:linear-gradient(135deg,#fff0f5,#fff)!important;border-top:4px solid #e94d91!important}
+#academics .cards>.card:nth-child(3){background:linear-gradient(135deg,#eafff3,#fff)!important;border-top:4px solid #119d78!important}
+#administration .staff-table-wrap{border-radius:16px!important;box-shadow:0 8px 22px #174b7012!important}
+#administration .staff-table th{background:linear-gradient(90deg,#07345f,#087aa3)!important}
+#administration .staff-table tbody tr:nth-child(even){background:#edf7ff!important}
+#notices .notice{background:linear-gradient(110deg,#fff,#fff5e6)!important;border-left-color:#f1a51d!important;border-radius:14px!important}
+#achievements .card{background:linear-gradient(135deg,#eaf5ff,#fff)!important;border-top:4px solid #298dcc!important}
+#examinations .cards>.card:nth-child(1){background:linear-gradient(135deg,#e8f4ff,#fff)!important;border-top:4px solid #168fce!important}
+#examinations .cards>.card:nth-child(2){background:linear-gradient(135deg,#fff0f5,#fff)!important;border-top:4px solid #e94d91!important}
+#examinations .cards>.card:nth-child(3){background:linear-gradient(135deg,#eafff3,#fff)!important;border-top:4px solid #119d78!important}
+.gallery-category{background:linear-gradient(135deg,#fff,#eef8ff)!important;border-radius:17px!important;overflow:hidden}
+.gallery-category:nth-child(4n+1){border-top:4px solid #178fcb!important}.gallery-category:nth-child(4n+2){border-top:4px solid #119d78!important}.gallery-category:nth-child(4n+3){border-top:4px solid #e94d91!important}.gallery-category:nth-child(4n){border-top:4px solid #f0a51b!important}
+#alumni-success .callout{background:linear-gradient(105deg,#fff4f8,#fffdf1 70%,#eef8ff)!important;border:1px solid #f0d9a3!important;border-radius:18px!important}
+#alumni-success .cards .card{background:linear-gradient(135deg,#fff,#eef8ff)!important;border-left:4px solid #e94d91!important}
+#contact .contact-map-card{background:linear-gradient(140deg,#eaf7ff,#fff)!important;border-top:4px solid #0b94c3!important}
+#contact .official-enquiries-card{background:linear-gradient(145deg,#fff0f5,#fff 55%,#eafff4)!important;border-top:4px solid #e94d91!important}
+.working-hours{margin-top:14px;padding:12px 14px;border-radius:12px;background:linear-gradient(100deg,#e8fff3,#f0f8ff);border:1px solid #ccebdc;color:#124c54}
+.working-hours strong{display:block;color:#08775f;margin-bottom:3px}.working-hours p{margin:0!important;color:#315c68!important}
+body.dark-mode{background:#0b1826!important}body.dark-mode #leaders,body.dark-mode #about .card,body.dark-mode #principalMessage,body.dark-mode #academics .cards>.card,body.dark-mode #achievements .card,body.dark-mode #examinations .cards>.card,body.dark-mode #alumni-success .callout,body.dark-mode #contact .contact-map-card,body.dark-mode #contact .official-enquiries-card{background:#12283c!important;border-color:#304c65!important}
+body.dark-mode .working-hours{background:#17364a!important;border-color:#315b70!important;color:#e7f4ff!important}body.dark-mode .working-hours strong,body.dark-mode .working-hours p{color:#e7f4ff!important}
+@media(max-width:760px){#leaders{padding:13px 10px;border-radius:17px}.leader-card{min-width:0}.hero-banner{margin-bottom:16px!important}main{width:100%!important;max-width:100%!important}}
+
 </style>
 
 <script id="open-page-at-top">
@@ -471,6 +514,12 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
 </div>
 <div class="global-search-shell" role="search"><div class="global-search-inner"><label for="globalSiteSearch">Search the website</label><input id="globalSiteSearch" type="search" placeholder="Search notices, achievements, staff, videos, facilities…" autocomplete="off"><span id="globalSearchStatus" aria-live="polite">Search across public college information.</span><button type="button" id="clearGlobalSearch">Clear</button></div></div>
 <main id="main">
+
+
+<div class="hero-banner">
+  <img class="building-photo" src="assets/college-building.webp" alt="TGTWR Junior College COE Boys, Narsapur campus building" fetchpriority="high">
+  <div class="hero-message"><p class="eyebrow" id="heroEyebrow">Empowering tribal youth</p><h2 id="heroTitle">Quality Education for a Brighter Tomorrow</h2><p id="heroDescription">Academic excellence, discipline and holistic development for every student.</p><div><a class="btn" id="heroAcademicsLink" href="#academics">Explore Academics →</a></div></div>
+</div>
 <section id="leaders"><div class="section-head"><h2>Leadership &amp; Governance</h2><p>Institutional leadership guiding quality education and administration</p></div>
 <div class="leaders-grid" id="leadersGrid">
   <article class="leader-card leader-secretary"><div class="leader-placeholder">Official photo to be added</div><h3>Secretary</h3><p>TGTWRIES</p></article>
@@ -480,10 +529,6 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
   <article class="leader-card leader-cm"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Chief Minister</h3><p>Government of Telangana</p></article>
 </div><p class="small">Leadership names and photographs will be published after official verification.</p></section>
 
-<div class="hero-banner">
-  <img class="building-photo" src="assets/college-building.webp" alt="TGTWR Junior College COE Boys, Narsapur campus building" fetchpriority="high">
-  <div class="hero-message"><p class="eyebrow" id="heroEyebrow">Empowering tribal youth</p><h2 id="heroTitle">Quality Education for a Brighter Tomorrow</h2><p id="heroDescription">Academic excellence, discipline and holistic development for every student.</p><div><a class="btn" id="heroAcademicsLink" href="#academics">Explore Academics →</a></div></div>
-</div>
 <div class="hero">
   <div class="panel"><p class="eyebrow">Welcome to our institution</p><h2>Learning, Growth and Opportunity</h2>
   <p>TGTWR COE (Boys), Narsapur is a residential educational institution functioning under the Telangana Tribal Welfare Residential Educational Institutions Society.</p>
@@ -550,7 +595,7 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
 <section id="emms"><div class="emms-panel"><h3>Exam Marks Management System (EMMS)</h3><p>Secure access for authorised Principal, Vice Principal and staff. The existing EMMS V20.8.7 application remains separate and unchanged.</p><a class="btn" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" id="emmsButton" target="_blank" rel="noopener noreferrer">EMMS LOGIN ↗</a><p class="small" style="color:#d7e6f5">Opens the existing authorised EMMS application in a new tab.</p></div></section>
 <section id="contact"><div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid">
 <div class="card"><h3>TGTWR COE (Boys), Narsapur</h3><p>Medak District, Telangana, India</p><p><a class="btn outline location-link" href="https://maps.app.goo.gl/JHUpWanQ6yH6Lprg6?g_st=ac" target="_blank" rel="noopener noreferrer">📍 View College Location on Map ↗</a></p></div>
-<div class="card"><h3>Official Enquiries</h3><p>Phone: To be added after verification</p><p>Email: To be added after verification</p></div>
+<div class="card official-enquiries-card"><h3>📞 Official Enquiries</h3><p>Phone: To be added after verification</p><p>Email: To be added after verification</p><div class="working-hours"><strong>🕘 Working Hours</strong><p>Monday–Saturday: 9:00 AM – 5:00 PM</p></div></div>
 </div></section>
 </main>
 <footer><p><strong>TGTWR JUNIOR COLLEGE (COE) BOYS</strong></p><p>NARSAPUR, MEDAK DIST, TG-502313</p><p>Telangana Tribal Welfare Residential Educational Institutions Society</p><p class="small">Please verify institutional details and add approved logo, photographs and contact information before publishing.</p></footer>
@@ -558,8 +603,7 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
 <script>
 (function(){
   const button=document.getElementById('menuToggle');
-  const
-    links=document.getElementById('navLinks');
+  const links=document.getElementById('navLinks');
   if(button && links){
     button.addEventListener('click',function(event){
       event.preventDefault(); event.stopPropagation();
@@ -589,7 +633,7 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
 })();
 </script>
 <script>
-/*
+  /*
  * College website live data bridge.
  * Reads only the public website data endpoint of the separate Website Admin Apps Script.
  * EMMS V20.8.7 is intentionally untouched.
@@ -826,7 +870,7 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
       const mapQuery = encodeURIComponent(`${school}, Narsapur, Medak District, Telangana, India`);
       const mapUrl = safeUrl(c.mapsUrl) || "https://maps.app.goo.gl/JHUpWanQ6yH6Lprg6?g_st=ac";
       const embedUrl = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
-      contactSection.innerHTML = `<div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid"><div class="card contact-map-card"><h3>${esc(school)}</h3><p>${esc(fullAddress)}</p><div class="contact-map-layout"><div class="map-actions"><p>Explore the college location using the interactive map. Drag with your mouse or move with your finger; use map controls to zoom.</p><a class="btn outline location-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">📍 Open Google Maps ↗</a></div><iframe class="college-map-frame" title="Interactive Google Map showing ${esc(school)}" src="${embedUrl}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div><div class="card"><h3>Official Enquiries</h3><p>Phone: ${phone ? `<a href="tel:${esc(phone.replace(/[^\d+]/g,''))}">${esc(phone)}</a>`:'To be updated'}</p><p>Email: ${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>`:'To be updated'}</p></div></div>`;
+      contactSection.innerHTML = `<div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid"><div class="card contact-map-card"><h3>${esc(school)}</h3><p>${esc(fullAddress)}</p><div class="contact-map-layout"><div class="map-actions"><p>Explore the college location using the interactive map. Drag with your mouse or move with your finger; use map controls to zoom.</p><a class="btn outline location-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">📍 Open Google Maps ↗</a></div><iframe class="college-map-frame" title="Interactive Google Map showing ${esc(school)}" src="${embedUrl}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div><div class="card"><h3>Official Enquiries</h3><p>Phone: ${phone ? `<a href="tel:${esc(phone.replace(/[^\d+]/g,''))}">${esc(phone)}</a>`:'To be updated'}</p><p>Email: ${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>`:'To be updated'}</p><div class="working-hours"><strong>🕘 Working Hours</strong><p>Monday–Saturday: 9:00 AM – 5:00 PM</p></div></div></div>`;
     }
     document.querySelectorAll('a[href*="AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte"]').forEach(a=>a.href=EMMS_URL);
     const footer = $('footer');
@@ -1206,4 +1250,27 @@ nav .nav-links a:hover,nav .nav-links a:focus{background:linear-gradient(90deg,#
  nav .nav-emms{padding:8px 7px!important;font-size:clamp(9px,2.4vw,11px)!important;max-width:none!important;white-space:nowrap!important}
 }
 @media(max-width:360px){nav .nav-inner{gap:3px!important;padding-left:5px!important;padding-right:5px!important}nav .nav-datetime{font-size:8.5px!important;gap:2px!important}nav .nav-datetime>span{padding:3px!important}nav .nav-theme-toggle{width:25px!important;min-width:25px!important;flex-basis:25px!important}nav .nav-emms{font-size:9px!important;padding:7px 5px!important}}
+</style>
+
+
+<style id="v5-14-topbar-header-contrast-final">
+/* Contrast refinement: keep the college masthead blue, make the utility row visibly distinct.
+   CSS-only override; all original sections, links, assets and JavaScript handlers remain intact. */
+nav{background:linear-gradient(105deg,#f8fcff 0%,#eaf6fc 52%,#fff8df 100%)!important;border-top:1px solid #c8e2ef!important;border-bottom:2px solid #0b8da8!important;box-shadow:0 5px 16px rgba(7,55,87,.12)!important;color:#123b5b!important}
+nav .nav-inner{background:transparent!important;color:#123b5b!important}
+nav .nav-datetime{color:#123b5b!important;text-shadow:none!important}
+nav .nav-datetime>span{background:rgba(255,255,255,.88)!important;border:1px solid #d4e6ef!important;box-shadow:0 2px 6px rgba(13,66,99,.07)!important;backdrop-filter:blur(6px)!important}
+nav .nav-datetime time{color:#123b5b!important;text-shadow:none!important}
+nav .nav-theme-toggle{color:#123b5b!important;background:transparent!important;border:1px solid transparent!important;box-shadow:none!important}
+nav .nav-theme-toggle:hover,nav .nav-theme-toggle:focus-visible{background:#dff3fb!important;border-color:#b6dce9!important}
+nav .nav-emms{background:linear-gradient(135deg,#ffdf4d,#ffb21f)!important;color:#17324a!important;border:1px solid #e5b52a!important;box-shadow:0 4px 10px rgba(167,116,12,.18)!important}
+nav .menu-toggle{background:linear-gradient(135deg,#087fba,#07558f)!important;color:#fff!important;border:1px solid #b8dbe9!important;box-shadow:0 4px 10px rgba(7,85,143,.2)!important}
+nav .nav-links{background:rgba(255,255,255,.98)!important;border:1px solid #d7e7ef!important;box-shadow:0 10px 24px rgba(5,45,78,.14)!important}
+nav .nav-links a{color:#123b5b!important}
+body.dark-mode nav{background:linear-gradient(105deg,#10283d 0%,#17374c 58%,#263449 100%)!important;border-top-color:#2f536b!important;border-bottom-color:#e0b53b!important;color:#edf5ff!important}
+body.dark-mode nav .nav-inner,body.dark-mode nav .nav-datetime,body.dark-mode nav .nav-datetime time{color:#edf5ff!important}
+body.dark-mode nav .nav-datetime>span{background:rgba(255,255,255,.08)!important;border-color:#3a5a70!important}
+body.dark-mode nav .nav-theme-toggle{color:#edf5ff!important}
+body.dark-mode nav .nav-theme-toggle:hover,body.dark-mode nav .nav-theme-toggle:focus-visible{background:#24465e!important}
+@media(max-width:760px){nav .nav-inner{background:transparent!important}}
 </style>
