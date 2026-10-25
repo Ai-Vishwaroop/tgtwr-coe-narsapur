@@ -402,7 +402,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
   nav .nav-theme-toggle{max-width:76px!important;padding:7px 4px!important;font-size:.59rem!important}
   nav .nav-emms{max-width:78px!important;padding:7px 4px!important;font-size:.58rem!important}
 }
-  /* V4.5: mobile navigation spacing fix — date/time stays in its own column */
+/* V4.5: mobile navigation spacing fix — date/time stays in its own column */
 @media(max-width:760px){
   nav .nav-inner{grid-template-columns:38px minmax(92px,1fr) minmax(76px,auto) minmax(86px,auto)!important;gap:5px!important;padding:8px 7px!important;overflow:visible!important}
   nav .nav-datetime{width:100%!important;max-width:100%!important;min-width:0!important;overflow:hidden!important;font-size:clamp(.59rem,2.35vw,.70rem)!important;line-height:1.25!important}
@@ -563,7 +563,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 })();
 </script>
 <script>
-/*
+  /*
  * College website live data bridge.
  * Reads only the public website data endpoint of the separate Website Admin Apps Script.
  * EMMS V20.8.7 is intentionally untouched.
@@ -1045,5 +1045,31 @@ nav .nav-inner{min-width:0!important;gap:clamp(4px,1.5vw,12px)!important}
   .nav-datetime{font-size:9px!important;gap:3px!important}
   .nav-datetime>span{gap:2px!important}
   nav .nav-inner{gap:4px!important}
+}
+</style>
+
+<style id="v5-12-zoom-responsive-full-width-fix">
+/* Fix: keep the whole site canvas fluid when mobile browser zoom changes.
+   Scoped to layout sizing; existing content, features, and handlers are preserved. */
+html, body { width:100% !important; min-width:0 !important; max-width:100% !important; margin-left:0 !important; margin-right:0 !important; }
+body { overflow-x:clip !important; }
+header, nav, footer, main, #main, section, .topbar, .site-nav-title, .nav-inner, .header-inner { box-sizing:border-box !important; min-width:0 !important; }
+header, nav, footer, .topbar { width:100% !important; max-width:none !important; }
+main, #main { width:100% !important; max-width:1160px !important; margin-left:auto !important; margin-right:auto !important; }
+main > *, #main > *, section > *, .hero-banner, .hero, .panel, .site-search-wrap, .global-search-inner { min-width:0; }
+img, video, iframe, canvas, svg { max-width:100%; }
+@media (max-width: 1200px) {
+  main, #main { width:100% !important; max-width:100% !important; margin-left:0 !important; margin-right:0 !important; }
+  .header-inner, .nav-inner, .site-nav-title { width:100% !important; max-width:100% !important; margin-left:0 !important; margin-right:0 !important; }
+  .hero-banner { width:100% !important; max-width:100% !important; }
+}
+@media (max-width: 760px) {
+  body { width:100% !important; }
+  main, #main { padding-left:clamp(10px,2.4vw,16px) !important; padding-right:clamp(10px,2.4vw,16px) !important; }
+  .hero-banner, .hero, .panel, .section-head, section { max-width:100% !important; }
+  .hero-banner { grid-template-columns:minmax(0,1fr) !important; }
+  .hero-slider, .hero-message { min-width:0 !important; width:100% !important; }
+  .leaders-grid, .faculty-grid, .gallery-categories, .subject-video-list, .quick, .cards, .vision-grid { min-width:0 !important; }
+  .subject-video-item, .leader-card, .faculty-card, .card { min-width:0 !important; overflow-wrap:anywhere; }
 }
 </style>
