@@ -344,6 +344,7 @@ body.dark-mode .staff-table th{background:#0a1d31}body.dark-mode .staff-table tb
 body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .callout strong{color:#f5d889}
 @media(max-width:760px){.global-search-inner{grid-template-columns:1fr auto;gap:7px}.global-search-inner label{grid-column:1/-1}.global-search-inner input{grid-column:1/2}.global-search-inner #globalSearchStatus{grid-column:1/-1;grid-row:3}.contact-grid{grid-template-columns:1fr!important}.college-map-frame{height:420px!important;min-height:420px}.contact-map-layout .map-actions{align-items:flex-start}.contact-map-layout .map-actions p{flex:1 1 100%}}
 </style>
+
 <style id="v4-3-staff-gallery-accessibility-fixes">
 /* Staff portraits: use a portrait-shaped viewing area and show the complete photo */
 #administration .faculty-card img.faculty-photo,
@@ -562,7 +563,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 })();
 </script>
 <script>
-/*
+  /*
  * College website live data bridge.
  * Reads only the public website data endpoint of the separate Website Admin Apps Script.
  * EMMS V20.8.7 is intentionally untouched.
@@ -915,34 +916,37 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 (function(){
   if(window.__v57NoticesNavigationBound)return;
   window.__v57NoticesNavigationBound=true;
-  var busy=false;
   document.addEventListener('click',function(event){
-    var link=event.target.closest('#heroNoticesLink, #quickAccessNoticesLink, .quick a[href="#notices"], a[href="#notices"]');
+    var node=event.target;
+    if(!node || !node.closest)return;
+    var link=node.closest('#heroNoticesLink, #quickAccessNoticesLink, .quick a[href="#notices"], a[href="#notices"]');
     if(!link)return;
     var target=document.getElementById('notices');
     if(!target)return;
     event.preventDefault();
-    if(busy)return;
-    busy=true;
+    event.stopPropagation();
+    /* Clear any active site search first; the search MutationObserver can otherwise
+       re-hide sections after asynchronous website content finishes loading. */
     var search=document.getElementById('globalSiteSearch');
     if(search && search.value){search.value='';search.dispatchEvent(new Event('input',{bubbles:true}));}
-    target.hidden=false; target.removeAttribute('hidden'); target.style.display='';
     var main=document.getElementById('main');
-    if(main){main.hidden=false;main.removeAttribute('hidden');}
-    try{if(location.hash!=='#notices')history.replaceState(null,'','#notices');}catch(e){}
-    function align(){
+    if(main){main.hidden=false;main.removeAttribute('hidden');main.style.display='';}
+    target.hidden=false;target.removeAttribute('hidden');target.style.display='';
+    target.closest('main>section') && (target.closest('main>section').hidden=false);
+    try{history.replaceState(null,'','#notices');}catch(e){}
+    function restoreAndAlign(){
       if(!target.isConnected)return;
-      var top=target.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0)-84;
+      target.hidden=false;target.removeAttribute('hidden');target.style.display='';
+      var parentSection=target.closest('main>section');
+      if(parentSection){parentSection.hidden=false;parentSection.removeAttribute('hidden');parentSection.style.display='';}
+      var top=target.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0)-90;
       window.scrollTo({top:Math.max(0,top),behavior:'auto'});
     }
-    requestAnimationFrame(function(){
-      requestAnimationFrame(function(){
-        align();
-        target.classList.remove('v57-notices-focus'); void target.offsetWidth; target.classList.add('v57-notices-focus');
-        [250,600,1000].forEach(function(ms){setTimeout(align,ms);});
-        setTimeout(function(){target.classList.remove('v57-notices-focus');busy=false;},1200);
-      });
-    });
+    /* Run after layout/rendering and again after late-loaded content has settled. */
+    requestAnimationFrame(function(){requestAnimationFrame(restoreAndAlign);});
+    [120,350,700].forEach(function(ms){setTimeout(restoreAndAlign,ms);});
+    target.classList.remove('v57-notices-focus');void target.offsetWidth;target.classList.add('v57-notices-focus');
+    setTimeout(function(){target.classList.remove('v57-notices-focus');},900);
   },true);
 })();
 </script>
@@ -1001,4 +1005,4 @@ body.dark-mode .section-head h2,body.dark-mode .card h3,body.dark-mode .leader-c
 @media(max-width:760px){.header-inner{grid-template-columns:45px minmax(0,1fr) 45px!important;padding:15px 8px!important}.logo-images img{width:42px!important;height:42px!important}.hero-banner{grid-template-columns:1fr!important;border-radius:20px!important}.hero-slider{min-height:0;aspect-ratio:16/9}.hero-message{padding:20px!important}.hero-message h2{font-size:clamp(1.45rem,5vw,2rem)!important}.hero-message p{font-size:.92rem!important}.leaders-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.leader-card{padding:10px!important}.faculty-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}.faculty-photo,.faculty-photo-placeholder{height:clamp(105px,28vw,165px)!important}.gallery-categories{grid-template-columns:1fr!important}.category-photos{grid-template-columns:repeat(3,minmax(0,1fr))!important}.category-photos img{height:clamp(90px,25vw,155px)!important}.subject-video-list{grid-template-columns:1fr!important}.nav-theme-toggle{width:34px!important;height:34px!important;min-width:34px!important}.nav-theme-toggle .theme-label{display:none!important}}
 @media(max-width:420px){.faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.category-photos{grid-template-columns:repeat(2,minmax(0,1fr))!important}.nav-datetime{font-size:.58rem!important}.nav-emms{font-size:.62rem!important}.hero-slider-dots{left:10px;bottom:10px}.hero-slider-hint{font-size:.58rem;right:7px;bottom:7px}}
 @media(prefers-reduced-motion:reduce){.hero-slider .building-photo{animation:none!important}.card,.vision-card,.leader-card,.faculty-card,.gallery-category{transition:none!important}}
-                                                 </style>
+</style>
