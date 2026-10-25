@@ -558,7 +558,8 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
 <script>
 (function(){
   const button=document.getElementById('menuToggle');
-  const links=document.getElementById('navLinks');
+  const
+    links=document.getElementById('navLinks');
   if(button && links){
     button.addEventListener('click',function(event){
       event.preventDefault(); event.stopPropagation();
@@ -864,8 +865,7 @@ body.dark-mode .top-updates-ticker{background:linear-gradient(100deg,#061a2c,#10
   tools.innerHTML='<button class="site-tool" type="button" id="backToTop" aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span><span>Top</span></button>'; 
   body.appendChild(tools);
   const theme=document.getElementById('themeToggle');
-  try{if(localStorage.getItem('tgtwr-theme')==='dark')
-    {body.classList.add('dark-mode');theme.querySelector('.theme-icon').textContent='☀';if(theme.querySelector('.theme-label'))theme.querySelector('.theme-label').textContent='Light Mode';theme.setAttribute('aria-label','Switch to light mode')}}catch(e){}
+  try{if(localStorage.getItem('tgtwr-theme')==='dark'){body.classList.add('dark-mode');theme.querySelector('.theme-icon').textContent='☀';if(theme.querySelector('.theme-label'))theme.querySelector('.theme-label').textContent='Light Mode';theme.setAttribute('aria-label','Switch to light mode')}}catch(e){}
   theme.addEventListener('click',function(){const dark=body.classList.toggle('dark-mode');theme.querySelector('.theme-icon').textContent=dark?'☀':'◐';if(theme.querySelector('.theme-label'))theme.querySelector('.theme-label').textContent=dark?'Light Mode':'Dark Mode';theme.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');theme.title=dark?'Switch to light mode':'Switch to dark mode';try{localStorage.setItem('tgtwr-theme',dark?'dark':'light')}catch(e){}});
   const top=document.getElementById('backToTop');
   function scrollState(){top.classList.toggle('visible',window.scrollY>450)}
@@ -1177,4 +1177,33 @@ img, video, iframe, canvas, svg { max-width:100%; }
   .leaders-grid, .faculty-grid, .gallery-categories, .subject-video-list, .quick, .cards, .vision-grid { min-width:0 !important; }
   .subject-video-item, .leader-card, .faculty-card, .card { min-width:0 !important; overflow-wrap:anywhere; }
 }
+</style>
+
+
+<style id="v5-14-colorful-topbar-final">
+/* V5_14 final visual refinement: colorful, compact date/time + theme + EMMS row.
+   Presentation-only CSS: preserves all existing links, sections, and JavaScript handlers. */
+nav{background:linear-gradient(105deg,#06345f 0%,#006f91 52%,#0b8794 100%)!important;border-bottom:2px solid #f2c14e!important;box-shadow:0 4px 14px rgba(5,45,78,.18)!important}
+nav .nav-inner{background:transparent!important;color:#fff!important;min-height:54px!important}
+nav .nav-datetime{color:#fff!important;text-shadow:0 1px 2px rgba(0,0,0,.18)!important}
+nav .nav-datetime>span{background:rgba(255,255,255,.11)!important;border:1px solid rgba(255,255,255,.19)!important;border-radius:8px!important;padding:5px 7px!important;backdrop-filter:blur(5px)!important}
+nav .nav-datetime time{color:#fff!important;font-weight:750!important}
+nav .nav-theme-toggle{background:transparent!important;border:0!important;box-shadow:none!important;color:#fff!important;width:34px!important;min-width:34px!important;height:34px!important;padding:0!important;border-radius:50%!important}
+nav .nav-theme-toggle:hover{background:rgba(255,255,255,.14)!important;transform:none!important}
+nav .nav-theme-toggle .theme-icon{font-size:1.25rem!important;line-height:1!important}
+nav .nav-theme-toggle .theme-label{display:none!important}
+nav .nav-emms{background:linear-gradient(135deg,#ffdf4d,#ffb300)!important;color:#17324a!important;border:1px solid rgba(255,255,255,.5)!important;border-radius:999px!important;padding:9px 13px!important;font-weight:850!important;box-shadow:0 4px 12px rgba(0,0,0,.16)!important;letter-spacing:.01em!important}
+nav .nav-emms:hover{filter:brightness(1.05)!important;transform:translateY(-1px)!important}
+nav .menu-toggle{background:linear-gradient(135deg,#00a6c8,#0874ad)!important;color:#fff!important;border:1px solid rgba(255,255,255,.3)!important;box-shadow:0 4px 12px rgba(0,0,0,.18)!important}
+nav .nav-links{background:rgba(255,255,255,.97)!important;border:1px solid #d7e6ef!important;box-shadow:0 12px 28px rgba(5,45,78,.18)!important}
+nav .nav-links a{color:#123b5b!important}
+nav .nav-links a:hover,nav .nav-links a:focus{background:linear-gradient(90deg,#e2f7ff,#fff4cf)!important;color:#005f83!important}
+@media(max-width:760px){
+ nav .nav-inner{min-height:48px!important;gap:clamp(3px,1vw,7px)!important;padding:6px 7px!important}
+ nav .nav-datetime{font-size:clamp(9px,2.3vw,12px)!important;gap:4px!important;flex:1 1 auto!important}
+ nav .nav-datetime>span{padding:4px 5px!important;gap:3px!important;border-radius:7px!important}
+ nav .nav-theme-toggle{width:29px!important;min-width:29px!important;height:30px!important;flex:0 0 29px!important}
+ nav .nav-emms{padding:8px 7px!important;font-size:clamp(9px,2.4vw,11px)!important;max-width:none!important;white-space:nowrap!important}
+}
+@media(max-width:360px){nav .nav-inner{gap:3px!important;padding-left:5px!important;padding-right:5px!important}nav .nav-datetime{font-size:8.5px!important;gap:2px!important}nav .nav-datetime>span{padding:3px!important}nav .nav-theme-toggle{width:25px!important;min-width:25px!important;flex-basis:25px!important}nav .nav-emms{font-size:9px!important;padding:7px 5px!important}}
 </style>
