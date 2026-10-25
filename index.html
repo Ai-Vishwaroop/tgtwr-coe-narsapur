@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
- <meta name="google-site-verification" content="XLdbiO-4FzN-Tq2p5b0n6wZIx7Z80MkeZHQyrRR8Ric" />
-<meta name="google-site-verification" content="ye4xPW2udLxF9o23bfdGYuQPXoLYQAZJd-JmYiWaUj8" />
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="google-site-verification" content="XLdbiO-4FzN-Tq2p5b0n6wZIx7Z80MkeZHQyrRR8Ric" />
+  <meta name="google-site-verification" content="ye4xPW2udLxF9o23bfdGYuQPXoLYQAZJd-JmYiWaUj8" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Official website of TGTWR Junior College (COE) Boys, Narsapur, Medak District, Telangana.">
 <title>TGTWR Junior College (COE) Boys, Narsapur | Official Website</title>
 <style>
@@ -414,6 +414,17 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 }
 
 </style>
+
+<style id="v5-premium-slider-controls">
+.hero-slider .hero-slide{opacity:0!important;animation:none!important;transition:opacity .45s ease!important}
+.hero-slider .hero-slide.active{opacity:1!important}
+.hero-slider .hero-slider-arrow{position:absolute;z-index:4;top:50%;transform:translateY(-50%);width:44px;height:54px;border:1px solid #ffffffb8;border-radius:13px;background:#082b55b8;color:#fff;font-size:2rem;line-height:1;display:grid;place-items:center;cursor:pointer;box-shadow:0 5px 18px #00152e55;backdrop-filter:blur(5px)}
+.hero-slider .hero-slider-arrow:hover,.hero-slider .hero-slider-arrow:focus-visible{background:#ffc928;color:#123b5b;outline:2px solid #fff;outline-offset:2px}
+.hero-slider .hero-slider-prev{left:14px}.hero-slider .hero-slider-next{right:14px}
+.hero-slider .hero-slider-dots{z-index:5}.hero-slider .hero-slider-hint{z-index:5;pointer-events:none}
+@media(max-width:420px){.hero-slider .hero-slider-arrow{width:36px;height:44px;font-size:1.6rem;border-radius:10px}.hero-slider .hero-slider-prev{left:8px}.hero-slider .hero-slider-next{right:8px}}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -431,7 +442,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
 <button class="nav-theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode" title="Switch colour theme"><span class="theme-icon" aria-hidden="true">◐</span></button>
 <a class="nav-emms" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" target="_blank" rel="noopener noreferrer">📘 EMMS LOGIN</a>
 <div class="nav-links" id="navLinks">
-<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
+<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Notices</a><a href="#examinations">Examinations</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#alumni-success">Alumni Success Stories</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
 </div></div></nav>
 <div class="global-search-shell" role="search"><div class="global-search-inner"><label for="globalSiteSearch">Search the website</label><input id="globalSiteSearch" type="search" placeholder="Search notices, achievements, staff, videos, facilities…" autocomplete="off"><span id="globalSearchStatus" aria-live="polite">Search across public college information.</span><button type="button" id="clearGlobalSearch">Clear</button></div></div>
 <main id="main">
@@ -599,33 +610,54 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
     const building = safeUrl(d.buildingImage);
     const buildingImg = $('.building-photo');
     if (buildingImg && building) buildingImg.src = building;
-    /* V5.0: enhance the existing hero image with approved campus gallery photos.
-       This lives inside the existing render() function; no global function is replaced. */
-    const heroBanner = $('.hero-banner');
-    if (heroBanner && buildingImg) {
-      const campusPhotos = (Array.isArray(d.gallery) ? d.gallery : []).filter(g => {
-        const cat = String(g.category || g.type || '').toLowerCase();
-        const title = String(g.title || g.name || '').toLowerCase();
-        return safeUrl(g.url || g.photo || g.imageUrl) && (cat.includes('campus') || /building|campus|college/.test(title));
-      }).map(g => safeUrl(g.url || g.photo || g.imageUrl)).filter((url, i, all) => url && all.indexOf(url) === i);
-      const slideUrls = [building || buildingImg.getAttribute('src'), ...campusPhotos].filter((url, i, all) => url && all.indexOf(url) === i).slice(0, 8);
-      let slider = heroBanner.querySelector('.hero-slider');
-      if (!slider) {
-        slider = document.createElement('div'); slider.className = 'hero-slider';
-        buildingImg.replaceWith(slider);
-      }
-      slider.innerHTML = slideUrls.map((url, i) => `<img class="building-photo hero-slide${i===0?' is-primary':''}" src="${esc(url)}" alt="${i===0?'TGTWR Junior College COE Boys, Narsapur campus building':'TGTWR Junior College campus photograph '+(i+1)}" loading="${i===0?'eager':'lazy'}" style="--slide-index:${i}">`).join('') + (slideUrls.length > 1 ? `<div class="hero-slider-dots" aria-label="Campus photos">${slideUrls.map((url,i)=>`<button type="button" class="hero-slide-dot${i===0?' active':''}" data-slide="${i}" aria-label="Show campus photo ${i+1}" title="Show campus photo ${i+1}"></button>`).join('')}</div><span class="hero-slider-hint">Touch and hold to pause</span>` : '');
-      if (!slider.dataset.v5Bound) {
-        slider.dataset.v5Bound = '1';
-        slider.addEventListener('click', e => {
-          const dot = e.target.closest('[data-slide]'); if (!dot) return;
-          const n = Number(dot.dataset.slide); slider.classList.add('manual-slide');
-          slider.querySelectorAll('.hero-slide').forEach((img,i)=>img.classList.toggle('active',i===n));
-          slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===n));
-        });
-      }
-    }
-    // Optional leader profiles: show only records supplied and approved through public Admin data.
+         /* V5.0 Premium: campus slider. Keeps the existing Admin/gallery data flow and render() intact. */
+     const heroBanner = $('.hero-banner');
+     if (heroBanner && buildingImg) {
+       const campusPhotos = (Array.isArray(d.gallery) ? d.gallery : []).filter(g => {
+         const cat = String(g.category || g.type || '').toLowerCase();
+         const title = String(g.title || g.name || '').toLowerCase();
+         return safeUrl(g.url || g.photo || g.imageUrl) && (cat.includes('campus') || /building|campus|college/.test(title));
+       }).map(g => safeUrl(g.url || g.photo || g.imageUrl)).filter((url, i, all) => url && all.indexOf(url) === i);
+       const slideUrls = [building || buildingImg.getAttribute('src'), ...campusPhotos].filter((url, i, all) => url && all.indexOf(url) === i).slice(0, 8);
+       let slider = heroBanner.querySelector('.hero-slider');
+       if (!slider) {
+         slider = document.createElement('div'); slider.className = 'hero-slider';
+         buildingImg.replaceWith(slider);
+       }
+       if (slider._v5Timer) { clearInterval(slider._v5Timer); slider._v5Timer = null; }
+       slider.innerHTML = slideUrls.map((url, i) => `<img class="building-photo hero-slide${i===0?' is-primary active':''}" src="${esc(url)}" alt="${i===0?'TGTWR Junior College COE Boys, Narsapur campus building':'TGTWR Junior College campus photograph '+(i+1)}" loading="${i===0?'eager':'lazy'}" style="--slide-index:${i}">`).join('') + (slideUrls.length > 1 ? `<button type="button" class="hero-slider-arrow hero-slider-prev" data-slider-action="prev" aria-label="Previous campus photo" title="Previous photo">‹</button><button type="button" class="hero-slider-arrow hero-slider-next" data-slider-action="next" aria-label="Next campus photo" title="Next photo">›</button><div class="hero-slider-dots" aria-label="Campus photos">${slideUrls.map((url,i)=>`<button type="button" class="hero-slide-dot${i===0?' active':''}" data-slide="${i}" aria-label="Show campus photo ${i+1}" title="Show campus photo ${i+1}"></button>`).join('')}</div><span class="hero-slider-hint">Use arrows to change photos</span>` : '');
+       if (!slider.dataset.v5Bound) {
+         slider.dataset.v5Bound = '1';
+         slider.addEventListener('click', e => {
+           const control = e.target.closest('[data-slide], [data-slider-action]'); if (!control) return;
+           const slides = [...slider.querySelectorAll('.hero-slide')]; if (slides.length < 2) return;
+           let current = slides.findIndex(img => img.classList.contains('active'));
+           if (current < 0) current = 0;
+           let next = control.hasAttribute('data-slide') ? Number(control.dataset.slide) : (current + (control.dataset.sliderAction === 'next' ? 1 : -1) + slides.length) % slides.length;
+           next = (next + slides.length) % slides.length;
+           slider.classList.add('manual-slide');
+           slides.forEach((img,i)=>img.classList.toggle('active',i===next));
+           slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===next));
+           if (slider._v5Timer) clearInterval(slider._v5Timer);
+           slider._v5Timer = setInterval(() => {
+             const imgs=[...slider.querySelectorAll('.hero-slide')]; if(imgs.length<2)return;
+             const cur=imgs.findIndex(img=>img.classList.contains('active'));
+             const n=((cur<0?0:cur)+1)%imgs.length;
+             imgs.forEach((img,i)=>img.classList.toggle('active',i===n));
+             slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===n));
+           }, 5000);
+         });
+       }
+       if (slideUrls.length > 1) {
+         slider._v5Timer = setInterval(() => {
+           const imgs=[...slider.querySelectorAll('.hero-slide')]; if(imgs.length<2)return;
+           const cur=imgs.findIndex(img=>img.classList.contains('active'));
+           const n=((cur<0?0:cur)+1)%imgs.length;
+           imgs.forEach((img,i)=>img.classList.toggle('active',i===n));
+           slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===n));
+         }, 5000);
+       }
+     }    // Optional leader profiles: show only records supplied and approved through public Admin data.
     if (Array.isArray(d.leaders) && d.leaders.length) {
       const leadersGrid = $('#leadersGrid');
       if (leadersGrid) {
@@ -794,7 +826,7 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
  const endpoint='https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec';
  window.tgtwrAlumniCallback=function(rows){const grid=document.getElementById('alumniStoriesGrid');if(!grid||!Array.isArray(rows)||!rows.length)return;
  const esc=v=>String(v||'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[c]));
- grid.innerHTML=rows.map(x=>`<article class="card alumni-card">${x.photoUrl?`<img src="${esc(x.photoUrl)}" alt="Photo of ${esc(x.name)}" loading="lazy" style="width:100%;height:230px;object-fit:contain;background:#f2f6fb;border-radius:10px">`:''}<h3>${esc(x.name)}</h3><p><strong>Passout:</strong> ${esc(x.passoutYear)} · ${esc(x.group)}</p><p><strong>${esc(x.achievementType)}</strong></p><p>${esc(x.achievementDetails)}</p>${x.institution?`<p><strong>Institution:</strong> ${esc(x.institution)}</p>`:''}</article>`).join('');
+ grid.innerHTML=rows.map(x=>`<article class="card alumni-card">${x.photoUrl?`<img src="${esc(x.photoUrl)}" alt="Photo of ${esc(x.name)}" loading="lazy" onerror="this.onerror=null;this.style.display='none';this.insertAdjacentHTML('afterend','<div class=&quot;faculty-photo-placeholder&quot;>Student photo unavailable</div>')" style="width:100%;height:230px;object-fit:contain;background:#f2f6fb;border-radius:10px">`:''}<h3>${esc(x.name)}</h3><p><strong>Passout:</strong> ${esc(x.passoutYear)} · ${esc(x.group)}</p><p><strong>${esc(x.achievementType)}</strong></p><p>${esc(x.achievementDetails)}</p>${x.institution?`<p><strong>Institution:</strong> ${esc(x.institution)}</p>`:''}</article>`).join('');
  };const el=document.createElement('script');el.src=endpoint+'?api=alumniPublic&callback=tgtwrAlumniCallback';el.onerror=()=>console.warn('Alumni public profiles unavailable');document.head.appendChild(el);
 })();
 </script>
@@ -856,6 +888,23 @@ body.dark-mode .callout{background:#302a1b;border-color:#66552a}body.dark-mode .
     lightbox.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX},{passive:true});lightbox.addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>45)showPhoto(index+(dx<0?1:-1));touchX=null},{passive:true});lightbox.querySelector('.lightbox-stage').addEventListener('pointerdown',e=>{if(e.pointerType==='touch')touchX=e.clientX});lightbox.querySelector('.lightbox-stage').addEventListener('pointerup',e=>{if(touchX===null)return;const dx=e.clientX-touchX;if(Math.abs(dx)>45)showPhoto(index+(dx<0?1:-1));touchX=null});
     gallery.addEventListener('click',function(e){const photo=e.target.closest('.category-photos img, .gallery-photo-large');if(!photo)return;refreshPhotos();index=Math.max(0,photos.indexOf(photo));showPhoto(index);if(typeof lightbox.showModal==='function')lightbox.showModal()});
   }
+})();
+</script>
+
+
+<script id="v5-premium-notices-navigation">
+(function(){
+  var link=document.getElementById('heroNoticesLink');
+  if(!link || link.dataset.v5NoticeBound==='1') return;
+  link.dataset.v5NoticeBound='1';
+  link.addEventListener('click',function(event){
+    var target=document.getElementById('notices');
+    if(!target) return;
+    event.preventDefault();
+    if(location.hash!=='#notices' && history && history.replaceState) history.replaceState(null,'','#notices');
+    target.hidden=false;
+    target.scrollIntoView({behavior:window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  });
 })();
 </script>
 
