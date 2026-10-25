@@ -814,9 +814,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <div class="card"><p>TGTWR COE (Boys), Narsapur is a residential educational institution under the Telangana Tribal Welfare Residential Educational Institutions Society. This website is intended to share verified institutional information, academic announcements and approved updates.</p></div></section>
 
 <section id="vision"><div class="section-head"><h2>Vision &amp; Mission</h2><p>Our commitment to quality residential education</p></div><div class="vision-grid"><article class="vision-card"><h3>Our Vision</h3><p>To provide quality education to tribal students and empower them to become confident, responsible citizens through academic excellence, discipline, values and holistic development.</p></article><article class="vision-card"><h3>Our Mission</h3><p>To create a supportive learning environment that promotes equal opportunities, scientific temper, character building, physical well-being and the potential of every student.</p></article></div></section>
-<section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p id="principalMessageHeading">A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p
-                                                                                                                                                                                                                                                                                                            
-  class="principal-message-copy">Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal- TGTWR JUNIOR COLLEGE (COE) BOYS, NARSAPUR</span></p></div></div></section>
+<section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p id="principalMessageHeading">A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p class="principal-message-copy">Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal- TGTWR JUNIOR COLLEGE (COE) BOYS, NARSAPUR</span></p></div></div></section>
 <section id="academics"><div class="section-head"><h2>Academic Programmes</h2><p>Intermediate groups</p></div><div class="cards"><div class="card"><h3>Science Groups</h3><div class="pill-list"><span class="pill">MPC-I</span><span class="pill">MPC-II</span><span class="pill">BIPC-I</span><span class="pill">BIPC-II</span></div></div><div class="card"><h3>Arts Groups</h3><div class="pill-list"><span class="pill">CEC-I</span><span class="pill">CEC-II</span></div></div><div class="card"><h3>Vocational Groups</h3><div class="pill-list"><span class="pill">ACCOUNTANCY &amp; TAXATION-I</span><span class="pill">ACCOUNTANCY &amp; TAXATION-II</span></div></div></div><p class="small">Subject details, academic calendars and schedules will be added after official verification.</p></section>
 <section id="administration"><div class="section-head"><h2>Administration & Faculty</h2><p>TGTWRJC / COE Boys, Narsapur — Teaching Staff Particulars</p></div>
 
@@ -852,7 +850,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <section id="useful-links"><div class="section-head"><h2>Useful Links for Students</h2><p>Trusted learning resources, entrance examinations and scholarships</p></div><div class="cards" id="usefulLinksGrid"><article class="card">Useful links will be added by the college.</article></div></section>
 <section id="subject-videos"><div class="section-head"><h2>Subject-wise Video Resources</h2><p>Approved YouTube lessons and learning videos shared by subject staff</p></div><div class="cards" id="subjectVideosGrid"><article class="card">Video resources will be added by subject staff.</article></div></section>
 <section id="gallery"><div class="section-head"><h2>College Facilities &amp; Gallery</h2><p>Select a category to view approved photographs</p></div><div class="gallery-categories" id="galleryCategories">
-<details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
+  <details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Zoology Laboratory</summary><div class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Physics Laboratory</summary><div class="category-body"><p>Physics apparatus, optics, electricity experiments and practical facilities.</p><div class="category-photos"><div class="no-photo">Physics laboratory photos will be added</div></div></div></details>
@@ -1371,6 +1369,9 @@ nav .nav-links .emms { margin-left:0 !important; }
 })();
 </script>
 
+
+
+
 </body></html>
 <style id="requested-final-layout-fixes">
 /* User-requested layout: hero text below full-width building image */
@@ -1543,4 +1544,96 @@ body.dark-mode nav .nav-datetime>span{background:rgba(255,255,255,.08)!important
 body.dark-mode nav .nav-theme-toggle{color:#edf5ff!important}
 body.dark-mode nav .nav-theme-toggle:hover,body.dark-mode nav .nav-theme-toggle:focus-visible{background:#24465e!important}
 @media(max-width:760px){nav .nav-inner{background:transparent!important}}
-  </style>
+</style>
+
+<style id="v5-24-mobile-utility-and-dark-text-fix">
+/* V5.24: prevent the date/time from being hidden beneath the EMMS button on mobile. */
+@media (max-width:760px){
+  nav .nav-inner{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 30px auto!important;
+    grid-template-rows:auto auto!important;
+    align-items:center!important;
+    gap:6px!important;
+    padding:7px 8px!important;
+    flex-wrap:initial!important;
+    overflow:visible!important;
+  }
+  nav .nav-datetime{
+    grid-column:1!important;grid-row:1!important;
+    display:flex!important;flex:initial!important;min-width:0!important;width:100%!important;
+    margin:0!important;justify-content:flex-start!important;align-items:center!important;
+    flex-direction:row!important;flex-wrap:nowrap!important;white-space:nowrap!important;
+    gap:4px!important;font-size:clamp(9px,2.65vw,12px)!important;overflow:visible!important;
+  }
+  nav .nav-datetime>span{min-width:0!important;padding:4px 5px!important;white-space:nowrap!important;line-height:1.25!important;}
+  nav .nav-theme-toggle{grid-column:2!important;grid-row:1!important;width:30px!important;min-width:30px!important;height:31px!important;flex:none!important;margin:0!important;}
+  nav .nav-emms{
+    grid-column:3!important;grid-row:1!important;justify-self:end!important;
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    width:auto!important;min-width:0!important;max-width:90px!important;min-height:31px!important;
+    margin:0!important;padding:6px 8px!important;font-size:10px!important;line-height:1.15!important;
+    white-space:nowrap!important;overflow:hidden!important;text-overflow:clip!important;
+  }
+  nav .nav-links{grid-column:1/-1!important;grid-row:2!important;width:100%!important;min-width:0!important;margin:0!important;}
+}
+@media(max-width:390px){
+  nav .nav-inner{grid-template-columns:minmax(0,1fr) 27px auto!important;gap:4px!important;padding-left:5px!important;padding-right:5px!important}
+  nav .nav-datetime{font-size:9px!important;gap:3px!important}
+  nav .nav-datetime>span{padding:3px 4px!important}
+  nav .nav-theme-toggle{width:27px!important;min-width:27px!important;height:29px!important}
+  nav .nav-emms{max-width:78px!important;padding:5px 6px!important;font-size:9px!important}
+}
+/* Dark mode: force readable foregrounds even where legacy inline colors/styles exist. */
+body.dark-mode #main,
+body.dark-mode #main p,
+body.dark-mode #main li,
+body.dark-mode #main label,
+body.dark-mode #main small,
+body.dark-mode #main .small,
+body.dark-mode #main .muted,
+body.dark-mode #main .section-head p,
+body.dark-mode #main .card p,
+body.dark-mode #main .panel p,
+body.dark-mode #main .leader-card p,
+body.dark-mode #main .faculty-card p,
+body.dark-mode #main .vision-card p,
+body.dark-mode #main .notice p,
+body.dark-mode #main .notice small,
+body.dark-mode #main .callout p,
+body.dark-mode #main .category-body,
+body.dark-mode #main .category-body p,
+body.dark-mode #main .achievement-card,
+body.dark-mode #main .achievement-card p,
+body.dark-mode #main .staff-table td,
+body.dark-mode #main .staff-table td *{
+  color:#eaf4ff!important;
+  opacity:1!important;
+  -webkit-text-fill-color:#eaf4ff!important;
+}
+body.dark-mode #main .card,
+body.dark-mode #main .panel,
+body.dark-mode #main .notice,
+body.dark-mode #main .callout,
+body.dark-mode #main .leader-card,
+body.dark-mode #main .faculty-card,
+body.dark-mode #main .vision-card,
+body.dark-mode #main .achievement-card,
+body.dark-mode #main .staff-table-wrap,
+body.dark-mode #main .staff-table tbody tr,
+body.dark-mode #main .staff-table tbody tr:nth-child(even),
+body.dark-mode #main .staff-table tbody tr:nth-child(odd){
+  background:#102b40!important;color:#eaf4ff!important;border-color:#35566f!important;
+}
+body.dark-mode #main .staff-table th{background:#064b70!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+body.dark-mode #main a:not(.btn):not(.nav-emms){color:#75d8ff!important;-webkit-text-fill-color:#75d8ff!important;text-decoration-color:#75d8ff!important}
+body.dark-mode #main input,
+body.dark-mode #main textarea,
+body.dark-mode #main select,
+body.dark-mode #main option{background:#0b2032!important;color:#f2f7ff!important;-webkit-text-fill-color:#f2f7ff!important;border-color:#527087!important}
+body.dark-mode #main input::placeholder,body.dark-mode #main textarea::placeholder{color:#b8cadb!important;-webkit-text-fill-color:#b8cadb!important;opacity:1!important}
+body.dark-mode #main .quick a,body.dark-mode #main .btn:not(.secondary){color:#fff!important;-webkit-text-fill-color:#fff!important}
+body.dark-mode #main .btn.secondary,body.dark-mode #main .callout strong{color:#ffe58a!important;-webkit-text-fill-color:#ffe58a!important}
+body.dark-mode #main .global-search-shell,body.dark-mode .global-search-shell{background:#0b2032!important;color:#eaf4ff!important}
+body.dark-mode #main [style*="color: #fff"],body.dark-mode #main [style*="color:#fff"],body.dark-mode #main [style*="color: white"],body.dark-mode #main [style*="color:white"]{color:#eaf4ff!important;-webkit-text-fill-color:#eaf4ff!important}
+</style>
