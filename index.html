@@ -752,14 +752,12 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 
 
 <style id="zoom-meeting-feature-v1">
-#zoom-meeting[hidden],#zoomPresetPanel[hidden]{display:none!important}
+#zoom-meeting[hidden],section#zoom-meeting[hidden],#zoomPresetPanel[hidden]{display:none!important;visibility:hidden!important;height:0!important;min-height:0!important;overflow:hidden!important;margin:0!important;padding:0!important}
 .zoom-meeting-section{margin:18px 0 24px;scroll-margin-top:16px}.zoom-meeting-card{max-width:680px;margin:0 auto;padding:clamp(16px,3vw,28px)!important}.zoom-mode-switch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.zoom-mode-switch .btn{margin:0;cursor:pointer}.zoom-mode-switch .zoom-mode.active{outline:3px solid #78b9ef;outline-offset:2px}.zoom-form{display:grid;gap:8px}.zoom-form label{font-weight:750;margin-top:6px}.zoom-form input{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #9eb4c8;border-radius:9px;font:inherit;background:#fff;color:#132b42}.zoom-join-btn{background:#1769aa!important;color:#fff!important}.zoom-note{font-size:.88rem;color:var(--muted);line-height:1.5;margin-top:16px}.zoom-preset-panel{border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0}.zoom-preset-panel button:disabled{opacity:.55;cursor:not-allowed}.zoom-meeting-card .outline{background:transparent;color:var(--ink);border:1px solid var(--line);cursor:pointer;margin-top:8px}
 body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#102b40!important;color:#eaf4ff!important;border-color:#35566f!important}body.dark-mode .zoom-form input{background:#0b2032!important;color:#f2f7ff!important;border-color:#527087!important}body.dark-mode .zoom-note{color:#c1d2e1!important}
 @media(max-width:480px){.zoom-mode-switch{display:grid;grid-template-columns:1fr}.zoom-mode-switch .btn{width:100%;box-sizing:border-box}.zoom-meeting-card{padding:15px!important}}
 </style>
 
-<style>/* Keep click-to-open sections hidden until explicitly requested. */
-#zoom-meeting[hidden], #zoomJoinDialog[hidden] { display:none !important; }</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -805,12 +803,12 @@ body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#
       <input id="zoomMeetingId" name="meetingId" inputmode="numeric" autocomplete="off" placeholder="Enter Zoom Meeting ID" maxlength="20" required>
       <label for="zoomPasscode">Passcode (if required)</label>
       <input id="zoomPasscode" name="passcode" type="text" autocomplete="off" placeholder="Enter meeting passcode">
-      <button type="submit" class="btn zoom-join-btn">Join in This Website</button>
+      <button type="submit" class="btn zoom-join-btn">Join Zoom Meeting ↗</button>
     </form>
     <div id="zoomPresetPanel" class="zoom-preset-panel" hidden>
       <p id="zoomPresetStatus" role="status">College preset meeting details have not been configured yet.</p>
       <p><strong id="zoomPresetTitle">College Zoom Meeting</strong></p>
-      <button type="button" id="zoomPresetJoin" class="btn zoom-join-btn" disabled>Join in This Website</button>
+      <button type="button" id="zoomPresetJoin" class="btn zoom-join-btn" disabled>Join College Meeting ↗</button>
     </div>
     <p class="zoom-note">Zoom may open in the Zoom app or offer a browser option. Meeting host settings may require a passcode, sign-in, or host approval.</p>
     <button type="button" class="btn outline" id="zoomCloseBtn">Close</button>
@@ -899,7 +897,7 @@ body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#
 <div class="card"><h3>TGTWR COE (Boys), Narsapur</h3><p>Medak District, Telangana, India</p></div>
 <div class="card official-enquiries-card"><h3>📞 Official Enquiries</h3><p>Phone: To be added after verification</p><p>Email: To be added after verification</p><div class="working-hours"><strong>🕘 Working Hours</strong><p>Monday–Saturday: 9:00 AM – 5:00 PM</p></div></div>
 </div></section>
-<div id="zoomJoinDialog" class="zoom-join-dialog" role="dialog" aria-modal="true" aria-labelledby="zoomJoinDialogTitle" hidden style="position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.78);padding:12px;overflow:auto"><div style="max-width:900px;margin:3vh auto;background:var(--card-bg,#fff);color:var(--text,#14202b);border-radius:16px;padding:16px;box-shadow:0 15px 60px #0008"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center"><h2 id="zoomJoinDialogTitle">Join Zoom Meeting</h2><button type="button" id="zoomDialogClose" class="btn outline">Close</button></div><p id="zoomEmbedNotice">Trying to open the meeting inside this website. Zoom may block embedded meetings depending on browser and host settings.</p><iframe id="zoomMeetingFrame" title="Zoom meeting in website" allow="camera; microphone; fullscreen; display-capture; autoplay; clipboard-read; clipboard-write" referrerpolicy="strict-origin-when-cross-origin" style="width:100%;height:min(70vh,650px);border:1px solid #ccd5df;border-radius:12px;background:#f5f7fa" src="about:blank"></iframe><p><a id="zoomOpenOfficial" class="btn secondary" href="https://zoom.us" target="_blank" rel="noopener noreferrer">Open original Zoom website / app</a></p><p class="small">If Zoom does not permit the meeting to run inside this page, use the separate original Zoom button above. This is controlled by Zoom and cannot be bypassed by the college website.</p></div></div></main>
+</main>
 <footer><p><strong>TGTWR JUNIOR COLLEGE (COE) BOYS</strong></p><p>NARSAPUR, MEDAK DIST, TG-502313</p><p>Telangana Tribal Welfare Residential Educational Institutions Society</p><p class="small">Please verify institutional details and add approved logo, photographs and contact information before publishing.</p></footer>
 
 <script>
@@ -966,11 +964,6 @@ body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#
     const address = text(d.address, 'NARSAPUR, MEDAK DIST, TG-502313');
     const society = text(d.societyName, 'TELANGANA TRIBAL WELFARE RESIDENTIAL EDUCATIONAL INSTITUTIONS SOCIETY');
     const motto = text(d.motto, 'Academic Excellence • Discipline • Student Success');
-    const quickHolder=document.querySelector('.quick');
-    if(quickHolder && Array.isArray(d.quickAccess)){
-      const items=d.quickAccess.filter(x=>x && x.title && x.url).slice(0,12);
-      if(items.length) quickHolder.innerHTML=items.map(x=>{const url=safeUrl(x.url)||'#';const external=/^https?:/i.test(url)&&!url.startsWith(location.origin);return `<a href="${esc(url)}" ${external?'target="_blank" rel="noopener noreferrer"':''}>${esc(x.title)}<small>${esc(x.description||'')}</small></a>`;}).join('');
-    }
     document.title = school + ', Narsapur';
     const topbar = $('.topbar'); if (topbar) topbar.textContent = school + ', ' + address;
     const h1 = $('.school'); if (h1) h1.textContent = school;
@@ -1186,7 +1179,7 @@ body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#
   // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
   window.tgtwrWebsiteDataCallback = function (result) {
     const data = result && result.data && typeof result.data === 'object' ? result.data : result;
-    if (data && typeof data === 'object' && !data.error) { window.tgtwrZoomMeetingSettings = data.zoomMeeting || null; render(data); if (typeof window.applyTgtwrZoomMeetingSettings === 'function') window.applyTgtwrZoomMeetingSettings(window.tgtwrZoomMeetingSettings); }
+    if (data && typeof data === 'object' && !data.error) render(data);
     else console.warn('Website live data is not available; built-in content remains visible.');
   };
   const apiScript = document.createElement('script');
@@ -1415,10 +1408,18 @@ nav .nav-links .emms { margin-left:0 !important; }
 <script id="zoom-meeting-feature-v1-script">
 (function(){
   'use strict';
-  // Defaults preserve the existing manual Meeting ID flow. Preset details are replaced by the authenticated Admin Panel's public website settings when available.
-  var ZOOM_COLLEGE_PRESET = { meetingId: '', passcode: '', title: 'College Zoom Meeting', enabled: true };
+  // Site administrator: set the official meeting details here before publishing. Leave blank when no fixed meeting is scheduled.
+  // Example: meetingId: '12345678901', passcode: 'ABC123', title: 'Parent-Teacher Meeting'.
+  var ZOOM_COLLEGE_PRESET = { meetingId: '', passcode: '', title: 'College Zoom Meeting' };
   var section=document.getElementById('zoom-meeting');
   if(!section)return;
+  // V5.25 fix: never show the Zoom panel automatically on initial page load.
+  // It is revealed only by an explicit click on a Zoom Meeting link/button.
+  section.hidden=true;
+  section.setAttribute('hidden','');
+  if(window.location.hash==='#zoom-meeting'){
+    try{window.history.replaceState(null,document.title,window.location.pathname+window.location.search+'#home');}catch(e){}
+  }
   var manualForm=document.getElementById('zoomManualForm');
   var presetPanel=document.getElementById('zoomPresetPanel');
   var presetJoin=document.getElementById('zoomPresetJoin');
@@ -1426,30 +1427,14 @@ nav .nav-links .emms { margin-left:0 !important; }
   var presetTitle=document.getElementById('zoomPresetTitle');
   var idInput=document.getElementById('zoomMeetingId');
   var passInput=document.getElementById('zoomPasscode');
-  window.applyTgtwrZoomMeetingSettings=function(settings){
-    settings=settings&&typeof settings==='object'?settings:{};
-    ZOOM_COLLEGE_PRESET={meetingId:String(settings.meetingId||''),passcode:String(settings.passcode||''),title:String(settings.title||'College Zoom Meeting'),enabled:settings.enabled!==false};
-    var presetMode=section.querySelector('[data-zoom-mode=\"preset\"]');
-    if(presetMode){presetMode.hidden=!ZOOM_COLLEGE_PRESET.enabled;presetMode.disabled=!ZOOM_COLLEGE_PRESET.enabled;}
-    if(presetTitle)presetTitle.textContent=ZOOM_COLLEGE_PRESET.title;
-    if(presetPanel&&presetPanel.hidden===false&&!ZOOM_COLLEGE_PRESET.enabled)showMode('manual');
-    else if(presetPanel&&presetPanel.hidden===false)showMode('preset');
-  };
-  if(window.tgtwrZoomMeetingSettings)window.applyTgtwrZoomMeetingSettings(window.tgtwrZoomMeetingSettings);
   function cleanId(value){return String(value||'').replace(/[^0-9]/g,'').slice(0,20);}
   function joinZoom(id,pass){
     id=cleanId(id);
     if(id.length<9||id.length>13){alert('Please enter a valid Zoom Meeting ID (usually 9–13 digits).');return;}
-    var url='https://zoom.us/wc/'+encodeURIComponent(id)+'/join';
+    var url='https://zoom.us/j/'+encodeURIComponent(id);
     if(String(pass||'').trim())url+='?pwd='+encodeURIComponent(String(pass).trim());
-    var dlg=document.getElementById('zoomJoinDialog'), frame=document.getElementById('zoomMeetingFrame'), official=document.getElementById('zoomOpenOfficial');
-    if(dlg&&frame&&official){frame.src=url;official.href='https://zoom.us/j/'+encodeURIComponent(id)+(String(pass||'').trim()?'?pwd='+encodeURIComponent(String(pass).trim()):'');dlg.hidden=false;document.body.style.overflow='hidden';}
-    else { alert('In-site meeting panel is unavailable. Use the Zoom Meeting section again.'); }
+    window.open(url,'_blank','noopener,noreferrer');
   }
-  function closeZoomDialog(){var dlg=document.getElementById('zoomJoinDialog'),frame=document.getElementById('zoomMeetingFrame');if(dlg)dlg.hidden=true;if(frame)frame.src='about:blank';document.body.style.overflow='';}
-  var zoomDialogClose=document.getElementById('zoomDialogClose');if(zoomDialogClose)zoomDialogClose.addEventListener('click',closeZoomDialog);
-  var zoomDialog=document.getElementById('zoomJoinDialog');if(zoomDialog)zoomDialog.addEventListener('click',function(e){if(e.target===zoomDialog)closeZoomDialog();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeZoomDialog();});
   function showMode(mode){
     var isPreset=mode==='preset';manualForm.hidden=isPreset;presetPanel.hidden=!isPreset;
     section.querySelectorAll('[data-zoom-mode]').forEach(function(btn){var active=btn.getAttribute('data-zoom-mode')===mode;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false');});
