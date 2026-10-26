@@ -750,29 +750,6 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 (function(){function fixCollegeMap(){var frame=document.querySelector('#contact .college-map-frame');if(!frame)return;var defaultMap='https://www.google.com/maps?q=TTWR%20School%20Boys%20NARSAPUR%2C%20Narsapur%2C%20Medak%20District%2C%20Telangana%2C%20India&z=14&output=embed';frame.setAttribute('data-default-src',defaultMap);var current=frame.getAttribute('src')||'';if(!current||current==='about:blank'||current.indexOf('TTWR%20School%20Boys')===-1)frame.setAttribute('src',defaultMap);var button=document.querySelector('#contact .map-return-college');if(button&&!button.dataset.v523Bound){button.dataset.v523Bound='1';button.addEventListener('click',function(){var f=document.querySelector('#contact .college-map-frame');if(!f)return;f.setAttribute('src','about:blank');window.setTimeout(function(){f.setAttribute('src',f.getAttribute('data-default-src')||defaultMap)},100)})}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fixCollegeMap);else fixCollegeMap();var oldCallback=window.tgtwrWebsiteDataCallback;window.tgtwrWebsiteDataCallback=function(result){if(typeof oldCallback==='function')oldCallback(result);window.setTimeout(fixCollegeMap,120)};window.addEventListener('load',function(){window.setTimeout(fixCollegeMap,300)})})();
 </script>
 
-
-<style id="v5-28-zoom-menu-only">
-#zoom-meeting[hidden],#zoomPresetPanel[hidden]{display:none!important}
-.zoom-meeting-section{margin:18px 0 24px;scroll-margin-top:16px}
-.zoom-meeting-card{max-width:680px;margin:0 auto;padding:clamp(16px,3vw,28px)!important}
-.zoom-mode-switch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.zoom-mode-switch .btn{margin:0;cursor:pointer}
-.zoom-mode-switch .zoom-mode.active{outline:3px solid #78b9ef;outline-offset:2px}
-.zoom-form{display:grid;gap:8px}
-.zoom-form label{font-weight:750;margin-top:6px}
-.zoom-form input{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #9eb4c8;border-radius:9px;font:inherit;background:#fff;color:#132b42}
-.zoom-join-btn{background:#1769aa!important;color:#fff!important}
-.zoom-note{font-size:.88rem;color:var(--muted);line-height:1.5;margin-top:16px}
-.zoom-preset-panel{border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0}
-.zoom-preset-panel button:disabled{opacity:.55;cursor:not-allowed}
-.zoom-meeting-card .zoom-close-btn{background:transparent;color:var(--ink);border:1px solid var(--line);cursor:pointer;margin-top:8px}
-body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#102b40!important;color:#eaf4ff!important;border-color:#35566f!important}
-body.dark-mode .zoom-form input{background:#0b2032!important;color:#f2f7ff!important;border-color:#527087!important}
-body.dark-mode .zoom-note{color:#c1d2e1!important}
-@media(max-width:480px){.zoom-mode-switch{display:grid;grid-template-columns:1fr}.zoom-mode-switch .btn{width:100%;box-sizing:border-box}.zoom-meeting-card{padding:15px!important}}
-</style>
-
-<meta name="website-version" content="V5.29_ZOOM_MENU_QUICK_ACCESS_CUSTOMIZE">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -792,7 +769,7 @@ body.dark-mode .zoom-note{color:#c1d2e1!important}
 <a class="nav-emms" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" target="_blank" rel="noopener noreferrer">📘 EMMS LOGIN</a>
 </div>
 <div class="nav-links" id="navLinks">
-<a href="#home">Home</a><a href="#zoom-meeting" data-open-zoom>🎥 Zoom Meeting</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Latest Notices &amp; Circulars</a><a href="#examinations">Examinations &amp; Results</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#alumni-success">Alumni Success Stories</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
+<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Latest Notices &amp; Circulars</a><a href="#examinations">Examinations &amp; Results</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#alumni-success">Alumni Success Stories</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a href="#" id="zoomMenuOpen">🎥 Zoom Meeting</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
 </div></div></nav>
 <div class="top-updates-ticker" id="topUpdatesTicker" aria-label="Latest college updates">
   <span class="top-updates-label">LATEST UPDATES</span>
@@ -804,32 +781,7 @@ body.dark-mode .zoom-note{color:#c1d2e1!important}
   </div></div>
 </div>
 <div class="global-search-shell" role="search"><div class="global-search-inner"><label for="globalSiteSearch">Search the website</label><input id="globalSiteSearch" type="search" placeholder="Search notices, achievements, staff, videos, facilities…" autocomplete="off"><span id="globalSearchStatus" aria-live="polite">Search across public college information.</span><button type="button" id="clearGlobalSearch">Clear</button></div></div>
-
 <main id="main">
-
-<section id="zoom-meeting" class="zoom-meeting-section" aria-labelledby="zoomHeading" hidden>
-  <div class="section-head"><h2 id="zoomHeading">🎥 Zoom Meeting</h2><p>Join an online meeting using a Meeting ID or the college preset.</p></div>
-  <div class="card zoom-meeting-card">
-    <div class="zoom-mode-switch" role="group" aria-label="Meeting ID method">
-      <button type="button" class="btn zoom-mode active" data-zoom-mode="manual" aria-pressed="true">Enter Meeting ID</button>
-      <button type="button" class="btn secondary zoom-mode" data-zoom-mode="preset" aria-pressed="false">College Preset</button>
-    </div>
-    <form id="zoomManualForm" class="zoom-form">
-      <label for="zoomMeetingId">Meeting ID</label>
-      <input id="zoomMeetingId" name="meetingId" inputmode="numeric" autocomplete="off" placeholder="Enter Zoom Meeting ID" maxlength="20" required>
-      <label for="zoomPasscode">Passcode (if required)</label>
-      <input id="zoomPasscode" name="passcode" type="text" autocomplete="off" placeholder="Enter meeting passcode" maxlength="100">
-      <button type="submit" class="btn zoom-join-btn">Join Zoom Meeting ↗</button>
-    </form>
-    <div id="zoomPresetPanel" class="zoom-preset-panel" hidden>
-      <p id="zoomPresetStatus" role="status">College preset meeting details have not been configured yet.</p>
-      <p><strong id="zoomPresetTitle">College Zoom Meeting</strong></p>
-      <button type="button" id="zoomPresetJoin" class="btn zoom-join-btn" disabled>Join College Meeting ↗</button>
-    </div>
-    <p class="zoom-note">Zoom opens in the Zoom app or browser, depending on your device and Zoom settings. The meeting host may require a passcode, sign-in, or approval.</p>
-    <button type="button" class="btn zoom-close-btn" id="zoomCloseBtn">Close Zoom Meeting Page</button>
-  </div>
-</section>
 
 
 <div class="hero-banner">
@@ -898,7 +850,7 @@ body.dark-mode .zoom-note{color:#c1d2e1!important}
 <section id="useful-links"><div class="section-head"><h2>Useful Links for Students</h2><p>Trusted learning resources, entrance examinations and scholarships</p></div><div class="cards" id="usefulLinksGrid"><article class="card">Useful links will be added by the college.</article></div></section>
 <section id="subject-videos"><div class="section-head"><h2>Subject-wise Video Resources</h2><p>Approved YouTube lessons and learning videos shared by subject staff</p></div><div class="cards" id="subjectVideosGrid"><article class="card">Video resources will be added by subject staff.</article></div></section>
 <section id="gallery"><div class="section-head"><h2>College Facilities &amp; Gallery</h2><p>Select a category to view approved photographs</p></div><div class="gallery-categories" id="galleryCategories">
-<details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
+  <details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Zoology Laboratory</summary><div class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Physics Laboratory</summary><div class="category-body"><p>Physics apparatus, optics, electricity experiments and practical facilities.</p><div class="category-photos"><div class="no-photo">Physics laboratory photos will be added</div></div></div></details>
@@ -1189,34 +1141,13 @@ body.dark-mode .zoom-note{color:#c1d2e1!important}
       contactSection.innerHTML = `<div class="section-head"><h2>Contact Us</h2><p>Institutional contact information</p></div><div class="contact-grid"><div class="card contact-map-card"><h3>${esc(school)}</h3><p>${esc(fullAddress)}</p><div class="contact-map-layout"><div class="map-actions"><p>Explore the college location using the interactive map. Drag with your mouse or move with your finger; use map controls to zoom.</p></div><iframe class="college-map-frame" data-default-src="${embedUrl}" title="Interactive Google Map showing ${esc(school)}" src="${embedUrl}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><button class="map-return-college" type="button" onclick="const f=this.closest('.contact-map-layout').querySelector('.college-map-frame');if(f){const target=f.dataset.defaultSrc||f.src;f.src='about:blank';requestAnimationFrame(()=>{f.src=target;});}" aria-label="Return map to college location">📍 College Location</button></div></div><div class="card"><h3>Official Enquiries</h3><p>Phone: ${phone ? `<a href="tel:${esc(phone.replace(/[^\d+]/g,''))}">${esc(phone)}</a>`:'To be updated'}</p><p>Email: ${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>`:'To be updated'}</p><div class="working-hours"><strong>🕘 Working Hours</strong><p>Monday–Saturday: 9:00 AM – 5:00 PM</p></div></div></div>`;
     }
     document.querySelectorAll('a[href*="AKfycbx21ZsS_xeKx3l7LKi_6GTl3XS0itBcAeQPaH98FX0DEoBGPnA_pMgd6XdpN4pPzyte"]').forEach(a=>a.href=EMMS_URL);
-    // V5.29: Render Quick Access from the Admin-selected website links.
-    const quickHolder = $('.quick');
-    if (quickHolder && Array.isArray(d.quickAccess)) {
-      const quickDefaults = [
-        {title:'Academics',description:'MPC, BiPC, CEC and vocational groups',url:'#academics'},
-        {title:'Notices',description:'Circulars and updates',url:'#notices'},
-        {title:'Examinations',description:'Schedules and results',url:'#examinations'},
-        {title:'EMMS Login',description:'Authorised staff access',url:EMMS_URL}
-      ];
-      const items = d.quickAccess.length ? d.quickAccess : quickDefaults;
-      const allowedHref = value => {
-        const href=String(value||'').trim();
-        return (/^#[A-Za-z][\w-]*$/.test(href) && href !== '#zoom-meeting') || /^https:\/\//i.test(href);
-      };
-      const safeItems = items.filter(x=>x && x.title && allowedHref(x.url)).slice(0,12);
-      quickHolder.innerHTML = (safeItems.length ? safeItems : quickDefaults).map(x=>{
-        const href=String(x.url||'').trim();
-        const external=/^https:\/\//i.test(href);
-        return `<a href="${esc(href)}"${external?' target="_blank" rel="noopener noreferrer"':''}>${esc(x.title)}${x.description?`<small>${esc(x.description)}</small>`:''}</a>`;
-      }).join('');
-    }
     const footer = $('footer');
     if (footer) footer.innerHTML = `<p><strong>${esc(school)}</strong></p><p>${esc(address)}</p><p>${esc(society)}</p><p class="small">Official institutional information and approved updates.</p>`;
   }
   // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
   window.tgtwrWebsiteDataCallback = function (result) {
     const data = result && result.data && typeof result.data === 'object' ? result.data : result;
-    if (data && typeof data === 'object' && !data.error) { render(data); window.tgtwrZoomMeetingSettings = data.zoomMeeting || null; if (typeof window.applyTgtwrZoomMeetingSettings === 'function') window.applyTgtwrZoomMeetingSettings(window.tgtwrZoomMeetingSettings); }
+    if (data && typeof data === 'object' && !data.error) render(data);
     else console.warn('Website live data is not available; built-in content remains visible.');
   };
   const apiScript = document.createElement('script');
@@ -1442,97 +1373,86 @@ nav .nav-links .emms { margin-left:0 !important; }
 
 
 
-<script id="v5-28-zoom-menu-only-script">
+<!-- V5.25 Zoom Meeting: isolated module; existing website features remain unchanged -->
+<style id="v525-zoom-meeting-styles">
+#zoomMeetingDialog{width:min(94vw,520px);max-width:520px;border:2px solid #b8c8d8;border-radius:18px;padding:0;color:#142b45;background:#fff;box-shadow:0 24px 80px #061b32aa}
+#zoomMeetingDialog::backdrop{background:rgba(4,20,38,.68);backdrop-filter:blur(3px)}
+#zoomMeetingDialog .zoom-head{padding:17px 20px;background:linear-gradient(115deg,#082e59,#0879bd);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#zoomMeetingDialog .zoom-head h2{font-size:1.2rem;margin:0}
+#zoomMeetingDialog .zoom-close{border:0;border-radius:8px;background:#ffffff22;color:#fff;font-size:1.5rem;width:38px;height:38px;cursor:pointer}
+#zoomMeetingDialog .zoom-body{padding:20px}
+#zoomMeetingDialog label{display:block;font-weight:750;font-size:.9rem;margin:12px 0 6px}
+#zoomMeetingDialog input{width:100%;padding:12px;border:1px solid #c6d6e5;border-radius:10px;font:inherit;box-sizing:border-box}
+#zoomMeetingDialog .zoom-preset{border:1px solid #d2e4f5;border-radius:12px;background:#f2f8ff;padding:13px;margin-bottom:16px}
+#zoomMeetingDialog .zoom-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+#zoomMeetingDialog .zoom-actions button,#zoomMeetingDialog .zoom-actions a{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:9px;padding:11px 14px;font:inherit;font-weight:800;text-decoration:none;cursor:pointer}
+#zoomMeetingDialog .zoom-join{background:#0879bd;color:#fff}#zoomMeetingDialog .zoom-secondary{background:#e7f0f8;color:#123b5b}
+#zoomMeetingDialog .zoom-muted{font-size:.82rem;color:#52677a;overflow-wrap:anywhere;margin:8px 0 0}
+#zoomMeetingDialog .zoom-status{min-height:1.2em;font-size:.86rem;color:#12633b;margin-top:10px}
+body.dark-mode #zoomMeetingDialog{background:#17283a;color:#edf5ff;border-color:#45627c}
+body.dark-mode #zoomMeetingDialog .zoom-preset{background:#20384e;border-color:#45627c}
+body.dark-mode #zoomMeetingDialog input{background:#102235;color:#fff;border-color:#45627c}
+body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
+@media(max-width:420px){#zoomMeetingDialog .zoom-body{padding:14px}#zoomMeetingDialog .zoom-actions>*{flex:1 1 100%}}
+</style>
+<dialog id="zoomMeetingDialog" aria-labelledby="zoomMeetingDialogTitle">
+  <div class="zoom-head"><h2 id="zoomMeetingDialogTitle">🎥 College Zoom Meeting</h2><button class="zoom-close" id="zoomDialogClose" type="button" aria-label="Close Zoom Meeting">×</button></div>
+  <div class="zoom-body">
+    <div id="zoomPresetPanel" class="zoom-preset" hidden><strong id="zoomPresetTitle">College Meeting</strong><p class="zoom-muted">Admin-configured meeting</p><div class="zoom-actions"><button type="button" class="zoom-join" id="zoomPresetJoin">Join Preset Meeting ↗</button><button type="button" class="zoom-secondary" id="zoomUsePreset">Use this ID</button></div><p id="zoomPresetPasscode" class="zoom-muted" hidden></p></div>
+    <p class="zoom-muted">Enter a meeting ID manually, or use the preset meeting configured by the college administrator.</p>
+    <label for="zoomManualId">Manual Zoom Meeting ID</label><input id="zoomManualId" inputmode="numeric" autocomplete="off" maxlength="20" placeholder="Enter meeting ID (numbers only)">
+    <label for="zoomManualPasscode">Passcode (if required)</label><input id="zoomManualPasscode" autocomplete="off" maxlength="100" placeholder="Enter meeting passcode">
+    <div class="zoom-actions"><button type="button" class="zoom-join" id="zoomManualJoin">Join Meeting ↗</button><button type="button" class="zoom-secondary" id="zoomCopyDetails">Copy Meeting Details</button></div>
+    <div id="zoomMeetingStatus" class="zoom-status" role="status" aria-live="polite"></div>
+    <p class="zoom-muted">Only join meetings shared by the college. Zoom may ask you to enter the passcode in its app.</p>
+  </div>
+</dialog>
+<script id="v525-zoom-meeting-module">
 (function(){
-  'use strict';
-  var section=document.getElementById('zoom-meeting');
-  if(!section)return;
-  var manualForm=document.getElementById('zoomManualForm');
-  var presetPanel=document.getElementById('zoomPresetPanel');
-  var presetJoin=document.getElementById('zoomPresetJoin');
-  var presetStatus=document.getElementById('zoomPresetStatus');
-  var presetTitle=document.getElementById('zoomPresetTitle');
-  var idInput=document.getElementById('zoomMeetingId');
-  var passInput=document.getElementById('zoomPasscode');
-  var preset={title:'College Zoom Meeting',meetingId:'',passcode:'',enabled:true};
-
-  function cleanId(value){return String(value||'').replace(/[^0-9]/g,'').slice(0,20);}
-  function validId(value){return value.length>=9&&value.length<=13;}
-
-  window.applyTgtwrZoomMeetingSettings=function(settings){
-    settings=settings&&typeof settings==='object'?settings:{};
-    preset={
-      title:String(settings.title||'College Zoom Meeting'),
-      meetingId:cleanId(settings.meetingId||''),
-      passcode:String(settings.passcode||''),
-      enabled:settings.enabled!==false
-    };
-    var presetMode=section.querySelector('[data-zoom-mode="preset"]');
-    if(presetMode){presetMode.hidden=!preset.enabled;presetMode.disabled=!preset.enabled;}
-    if(presetTitle)presetTitle.textContent=preset.title;
-    if(!preset.enabled && presetPanel && !presetPanel.hidden)showMode('manual');
-    if(presetPanel && !presetPanel.hidden)updatePresetPanel();
-  };
-  if(window.tgtwrZoomMeetingSettings)window.applyTgtwrZoomMeetingSettings(window.tgtwrZoomMeetingSettings);
-
-  function updatePresetPanel(){
-    if(presetTitle)presetTitle.textContent=preset.title||'College Zoom Meeting';
-    if(validId(preset.meetingId)){
-      presetStatus.textContent='The college preset meeting is ready.';
-      presetJoin.disabled=false;
-    }else{
-      presetStatus.textContent='The college preset has not been configured. Please use “Enter Meeting ID” or contact the website administrator.';
-      presetJoin.disabled=true;
-    }
-  }
-  function showMode(mode){
-    var isPreset=mode==='preset' && preset.enabled;
-    manualForm.hidden=isPreset;
-    presetPanel.hidden=!isPreset;
-    section.querySelectorAll('[data-zoom-mode]').forEach(function(btn){
-      var active=btn.getAttribute('data-zoom-mode')===(isPreset?'preset':'manual');
-      btn.classList.toggle('active',active);
-      btn.setAttribute('aria-pressed',active?'true':'false');
-    });
-    if(isPreset)updatePresetPanel();
-  }
-  function joinZoom(id,pass){
-    id=cleanId(id);
-    if(!validId(id)){alert('Please enter a valid Zoom Meeting ID (usually 9–13 digits).');return;}
+  if(window.__v525ZoomMeetingInit)return;window.__v525ZoomMeetingInit=true;
+  var dialog=document.getElementById('zoomMeetingDialog'),menu=document.getElementById('zoomMenuOpen');
+  if(!dialog||!menu)return;
+  var preset={title:'College Zoom Meeting',meetingId:'',passcode:'',enabled:false};
+  var $=function(id){return document.getElementById(id)};
+  function cleanId(v){return String(v||'').replace(/\D/g,'').slice(0,20)}
+  function setStatus(t){$('zoomMeetingStatus').textContent=t||''}
+  function openDialog(e){if(e)e.preventDefault();setStatus('');if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','')}
+  function join(id,passcode){id=cleanId(id);if(!id){setStatus('Enter a valid Zoom Meeting ID first.');return}
+    if(id.length<9){setStatus('Please check the Meeting ID. It usually contains 9–11 digits.');return}
     var url='https://zoom.us/j/'+encodeURIComponent(id);
-    var pwd=String(pass||'').trim();
-    if(pwd)url+='?pwd='+encodeURIComponent(pwd);
+    if(passcode){setStatus('Opening Zoom. If prompted, enter the passcode shown here: '+passcode)}
     window.open(url,'_blank','noopener,noreferrer');
   }
-
-  document.querySelectorAll('[data-open-zoom]').forEach(function(link){
-    link.addEventListener('click',function(event){
-      event.preventDefault();
-      section.hidden=false;
-      showMode('manual');
-      section.scrollIntoView({behavior:'smooth',block:'start'});
-      var menu=document.getElementById('navLinks');
-      if(menu&&menu.classList.contains('open')){
-        menu.classList.remove('open');
-        var toggle=document.getElementById('menuToggle');
-        if(toggle)toggle.setAttribute('aria-expanded','false');
-      }
-      window.setTimeout(function(){idInput.focus({preventScroll:true});},250);
-    });
+  function updatePreset(d){
+    var z=d&&d.zoomMeeting&&typeof d.zoomMeeting==='object'?d.zoomMeeting:null;
+    if(!z)return;
+    preset={title:String(z.title||'College Zoom Meeting'),meetingId:cleanId(z.meetingId),passcode:String(z.passcode||''),enabled:z.enabled!==false};
+    var panel=$('zoomPresetPanel');
+    panel.hidden=!(preset.enabled&&preset.meetingId);
+    $('zoomPresetTitle').textContent=preset.title;
+    var pc=$('zoomPresetPasscode');pc.hidden=!preset.passcode;pc.textContent=preset.passcode?'Passcode: '+preset.passcode:'';
+  }
+  menu.addEventListener('click',openDialog);
+  $('zoomDialogClose').addEventListener('click',function(){if(dialog.close)dialog.close();else dialog.removeAttribute('open')});
+  dialog.addEventListener('click',function(e){if(e.target===dialog&&dialog.close)dialog.close()});
+  $('zoomManualId').addEventListener('input',function(){this.value=cleanId(this.value)});
+  $('zoomManualJoin').addEventListener('click',function(){join($('zoomManualId').value,$('zoomManualPasscode').value.trim())});
+  $('zoomPresetJoin').addEventListener('click',function(){join(preset.meetingId,preset.passcode)});
+  $('zoomUsePreset').addEventListener('click',function(){$('zoomManualId').value=preset.meetingId;$('zoomManualPasscode').value=preset.passcode;setStatus('Preset meeting details filled in.')});
+  $('zoomCopyDetails').addEventListener('click',function(){
+    var id=cleanId($('zoomManualId').value),pc=$('zoomManualPasscode').value.trim();
+    if(!id){setStatus('Enter a Meeting ID before copying details.');return}
+    var details='Zoom Meeting ID: '+id+(pc?'\nPasscode: '+pc:'')+'\nJoin URL: https://zoom.us/j/'+id;
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(details).then(function(){setStatus('Meeting details copied.')}).catch(function(){setStatus(details)});
+    else setStatus(details);
   });
-  section.querySelectorAll('[data-zoom-mode]').forEach(function(btn){
-    btn.addEventListener('click',function(){showMode(btn.getAttribute('data-zoom-mode'));});
-  });
-  manualForm.addEventListener('submit',function(event){
-    event.preventDefault();
-    joinZoom(idInput.value,passInput.value);
-  });
-  presetJoin.addEventListener('click',function(){joinZoom(preset.meetingId,preset.passcode);});
-  document.getElementById('zoomCloseBtn').addEventListener('click',function(){
-    section.hidden=true;
-    document.getElementById('zoomHeading').focus({preventScroll:true});
-  });
-  idInput.addEventListener('input',function(){idInput.value=cleanId(idInput.value);});
+  var prior=window.tgtwrWebsiteDataCallback;
+  window.tgtwrWebsiteDataCallback=function(result){
+    if(typeof prior==='function')prior(result);
+    var d=result&&result.data&&typeof result.data==='object'?result.data:result;updatePreset(d);
+  };
+  // If the original data callback is already called before this module executes,
+  // the preset remains hidden safely until the next public-data refresh.
 })();
 </script>
 
