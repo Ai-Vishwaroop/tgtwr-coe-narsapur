@@ -2,6 +2,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="website-version" content="V6">
+
   <meta name="google-site-verification" content="XLdbiO-4FzN-Tq2p5b0n6wZIx7Z80MkeZHQyrRR8Ric" />
   <meta name="google-site-verification" content="ye4xPW2udLxF9o23bfdGYuQPXoLYQAZJd-JmYiWaUj8" />
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -752,95 +754,19 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 </script>
 
 
-<style id="v5-32-hero-gallery-alumni-polish">
-/* Hero: fixed display frame on every device; deliberately stretch images to fill it. */
-.hero-slider{position:relative!important;width:100%!important;height:clamp(230px,34vw,440px)!important;min-height:230px!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;scrollbar-width:none!important}
+<style id="v6-hero-gallery-refinements">
+/* V6: Hero image fills the responsive frame regardless of its original aspect ratio. */
+.hero-slider{overflow:hidden!important;scrollbar-width:none!important}
 .hero-slider::-webkit-scrollbar{display:none!important}
-.hero-slider .hero-slide{flex:0 0 100%!important;width:100%!important;height:100%!important;min-width:100%!important;max-width:100%!important;object-fit:fill!important;scroll-snap-align:start!important}
-.hero-slider .hero-slider-dots{position:absolute!important;left:50%!important;bottom:12px!important;transform:translateX(-50%)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;max-width:85%!important;flex-wrap:wrap!important;padding:7px 10px!important;border-radius:30px!important;background:#062b4db3!important}
-.hero-slider .hero-slide-dot{width:9px!important;height:9px!important;min-width:9px!important;padding:0!important;border:1px solid #fff!important;border-radius:50%!important;background:#ffffff8c!important;cursor:pointer!important;box-shadow:0 1px 4px #0006!important}
-.hero-slider .hero-slide-dot.active{width:22px!important;border-radius:9px!important;background:#ffd028!important;border-color:#ffd028!important}
-.hero-slider .hero-slider-hint{bottom:48px!important;left:50%!important;transform:translateX(-50%)!important;white-space:nowrap!important;max-width:90%!important;overflow:hidden!important;text-overflow:ellipsis!important}
-@media(max-width:600px){.hero-slider{height:230px!important;min-height:230px!important}.hero-slider .hero-slider-arrow{width:36px!important;height:46px!important}.hero-slider .hero-slider-prev{left:7px!important}.hero-slider .hero-slider-next{right:7px!important}.hero-slider .hero-slider-dots{bottom:8px!important}.hero-slider .hero-slider-hint{display:none!important}}
-/* Gallery category photos: compact tiles, with a sliding lightbox when tapped. */
-.category-photos img{cursor:zoom-in;transition:transform .28s ease,filter .28s ease;will-change:transform}
-.category-photos img:hover{transform:scale(.97);filter:brightness(.94)}
-#v532GalleryLightbox{position:fixed;inset:0;z-index:99999;background:#061321ed;display:none;align-items:center;justify-content:center;padding:18px}
-#v532GalleryLightbox.is-open{display:flex}
-#v532GalleryLightbox .v532-lightbox-stage{position:relative;width:min(94vw,1000px);height:min(78vh,680px);overflow:hidden;display:flex;align-items:center;justify-content:center}
-#v532GalleryLightbox img{width:100%;height:100%;object-fit:contain;transition:transform .28s ease,opacity .28s ease;opacity:1}
-#v532GalleryLightbox img.v532-out-left{transform:translateX(-35%);opacity:.15}
-#v532GalleryLightbox img.v532-in-right{transform:translateX(35%);opacity:.15}
-#v532GalleryLightbox .v532-lb-btn{position:absolute;z-index:2;border:0;border-radius:50%;width:44px;height:44px;background:#fff;color:#123b5b;font-size:28px;cursor:pointer;box-shadow:0 3px 12px #0006}
-#v532GalleryLightbox .v532-lb-prev{left:8px;top:50%;transform:translateY(-50%)}
-#v532GalleryLightbox .v532-lb-next{right:8px;top:50%;transform:translateY(-50%)}
-#v532GalleryLightbox .v532-lb-close{top:12px;right:12px}
-#v532GalleryLightbox .v532-lb-count{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);color:#fff;background:#0009;border-radius:20px;padding:6px 12px;font-size:13px}
-@media(max-width:600px){.category-photos{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important}.category-photos img{height:82px!important;border-radius:6px!important}#v532GalleryLightbox{padding:8px}#v532GalleryLightbox .v532-lightbox-stage{width:100%;height:70vh}}
-/* Alumni: smaller portraits and denser cards so more stories fit on screen. */
-#alumniStoriesGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;align-items:stretch}
-#alumniStoriesGrid .alumni-card{min-width:0!important;padding:12px!important;overflow:hidden}
-#alumniStoriesGrid .alumni-card img{width:100%!important;height:118px!important;object-fit:cover!important;border-radius:8px!important}
-#alumniStoriesGrid .alumni-card h3{font-size:.96rem!important;margin:8px 0 5px!important}
-#alumniStoriesGrid .alumni-card p{font-size:.82rem!important;line-height:1.35!important;margin:4px 0!important;overflow-wrap:anywhere}
-@media(max-width:760px){#alumniStoriesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}#alumniStoriesGrid .alumni-card{padding:8px!important}#alumniStoriesGrid .alumni-card img{height:92px!important}#alumniStoriesGrid .alumni-card h3{font-size:.88rem!important}}
-</style>
-
-
-<style id="v5-33-functional-fix">
-/* Functional horizontal hero carousel: each photo occupies exactly one frame. */
-.hero-slider{
- display:flex!important;flex-direction:row!important;align-items:flex-start!important;
- position:relative!important;width:100%!important;
- height:calc(clamp(230px,34vw,440px) + 30px)!important;min-height:260px!important;
- overflow-x:auto!important;overflow-y:hidden!important;
- scroll-snap-type:x mandatory!important;scroll-behavior:smooth!important;
- scrollbar-width:none!important;isolation:isolate!important;
-}
-.hero-slider::-webkit-scrollbar{display:none!important}
-.hero-slider .hero-slide,
-.hero-slider .building-photo{
- position:relative!important;inset:auto!important;top:auto!important;right:auto!important;bottom:auto!important;left:auto!important;
- display:block!important;flex:0 0 100%!important;width:100%!important;min-width:100%!important;max-width:100%!important;
- height:clamp(230px,34vw,440px)!important;min-height:230px!important;max-height:440px!important;
- margin:0!important;border:0!important;border-radius:0!important;
- object-fit:fill!important;opacity:1!important;transform:none!important;
- animation:none!important;animation-delay:0s!important;
- scroll-snap-align:start!important;scroll-snap-stop:always!important;
-}
-.hero-slider .hero-slider-arrow{position:absolute!important;z-index:10!important;top:clamp(115px,17vw,220px)!important;transform:translateY(-50%)!important}
-.hero-slider .hero-slider-prev{left:12px!important}.hero-slider .hero-slider-next{right:12px!important}
-.hero-slider .hero-slider-dots{position:absolute!important;z-index:11!important;left:50%!important;bottom:2px!important;transform:translateX(-50%)!important;display:flex!important;flex-wrap:wrap!important;justify-content:center!important;max-width:85%!important;gap:7px!important;pointer-events:auto!important}
-.hero-slider .hero-slide-dot{flex:0 0 9px!important;width:9px!important;height:9px!important;min-width:9px!important;min-height:9px!important;padding:0!important}
-.hero-slider .hero-slide-dot.active{flex-basis:22px!important;width:22px!important}
-@media(max-width:600px){.hero-slider{height:260px!important;min-height:260px!important}.hero-slider .hero-slide,.hero-slider .building-photo{height:230px!important;min-height:230px!important}.hero-slider .hero-slider-arrow{top:115px!important;width:36px!important;height:44px!important}.hero-slider .hero-slider-dots{bottom:2px!important}}
-/* Alumni actual cards are .card, not .alumni-card. */
-#alumniStoriesGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;align-items:stretch}
-#alumniStoriesGrid>.card{min-width:0!important;padding:10px!important;overflow:hidden}
-#alumniStoriesGrid>.card img{width:100%!important;height:112px!important;object-fit:cover!important;border-radius:7px!important}
-#alumniStoriesGrid>.card h3{font-size:.92rem!important;line-height:1.25!important;margin:6px 0 4px!important;overflow-wrap:anywhere}
-#alumniStoriesGrid>.card p{font-size:.8rem!important;line-height:1.3!important;margin:3px 0!important;overflow-wrap:anywhere}
-@media(max-width:760px){#alumniStoriesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}#alumniStoriesGrid>.card{padding:7px!important}#alumniStoriesGrid>.card img{height:82px!important}#alumniStoriesGrid>.card h3{font-size:.84rem!important}#alumniStoriesGrid>.card p{font-size:.74rem!important}}
-</style>
-
-
-<style id="v5-34-alumni-full-photo-original-ratio">
-/* Alumni: complete image visible, original ratio preserved, compact cards. */
-#alumniStoriesGrid>.card img,
-#alumniStoriesGrid .card img{
- display:block!important;width:100%!important;height:auto!important;
- max-height:150px!important;aspect-ratio:auto!important;
- object-fit:contain!important;object-position:center center!important;
- border-radius:7px!important;background:transparent!important;
- margin-left:auto!important;margin-right:auto!important;
-}
-#alumniStoriesGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;align-items:start!important}
-#alumniStoriesGrid>.card,#alumniStoriesGrid .card{min-width:0!important;padding:8px!important;overflow:hidden!important}
-@media(max-width:760px){
- #alumniStoriesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
- #alumniStoriesGrid>.card img,#alumniStoriesGrid .card img{max-height:115px!important}
- #alumniStoriesGrid>.card,#alumniStoriesGrid .card{padding:6px!important}
-}
+.hero-slider .hero-slide{object-fit:fill!important}
+.hero-slider-dots button{width:10px!important;height:10px!important;min-width:10px!important;padding:0!important;border:1px solid #fff!important;border-radius:999px!important;background:#ffffff9c!important;box-shadow:0 2px 8px #001b3d55!important;transition:width .2s ease,background .2s ease,transform .2s ease!important}
+.hero-slider-dots button.active{width:26px!important;background:#ffcf32!important;transform:none!important}
+.hero-slider-dots button:focus-visible{outline:2px solid #ffcf32!important;outline-offset:3px!important}
+@keyframes v6GalleryOpen{from{opacity:0;transform:translateY(9px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.gallery-category[open] .category-body{animation:v6GalleryOpen .24s ease-out both}
+.gallery-category>summary{cursor:pointer}
+.gallery-category>summary:focus-visible{outline:3px solid #ffcf32;outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.gallery-category[open] .category-body{animation:none!important}.hero-slider-dots button{transition:none!important}}
 </style>
 
 </head>
@@ -945,7 +871,8 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <section id="gallery"><div class="section-head"><h2>College Facilities &amp; Gallery</h2><p>Select a category to view approved photographs</p></div><div class="gallery-categories" id="galleryCategories">
 <details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
-<details class="gallery-category" open><summary>Zoology Laboratory</summary><div class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Zoology Laboratory</summary><div></div>
+  class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Physics Laboratory</summary><div class="category-body"><p>Physics apparatus, optics, electricity experiments and practical facilities.</p><div class="category-photos"><div class="no-photo">Physics laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Chemistry Laboratory</summary><div class="category-body"><p>Laboratory apparatus, glassware, practical benches and safety equipment.</p><div class="category-photos"><div class="no-photo">Chemistry laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Sports &amp; Physical Education</summary><div class="category-body"><p>Sports facilities, training sessions, competitions and student participation.</p><div class="category-photos"><div class="no-photo">Sports photos will be added</div></div></div></details>
@@ -1034,9 +961,12 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     const setText=(id,val)=>{const el=document.getElementById(id);if(el && val) el.textContent=val;};
     setText('heroEyebrow',d.heroEyebrow);setText('heroTitle',d.heroTitle);setText('heroDescription',d.heroDescription);setText('principalMessageHeading',d.principalMessageHeading);
     const zoomMenuLink=document.getElementById('zoomMenuOpen');
-    if(zoomMenuLink && d.zoomMeeting && typeof d.zoomMeeting==='object'){
-      zoomMenuLink.hidden=d.zoomMeeting.enabled===false;
-      zoomMenuLink.setAttribute('aria-hidden',d.zoomMeeting.enabled===false?'true':'false');
+    if(zoomMenuLink){
+      // Keep the Zoom menu entry available for manual Meeting ID use.
+      // Admin's enabled setting still controls whether a preset meeting is shown.
+      zoomMenuLink.hidden=false;
+      zoomMenuLink.removeAttribute('hidden');
+      zoomMenuLink.setAttribute('aria-hidden','false');
     }
     const ha=document.getElementById('heroAcademicsLink');if(ha&&d.heroAcademicsText)ha.textContent=d.heroAcademicsText+' →';
     const hn=document.getElementById('heroNoticesLink');if(hn&&d.heroNoticesText)hn.textContent=d.heroNoticesText;
@@ -1063,7 +993,6 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
        }
        if (slider._v5Timer) { clearInterval(slider._v5Timer); slider._v5Timer = null; }
        slider.innerHTML = slideUrls.map((url, i) => `<img class="building-photo hero-slide${i===0?' is-primary active':''}" src="${esc(url)}" alt="${i===0?'TGTWR Junior College COE Boys, Narsapur campus building':'TGTWR Junior College campus photograph '+(i+1)}" loading="${i===0?'eager':'lazy'}" style="--slide-index:${i}">`).join('') + (slideUrls.length > 1 ? `<button type="button" class="hero-slider-arrow hero-slider-prev" data-slider-action="prev" aria-label="Previous campus photo" title="Previous photo">‹</button><button type="button" class="hero-slider-arrow hero-slider-next" data-slider-action="next" aria-label="Next campus photo" title="Next photo">›</button><div class="hero-slider-dots" aria-label="Campus photos">${slideUrls.map((url,i)=>`<button type="button" class="hero-slide-dot${i===0?' active':''}" data-slide="${i}" aria-label="Show campus photo ${i+1}" title="Show campus photo ${i+1}"></button>`).join('')}</div><span class="hero-slider-hint">Photos change automatically • Use ‹ › or swipe to choose a photo</span>` : '');
-       slider.scrollLeft = 0;
        if (!slider.dataset.v5Bound) {
          slider.dataset.v5Bound = '1';
          const syncSliderState = () => {
@@ -1105,7 +1034,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
          });
          let touchStartX=0;
          slider.addEventListener('touchstart',e=>{touchStartX=e.touches&&e.touches[0]?e.touches[0].clientX:0;},{passive:true});
-         slider.addEventListener('touchend',e=>{const x=e.changedTouches&&e.changedTouches[0]?e.changedTouches[0].clientX:touchStartX;const delta=x-touchStartX;if(Math.abs(delta)>45){const slides=[...slider.querySelectorAll('.hero-slide')];const cur=Math.round(slider.scrollLeft/Math.max(1,slider.clientWidth));const next=((cur+(delta<0?1:-1))%slides.length+slides.length)%slides.length;slider.scrollTo({left:next*slider.clientWidth,behavior:'smooth'});}},{passive:true});
+         slider.addEventListener('touchend',e=>{const x=e.changedTouches&&e.changedTouches[0]?e.changedTouches[0].clientX:touchStartX;const delta=x-touchStartX;if(Math.abs(delta)>45){const slides=[...slider.querySelectorAll('.hero-slide')];const cur=Math.round(slider.scrollLeft/Math.max(1,slider.clientWidth));const next=(cur+(delta<0?1:-1)+slides.length)%slides.length;slider.scrollTo({left:next*slider.clientWidth,behavior:'smooth'});}},{passive:true});
          syncSliderState();
          startHeroAutoAdvance();
        } else {
@@ -1271,7 +1200,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     const footer = $('footer');
     if (footer) footer.innerHTML = `<p><strong>${esc(school)}</strong></p><p>${esc(address)}</p><p>${esc(society)}</p><p class="small">Official institutional information and approved updates.</p>`;
   }
-    // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
+  // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
   window.tgtwrWebsiteDataCallback = function (result) {
     const data = result && result.data && typeof result.data === 'object' ? result.data : result;
     if (data && typeof data === 'object' && !data.error) render(data);
@@ -1500,8 +1429,7 @@ nav .nav-links .emms { margin-left:0 !important; }
 
 
 
-<style id="v526-admin-zoom-visibility">#zoomMenuOpen[hidden]{display:none!important}</style>
-<!-- V5.25 Zoom Meeting: isolated module; existing website features remain unchanged -->
+<style id="v526-admin-zoom-visibility">#zoomMenuOpen[hidden]{display:none!important}</style>\n<!-- V5.25 Zoom Meeting: isolated module; existing website features remain unchanged -->
 <style id="v525-zoom-meeting-styles">
 #zoomMeetingDialog{width:min(94vw,520px);max-width:520px;border:2px solid #b8c8d8;border-radius:18px;padding:0;color:#142b45;background:#fff;box-shadow:0 24px 80px #061b32aa}
 #zoomMeetingDialog::backdrop{background:rgba(4,20,38,.68);backdrop-filter:blur(3px)}
@@ -1535,6 +1463,28 @@ body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
     <p class="zoom-muted">Only join meetings shared by the college. Zoom may ask you to enter the passcode in its app.</p>
   </div>
 </dialog>
+
+<script id="v6-gallery-folder-behavior">
+(function(){
+  if(window.__v6GalleryFolderBehaviorInit)return;
+  window.__v6GalleryFolderBehaviorInit=true;
+  function initGalleryFolders(){
+    document.querySelectorAll('#gallery .gallery-category').forEach(function(folder){
+      if(folder.dataset.v6FolderBound==='1')return;
+      folder.dataset.v6FolderBound='1';
+      folder.addEventListener('toggle',function(){
+        if(!folder.open)return;
+        document.querySelectorAll('#gallery .gallery-category[open]').forEach(function(other){
+          if(other!==folder)other.open=false;
+        });
+      });
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initGalleryFolders,{once:true});
+  else initGalleryFolders();
+})();
+</script>
+
 <script id="v525-zoom-meeting-module">
 (function(){
   if(window.__v525ZoomMeetingInit)return;window.__v525ZoomMeetingInit=true;
@@ -1544,7 +1494,7 @@ body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
   var $=function(id){return document.getElementById(id)};
   function cleanId(v){return String(v||'').replace(/\D/g,'').slice(0,20)}
   function setStatus(t){$('zoomMeetingStatus').textContent=t||''}
-  function openDialog(e){if(e){e.preventDefault();e.stopPropagation()}setStatus('');if(dialog.open)return;if(typeof dialog.showModal==='function'){try{dialog.showModal()}catch(err){dialog.setAttribute('open','')}}else dialog.setAttribute('open','')}
+  function openDialog(e){if(e)e.preventDefault();setStatus('');if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','')}
   function join(id,passcode){id=cleanId(id);if(!id){setStatus('Enter a valid Zoom Meeting ID first.');return}
     if(id.length<9){setStatus('Please check the Meeting ID. It usually contains 9–11 digits.');return}
     var url='https://zoom.us/j/'+encodeURIComponent(id);
@@ -1561,8 +1511,6 @@ body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
     var pc=$('zoomPresetPasscode');pc.hidden=!preset.passcode;pc.textContent=preset.passcode?'Passcode: '+preset.passcode:'';
   }
   menu.addEventListener('click',openDialog);
-  // Defensive delegated handler: keep Zoom Meeting usable if the navigation link is re-rendered.
-  document.addEventListener('click',function(e){var link=e.target&&e.target.closest?e.target.closest('#zoomMenuOpen'):null;if(link&&link!==menu){openDialog(e)}});
   $('zoomDialogClose').addEventListener('click',function(){if(dialog.close)dialog.close();else dialog.removeAttribute('open')});
   dialog.addEventListener('click',function(e){if(e.target===dialog&&dialog.close)dialog.close()});
   $('zoomManualId').addEventListener('input',function(){this.value=cleanId(this.value)});
@@ -1583,28 +1531,6 @@ body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
   };
   // If the original data callback is already called before this module executes,
   // the preset remains hidden safely until the next public-data refresh.
-})();
-</script>
-
-
-<script id="v5-32-gallery-lightbox">
-(function(){
- 'use strict';
- if(window.__v532GalleryLightboxBound)return;window.__v532GalleryLightboxBound=true;
- const box=document.createElement('div');box.id='v532GalleryLightbox';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Gallery photo viewer');
- box.innerHTML='<button type="button" class="v532-lb-btn v532-lb-close" aria-label="Close photo viewer">×</button><button type="button" class="v532-lb-btn v532-lb-prev" aria-label="Previous photo">‹</button><div class="v532-lightbox-stage"><img alt="Gallery photo"></div><button type="button" class="v532-lb-btn v532-lb-next" aria-label="Next photo">›</button><div class="v532-lb-count" aria-live="polite"></div>';
- document.body.appendChild(box);
- const image=box.querySelector('img'),count=box.querySelector('.v532-lb-count');
- let photos=[],index=0;
- function show(next,dir){if(!photos.length)return;const target=(next+photos.length)%photos.length;if(!dir||!box.classList.contains('is-open')){index=target;image.className='';image.src=photos[index].src;image.alt=photos[index].alt||'Gallery photo';count.textContent=(index+1)+' / '+photos.length;return;}image.className=dir==='next'?'v532-out-left':'v532-in-right';window.setTimeout(()=>{index=target;image.src=photos[index].src;image.alt=photos[index].alt||'Gallery photo';count.textContent=(index+1)+' / '+photos.length;image.className=dir==='next'?'v532-in-right':'v532-out-left';requestAnimationFrame(()=>requestAnimationFrame(()=>image.className=''));},130);}
- function close(){box.classList.remove('is-open');document.body.style.removeProperty('overflow');}
- document.addEventListener('click',e=>{const img=e.target.closest('.category-photos img');if(!img)return;const group=img.closest('.category-photos');photos=[...group.querySelectorAll('img')].filter(x=>x.src);index=photos.indexOf(img);box.classList.add('is-open');document.body.style.overflow='hidden';show(index,'');});
- box.querySelector('.v532-lb-close').addEventListener('click',close);
- box.querySelector('.v532-lb-prev').addEventListener('click',()=>show(index-1,'prev'));
- box.querySelector('.v532-lb-next').addEventListener('click',()=>show(index+1,'next'));
- box.addEventListener('click',e=>{if(e.target===box)close();});
- document.addEventListener('keydown',e=>{if(!box.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(index+1,'next');if(e.key==='ArrowLeft')show(index-1,'prev');});
- let x=0;box.addEventListener('touchstart',e=>{x=e.touches[0].clientX;},{passive:true});box.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x;if(Math.abs(d)>45)show(index+(d<0?1:-1),d<0?'next':'prev');},{passive:true});
 })();
 </script>
 
@@ -1881,3 +1807,4 @@ body.dark-mode #main [style*="color: #fff"],body.dark-mode #main [style*="color:
 
 .hero-slider{scroll-behavior:smooth;touch-action:pan-x pan-y}.hero-slider .hero-slide{display:block!important;position:relative!important;opacity:1!important;visibility:visible!important;transform:none!important}.hero-slider .hero-slide.active{opacity:1!important}
 </style>
+                                                                            
