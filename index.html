@@ -750,6 +750,14 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 (function(){function fixCollegeMap(){var frame=document.querySelector('#contact .college-map-frame');if(!frame)return;var defaultMap='https://www.google.com/maps?q=TTWR%20School%20Boys%20NARSAPUR%2C%20Narsapur%2C%20Medak%20District%2C%20Telangana%2C%20India&z=14&output=embed';frame.setAttribute('data-default-src',defaultMap);var current=frame.getAttribute('src')||'';if(!current||current==='about:blank'||current.indexOf('TTWR%20School%20Boys')===-1)frame.setAttribute('src',defaultMap);var button=document.querySelector('#contact .map-return-college');if(button&&!button.dataset.v523Bound){button.dataset.v523Bound='1';button.addEventListener('click',function(){var f=document.querySelector('#contact .college-map-frame');if(!f)return;f.setAttribute('src','about:blank');window.setTimeout(function(){f.setAttribute('src',f.getAttribute('data-default-src')||defaultMap)},100)})}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fixCollegeMap);else fixCollegeMap();var oldCallback=window.tgtwrWebsiteDataCallback;window.tgtwrWebsiteDataCallback=function(result){if(typeof oldCallback==='function')oldCallback(result);window.setTimeout(fixCollegeMap,120)};window.addEventListener('load',function(){window.setTimeout(fixCollegeMap,300)})})();
 </script>
 
+
+<style id="zoom-meeting-feature-v1">
+#zoom-meeting[hidden],#zoomPresetPanel[hidden]{display:none!important}
+.zoom-meeting-section{margin:18px 0 24px;scroll-margin-top:16px}.zoom-meeting-card{max-width:680px;margin:0 auto;padding:clamp(16px,3vw,28px)!important}.zoom-mode-switch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.zoom-mode-switch .btn{margin:0;cursor:pointer}.zoom-mode-switch .zoom-mode.active{outline:3px solid #78b9ef;outline-offset:2px}.zoom-form{display:grid;gap:8px}.zoom-form label{font-weight:750;margin-top:6px}.zoom-form input{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #9eb4c8;border-radius:9px;font:inherit;background:#fff;color:#132b42}.zoom-join-btn{background:#1769aa!important;color:#fff!important}.zoom-note{font-size:.88rem;color:var(--muted);line-height:1.5;margin-top:16px}.zoom-preset-panel{border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0}.zoom-preset-panel button:disabled{opacity:.55;cursor:not-allowed}.zoom-meeting-card .outline{background:transparent;color:var(--ink);border:1px solid var(--line);cursor:pointer;margin-top:8px}
+body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#102b40!important;color:#eaf4ff!important;border-color:#35566f!important}body.dark-mode .zoom-form input{background:#0b2032!important;color:#f2f7ff!important;border-color:#527087!important}body.dark-mode .zoom-note{color:#c1d2e1!important}
+@media(max-width:480px){.zoom-mode-switch{display:grid;grid-template-columns:1fr}.zoom-mode-switch .btn{width:100%;box-sizing:border-box}.zoom-meeting-card{padding:15px!important}}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -769,7 +777,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <a class="nav-emms" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" target="_blank" rel="noopener noreferrer">📘 EMMS LOGIN</a>
 </div>
 <div class="nav-links" id="navLinks">
-<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Latest Notices &amp; Circulars</a><a href="#examinations">Examinations &amp; Results</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#alumni-success">Alumni Success Stories</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
+<a href="#home">Home</a><a href="#zoom-meeting" data-open-zoom>🎥 Zoom Meeting</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Latest Notices &amp; Circulars</a><a href="#examinations">Examinations &amp; Results</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#alumni-success">Alumni Success Stories</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
 </div></div></nav>
 <div class="top-updates-ticker" id="topUpdatesTicker" aria-label="Latest college updates">
   <span class="top-updates-label">LATEST UPDATES</span>
@@ -783,6 +791,29 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <div class="global-search-shell" role="search"><div class="global-search-inner"><label for="globalSiteSearch">Search the website</label><input id="globalSiteSearch" type="search" placeholder="Search notices, achievements, staff, videos, facilities…" autocomplete="off"><span id="globalSearchStatus" aria-live="polite">Search across public college information.</span><button type="button" id="clearGlobalSearch">Clear</button></div></div>
 <main id="main">
 
+<section id="zoom-meeting" class="zoom-meeting-section" aria-labelledby="zoomHeading" hidden>
+  <div class="section-head"><h2 id="zoomHeading">🎥 Zoom Meeting</h2><p>Join an online meeting using a Meeting ID or the college preset.</p></div>
+  <div class="card zoom-meeting-card">
+    <div class="zoom-mode-switch" role="group" aria-label="Meeting ID method">
+      <button type="button" class="btn zoom-mode active" data-zoom-mode="manual" aria-pressed="true">Enter Meeting ID</button>
+      <button type="button" class="btn secondary zoom-mode" data-zoom-mode="preset" aria-pressed="false">College Preset</button>
+    </div>
+    <form id="zoomManualForm" class="zoom-form">
+      <label for="zoomMeetingId">Meeting ID</label>
+      <input id="zoomMeetingId" name="meetingId" inputmode="numeric" autocomplete="off" placeholder="Enter Zoom Meeting ID" maxlength="20" required>
+      <label for="zoomPasscode">Passcode (if required)</label>
+      <input id="zoomPasscode" name="passcode" type="text" autocomplete="off" placeholder="Enter meeting passcode">
+      <button type="submit" class="btn zoom-join-btn">Join Zoom Meeting ↗</button>
+    </form>
+    <div id="zoomPresetPanel" class="zoom-preset-panel" hidden>
+      <p id="zoomPresetStatus" role="status">College preset meeting details have not been configured yet.</p>
+      <p><strong id="zoomPresetTitle">College Zoom Meeting</strong></p>
+      <button type="button" id="zoomPresetJoin" class="btn zoom-join-btn" disabled>Join College Meeting ↗</button>
+    </div>
+    <p class="zoom-note">Zoom may open in the Zoom app or offer a browser option. Meeting host settings may require a passcode, sign-in, or host approval.</p>
+    <button type="button" class="btn outline" id="zoomCloseBtn">Close</button>
+  </div>
+</section>
 
 <div class="hero-banner">
   <img class="building-photo" src="assets/college-building.webp" alt="TGTWR Junior College COE Boys, Narsapur campus building" fetchpriority="high">
@@ -806,6 +837,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     <a href="#academics">Academics<small>MPC, BiPC, CEC and vocational groups</small></a>
     <a href="#notices" id="quickAccessNoticesLink">Notices<small>Circulars and updates</small></a>
     
+    <a href="#zoom-meeting" data-open-zoom>🎥 Zoom Meeting<small>Join using Meeting ID or college preset</small></a>
     <a href="#examinations">Examinations<small>Schedules and results</small></a>
     <a href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" target="_blank" rel="noopener noreferrer">EMMS Login<small>Authorised staff access</small></a>
   </div></div>
@@ -817,6 +849,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <section id="principal-message"><div class="section-head"><h2>Principal’s Message</h2><p id="principalMessageHeading">A message to students, parents and the college community</p></div><div class="card principal-message" id="principalMessage"><div class="photo-placeholder">Principal photo</div><div><p class="principal-message-copy">Welcome to TGTWR Junior College (COE) Boys, Narsapur. We are committed to providing quality education, discipline and opportunities for the holistic development of our students. Together, we strive to build confidence, integrity, knowledge and a brighter future.</p><p class="principal-sign">E. Balaram<br><span class="small">Principal- TGTWR JUNIOR COLLEGE (COE) BOYS, NARSAPUR</span></p></div></div></section>
 <section id="academics"><div class="section-head"><h2>Academic Programmes</h2><p>Intermediate groups</p></div><div class="cards"><div class="card"><h3>Science Groups</h3><div class="pill-list"><span class="pill">MPC-I</span><span class="pill">MPC-II</span><span class="pill">BIPC-I</span><span class="pill">BIPC-II</span></div></div><div class="card"><h3>Arts Groups</h3><div class="pill-list"><span class="pill">CEC-I</span><span class="pill">CEC-II</span></div></div><div class="card"><h3>Vocational Groups</h3><div class="pill-list"><span class="pill">ACCOUNTANCY &amp; TAXATION-I</span><span class="pill">ACCOUNTANCY &amp; TAXATION-II</span></div></div></div><p class="small">Subject details, academic calendars and schedules will be added after official verification.</p></section>
 <section id="administration"><div class="section-head"><h2>Administration & Faculty</h2><p>TGTWRJC / COE Boys, Narsapur — Teaching Staff Particulars</p></div>
+
 <div class="staff-table-wrap" role="region" aria-label="Teaching staff particulars" tabindex="0"><table class="staff-table"><thead><tr><th>Sl. No.</th><th>Name of the Employee</th><th>Subject</th><th>Qualification</th></tr></thead><tbody>
 <tr><td>1</td><td>E. Balaram (Principal)</td><td>Commerce</td><td>M.Com, MA, B.Ed</td></tr>
 <tr><td>2</td><td>A. Mamatha (Vice Principal)</td><td>Telugu</td><td>MA, B.Ed</td></tr>
@@ -1146,7 +1179,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
   // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
   window.tgtwrWebsiteDataCallback = function (result) {
     const data = result && result.data && typeof result.data === 'object' ? result.data : result;
-    if (data && typeof data === 'object' && !data.error) render(data);
+    if (data && typeof data === 'object' && !data.error) { window.tgtwrZoomMeetingSettings = data.zoomMeeting || null; render(data); if (typeof window.applyTgtwrZoomMeetingSettings === 'function') window.applyTgtwrZoomMeetingSettings(window.tgtwrZoomMeetingSettings); }
     else console.warn('Website live data is not available; built-in content remains visible.');
   };
   const apiScript = document.createElement('script');
@@ -1370,6 +1403,53 @@ nav .nav-links .emms { margin-left:0 !important; }
 
 
 
+
+
+<script id="zoom-meeting-feature-v1-script">
+(function(){
+  'use strict';
+  // Defaults preserve the existing manual Meeting ID flow. Preset details are replaced by the authenticated Admin Panel's public website settings when available.
+  var ZOOM_COLLEGE_PRESET = { meetingId: '', passcode: '', title: 'College Zoom Meeting', enabled: true };
+  var section=document.getElementById('zoom-meeting');
+  if(!section)return;
+  var manualForm=document.getElementById('zoomManualForm');
+  var presetPanel=document.getElementById('zoomPresetPanel');
+  var presetJoin=document.getElementById('zoomPresetJoin');
+  var presetStatus=document.getElementById('zoomPresetStatus');
+  var presetTitle=document.getElementById('zoomPresetTitle');
+  var idInput=document.getElementById('zoomMeetingId');
+  var passInput=document.getElementById('zoomPasscode');
+  window.applyTgtwrZoomMeetingSettings=function(settings){
+    settings=settings&&typeof settings==='object'?settings:{};
+    ZOOM_COLLEGE_PRESET={meetingId:String(settings.meetingId||''),passcode:String(settings.passcode||''),title:String(settings.title||'College Zoom Meeting'),enabled:settings.enabled!==false};
+    var presetMode=section.querySelector('[data-zoom-mode=\"preset\"]');
+    if(presetMode){presetMode.hidden=!ZOOM_COLLEGE_PRESET.enabled;presetMode.disabled=!ZOOM_COLLEGE_PRESET.enabled;}
+    if(presetTitle)presetTitle.textContent=ZOOM_COLLEGE_PRESET.title;
+    if(presetPanel&&presetPanel.hidden===false&&!ZOOM_COLLEGE_PRESET.enabled)showMode('manual');
+    else if(presetPanel&&presetPanel.hidden===false)showMode('preset');
+  };
+  if(window.tgtwrZoomMeetingSettings)window.applyTgtwrZoomMeetingSettings(window.tgtwrZoomMeetingSettings);
+  function cleanId(value){return String(value||'').replace(/[^0-9]/g,'').slice(0,20);}
+  function joinZoom(id,pass){
+    id=cleanId(id);
+    if(id.length<9||id.length>13){alert('Please enter a valid Zoom Meeting ID (usually 9–13 digits).');return;}
+    var url='https://zoom.us/j/'+encodeURIComponent(id);
+    if(String(pass||'').trim())url+='?pwd='+encodeURIComponent(String(pass).trim());
+    window.open(url,'_blank','noopener,noreferrer');
+  }
+  function showMode(mode){
+    var isPreset=mode==='preset';manualForm.hidden=isPreset;presetPanel.hidden=!isPreset;
+    section.querySelectorAll('[data-zoom-mode]').forEach(function(btn){var active=btn.getAttribute('data-zoom-mode')===mode;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false');});
+    if(isPreset){var id=cleanId(ZOOM_COLLEGE_PRESET.meetingId);presetTitle.textContent=ZOOM_COLLEGE_PRESET.title||'College Zoom Meeting';if(id.length>=9&&id.length<=13){presetStatus.textContent='A college meeting has been configured.';presetJoin.disabled=false;}else{presetStatus.textContent='The college preset is not configured yet. Please use “Enter Meeting ID”, or ask the website administrator to add the official Meeting ID.';presetJoin.disabled=true;}}
+  }
+  document.querySelectorAll('[data-open-zoom]').forEach(function(link){link.addEventListener('click',function(event){event.preventDefault();section.hidden=false;showMode('manual');section.scrollIntoView({behavior:'smooth',block:'start'});var menu=document.getElementById('navLinks');if(menu&&menu.classList.contains('open')){menu.classList.remove('open');var toggle=document.getElementById('menuToggle');if(toggle)toggle.setAttribute('aria-expanded','false');}setTimeout(function(){idInput.focus({preventScroll:true});},250);});});
+  section.querySelectorAll('[data-zoom-mode]').forEach(function(btn){btn.addEventListener('click',function(){showMode(btn.getAttribute('data-zoom-mode'));});});
+  manualForm.addEventListener('submit',function(event){event.preventDefault();joinZoom(idInput.value,passInput.value);});
+  presetJoin.addEventListener('click',function(){joinZoom(ZOOM_COLLEGE_PRESET.meetingId,ZOOM_COLLEGE_PRESET.passcode);});
+  document.getElementById('zoomCloseBtn').addEventListener('click',function(){section.hidden=true;});
+  idInput.addEventListener('input',function(){idInput.value=cleanId(idInput.value);});
+})();
+</script>
 
 </body></html>
 <style id="requested-final-layout-fixes">
@@ -1635,4 +1715,4 @@ body.dark-mode #main .quick a,body.dark-mode #main .btn:not(.secondary){color:#f
 body.dark-mode #main .btn.secondary,body.dark-mode #main .callout strong{color:#ffe58a!important;-webkit-text-fill-color:#ffe58a!important}
 body.dark-mode #main .global-search-shell,body.dark-mode .global-search-shell{background:#0b2032!important;color:#eaf4ff!important}
 body.dark-mode #main [style*="color: #fff"],body.dark-mode #main [style*="color:#fff"],body.dark-mode #main [style*="color: white"],body.dark-mode #main [style*="color:white"]{color:#eaf4ff!important;-webkit-text-fill-color:#eaf4ff!important}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </style>
+</style>
