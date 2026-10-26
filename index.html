@@ -654,7 +654,7 @@ body.dark-mode #contact .map-return-college{background:linear-gradient(120deg,#1
     linear-gradient(125deg,#e3f7ff 0%,#f8fcff 42%,#fff5d8 100%)!important;
   box-shadow:0 12px 30px rgba(13,78,112,.10)!important;
 }
-#leaders::before{
+  #leaders::before{
   content:"";position:absolute;z-index:-1;pointer-events:none;inset:0;
   background:linear-gradient(115deg,transparent 0 54%,rgba(0,148,174,.055) 54% 55%,transparent 55% 100%);
 }
@@ -750,6 +750,41 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <script id="v5-23-map-reset-reliability">
 (function(){function fixCollegeMap(){var frame=document.querySelector('#contact .college-map-frame');if(!frame)return;var defaultMap='https://www.google.com/maps?q=TTWR%20School%20Boys%20NARSAPUR%2C%20Narsapur%2C%20Medak%20District%2C%20Telangana%2C%20India&z=14&output=embed';frame.setAttribute('data-default-src',defaultMap);var current=frame.getAttribute('src')||'';if(!current||current==='about:blank'||current.indexOf('TTWR%20School%20Boys')===-1)frame.setAttribute('src',defaultMap);var button=document.querySelector('#contact .map-return-college');if(button&&!button.dataset.v523Bound){button.dataset.v523Bound='1';button.addEventListener('click',function(){var f=document.querySelector('#contact .college-map-frame');if(!f)return;f.setAttribute('src','about:blank');window.setTimeout(function(){f.setAttribute('src',f.getAttribute('data-default-src')||defaultMap)},100)})}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fixCollegeMap);else fixCollegeMap();var oldCallback=window.tgtwrWebsiteDataCallback;window.tgtwrWebsiteDataCallback=function(result){if(typeof oldCallback==='function')oldCallback(result);window.setTimeout(fixCollegeMap,120)};window.addEventListener('load',function(){window.setTimeout(fixCollegeMap,300)})})();
 </script>
+
+
+<style id="v5-32-hero-gallery-alumni-polish">
+/* Hero: fixed display frame on every device; deliberately stretch images to fill it. */
+.hero-slider{position:relative!important;width:100%!important;height:clamp(230px,34vw,440px)!important;min-height:230px!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;scrollbar-width:none!important}
+.hero-slider::-webkit-scrollbar{display:none!important}
+.hero-slider .hero-slide{flex:0 0 100%!important;width:100%!important;height:100%!important;min-width:100%!important;max-width:100%!important;object-fit:fill!important;scroll-snap-align:start!important}
+.hero-slider .hero-slider-dots{position:absolute!important;left:50%!important;bottom:12px!important;transform:translateX(-50%)!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;max-width:85%!important;flex-wrap:wrap!important;padding:7px 10px!important;border-radius:30px!important;background:#062b4db3!important}
+.hero-slider .hero-slide-dot{width:9px!important;height:9px!important;min-width:9px!important;padding:0!important;border:1px solid #fff!important;border-radius:50%!important;background:#ffffff8c!important;cursor:pointer!important;box-shadow:0 1px 4px #0006!important}
+.hero-slider .hero-slide-dot.active{width:22px!important;border-radius:9px!important;background:#ffd028!important;border-color:#ffd028!important}
+.hero-slider .hero-slider-hint{bottom:48px!important;left:50%!important;transform:translateX(-50%)!important;white-space:nowrap!important;max-width:90%!important;overflow:hidden!important;text-overflow:ellipsis!important}
+@media(max-width:600px){.hero-slider{height:230px!important;min-height:230px!important}.hero-slider .hero-slider-arrow{width:36px!important;height:46px!important}.hero-slider .hero-slider-prev{left:7px!important}.hero-slider .hero-slider-next{right:7px!important}.hero-slider .hero-slider-dots{bottom:8px!important}.hero-slider .hero-slider-hint{display:none!important}}
+/* Gallery category photos: compact tiles, with a sliding lightbox when tapped. */
+.category-photos img{cursor:zoom-in;transition:transform .28s ease,filter .28s ease;will-change:transform}
+.category-photos img:hover{transform:scale(.97);filter:brightness(.94)}
+#v532GalleryLightbox{position:fixed;inset:0;z-index:99999;background:#061321ed;display:none;align-items:center;justify-content:center;padding:18px}
+#v532GalleryLightbox.is-open{display:flex}
+#v532GalleryLightbox .v532-lightbox-stage{position:relative;width:min(94vw,1000px);height:min(78vh,680px);overflow:hidden;display:flex;align-items:center;justify-content:center}
+#v532GalleryLightbox img{width:100%;height:100%;object-fit:contain;transition:transform .28s ease,opacity .28s ease;opacity:1}
+#v532GalleryLightbox img.v532-out-left{transform:translateX(-35%);opacity:.15}
+#v532GalleryLightbox img.v532-in-right{transform:translateX(35%);opacity:.15}
+#v532GalleryLightbox .v532-lb-btn{position:absolute;z-index:2;border:0;border-radius:50%;width:44px;height:44px;background:#fff;color:#123b5b;font-size:28px;cursor:pointer;box-shadow:0 3px 12px #0006}
+#v532GalleryLightbox .v532-lb-prev{left:8px;top:50%;transform:translateY(-50%)}
+#v532GalleryLightbox .v532-lb-next{right:8px;top:50%;transform:translateY(-50%)}
+#v532GalleryLightbox .v532-lb-close{top:12px;right:12px}
+#v532GalleryLightbox .v532-lb-count{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);color:#fff;background:#0009;border-radius:20px;padding:6px 12px;font-size:13px}
+@media(max-width:600px){.category-photos{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important}.category-photos img{height:82px!important;border-radius:6px!important}#v532GalleryLightbox{padding:8px}#v532GalleryLightbox .v532-lightbox-stage{width:100%;height:70vh}}
+/* Alumni: smaller portraits and denser cards so more stories fit on screen. */
+#alumniStoriesGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;align-items:stretch}
+#alumniStoriesGrid .alumni-card{min-width:0!important;padding:12px!important;overflow:hidden}
+#alumniStoriesGrid .alumni-card img{width:100%!important;height:118px!important;object-fit:cover!important;border-radius:8px!important}
+#alumniStoriesGrid .alumni-card h3{font-size:.96rem!important;margin:8px 0 5px!important}
+#alumniStoriesGrid .alumni-card p{font-size:.82rem!important;line-height:1.35!important;margin:4px 0!important;overflow-wrap:anywhere}
+@media(max-width:760px){#alumniStoriesGrid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}#alumniStoriesGrid .alumni-card{padding:8px!important}#alumniStoriesGrid .alumni-card img{height:92px!important}#alumniStoriesGrid .alumni-card h3{font-size:.88rem!important}}
+</style>
 
 </head>
 <body>
@@ -961,7 +996,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
        const campusPhotos = (Array.isArray(d.gallery) ? d.gallery : []).filter(g => {
          const cat = String(g.category || g.type || '').toLowerCase();
          const title = String(g.title || g.name || '').toLowerCase();
-         return safeUrl(g.url || g.photo || g.imageUrl) && (cat==='campus' || cat==='college building & campus' || cat==='college building' || /building|campus|college/.test(title));
+         return safeUrl(g.url || g.photo || g.imageUrl) && (cat==='campus' || cat==='campus & infrastructure' || cat==='college building & campus' || cat==='college building' || /building|campus|infrastructure|college/.test(title));
        }).map(g => safeUrl(g.url || g.photo || g.imageUrl)).filter((url, i, all) => url && all.indexOf(url) === i);
        const slideUrls = [building || buildingImg.getAttribute('src'), ...campusPhotos].filter((url, i, all) => url && all.indexOf(url) === i);
        let slider = heroBanner.querySelector('.hero-slider');
@@ -1145,14 +1180,14 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
         {key:'chemistry',title:'Chemistry Laboratory',match:/chemistry|chemical lab/i,desc:'Laboratory apparatus, glassware, practical benches and safety equipment.'},
         {key:'sports',title:'Sports & Physical Education',match:/sports?|physical education|athletics|games/i,desc:'Sports facilities, training sessions, competitions and participation.'},
         {key:'events',title:'Events & Celebrations',match:/event|celebration|annual day|function|cultural|science exhibition/i,desc:'College functions, cultural programmes, exhibitions and official visits.'},
-        {key:'campus',title:'College Building & Campus',match:/building|campus|college/i,desc:'Campus, building and common facilities.'}
+        {key:'campus',title:'Campus & Infrastructure',match:/building|campus|college/i,desc:'Campus, building and common facilities.'}
       ];
       const getTitle = g => String(g.title || g.name || 'College photo');
       const getUrl = g => safeUrl(g.url || g.photo || g.imageUrl);
       const catHtml = categories.map(cat => {
         const photos = d.gallery.filter(g => {
           const raw = String(g.category || g.type || '').toLowerCase().trim();
-          const aliases = {'library':'library','botany':'botany','botany laboratory':'botany','zoology':'zoology','zoology laboratory':'zoology','physics':'physics','physics laboratory':'physics','chemistry':'chemistry','chemistry laboratory':'chemistry','sports':'sports','sports & physical education':'sports','events':'events','events & celebrations':'events','campus':'campus','college building & campus':'campus','college building':'campus'};
+          const aliases = {'library':'library','botany':'botany','botany laboratory':'botany','zoology':'zoology','zoology laboratory':'zoology','physics':'physics','physics laboratory':'physics','chemistry':'chemistry','chemistry laboratory':'chemistry','sports':'sports','sports & physical education':'sports','events':'events','events & celebrations':'events','campus':'campus','campus & infrastructure':'campus','college building':'campus'};
           const key = aliases[raw] || '';
           return key ? key === cat.key : cat.match.test(getTitle(g));
         }).filter(g => getUrl(g));
@@ -1178,7 +1213,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     const footer = $('footer');
     if (footer) footer.innerHTML = `<p><strong>${esc(school)}</strong></p><p>${esc(address)}</p><p>${esc(society)}</p><p class="small">Official institutional information and approved updates.</p>`;
   }
-  // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
+    // The Apps Script endpoint supports JSONP, avoiding cross-origin fetch restrictions on GitHub Pages.
   window.tgtwrWebsiteDataCallback = function (result) {
     const data = result && result.data && typeof result.data === 'object' ? result.data : result;
     if (data && typeof data === 'object' && !data.error) render(data);
@@ -1487,6 +1522,28 @@ body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
   };
   // If the original data callback is already called before this module executes,
   // the preset remains hidden safely until the next public-data refresh.
+})();
+</script>
+
+
+<script id="v5-32-gallery-lightbox">
+(function(){
+ 'use strict';
+ if(window.__v532GalleryLightboxBound)return;window.__v532GalleryLightboxBound=true;
+ const box=document.createElement('div');box.id='v532GalleryLightbox';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Gallery photo viewer');
+ box.innerHTML='<button type="button" class="v532-lb-btn v532-lb-close" aria-label="Close photo viewer">×</button><button type="button" class="v532-lb-btn v532-lb-prev" aria-label="Previous photo">‹</button><div class="v532-lightbox-stage"><img alt="Gallery photo"></div><button type="button" class="v532-lb-btn v532-lb-next" aria-label="Next photo">›</button><div class="v532-lb-count" aria-live="polite"></div>';
+ document.body.appendChild(box);
+ const image=box.querySelector('img'),count=box.querySelector('.v532-lb-count');
+ let photos=[],index=0;
+ function show(next,dir){if(!photos.length)return;index=(next+photos.length)%photos.length;image.className=dir==='next'?'v532-in-right':dir==='prev'?'v532-out-left':'';image.src=photos[index].src;image.alt=photos[index].alt||'Gallery photo';count.textContent=(index+1)+' / '+photos.length;requestAnimationFrame(()=>requestAnimationFrame(()=>image.className=''));}
+ function close(){box.classList.remove('is-open');document.body.style.removeProperty('overflow');}
+ document.addEventListener('click',e=>{const img=e.target.closest('.category-photos img');if(!img)return;const group=img.closest('.category-photos');photos=[...group.querySelectorAll('img')].filter(x=>x.src);index=photos.indexOf(img);box.classList.add('is-open');document.body.style.overflow='hidden';show(index,'');});
+ box.querySelector('.v532-lb-close').addEventListener('click',close);
+ box.querySelector('.v532-lb-prev').addEventListener('click',()=>show(index-1,'prev'));
+ box.querySelector('.v532-lb-next').addEventListener('click',()=>show(index+1,'next'));
+ box.addEventListener('click',e=>{if(e.target===box)close();});
+ document.addEventListener('keydown',e=>{if(!box.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(index+1,'next');if(e.key==='ArrowLeft')show(index-1,'prev');});
+ let x=0;box.addEventListener('touchstart',e=>{x=e.touches[0].clientX;},{passive:true});box.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x;if(Math.abs(d)>45)show(index+(d<0?1:-1),d<0?'next':'prev');},{passive:true});
 })();
 </script>
 
