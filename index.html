@@ -1,3 +1,4 @@
+<!-- V5.30: based on Index_V5_29_HORIZONTAL_CAMPUS_GALLERY.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -850,7 +851,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <section id="useful-links"><div class="section-head"><h2>Useful Links for Students</h2><p>Trusted learning resources, entrance examinations and scholarships</p></div><div class="cards" id="usefulLinksGrid"><article class="card">Useful links will be added by the college.</article></div></section>
 <section id="subject-videos"><div class="section-head"><h2>Subject-wise Video Resources</h2><p>Approved YouTube lessons and learning videos shared by subject staff</p></div><div class="cards" id="subjectVideosGrid"><article class="card">Video resources will be added by subject staff.</article></div></section>
 <section id="gallery"><div class="section-head"><h2>College Facilities &amp; Gallery</h2><p>Select a category to view approved photographs</p></div><div class="gallery-categories" id="galleryCategories">
-  <details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Zoology Laboratory</summary><div class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Physics Laboratory</summary><div class="category-body"><p>Physics apparatus, optics, electricity experiments and practical facilities.</p><div class="category-photos"><div class="no-photo">Physics laboratory photos will be added</div></div></div></details>
@@ -940,6 +941,11 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     const mot = $('.motto'); if (mot) mot.textContent = motto;
     const setText=(id,val)=>{const el=document.getElementById(id);if(el && val) el.textContent=val;};
     setText('heroEyebrow',d.heroEyebrow);setText('heroTitle',d.heroTitle);setText('heroDescription',d.heroDescription);setText('principalMessageHeading',d.principalMessageHeading);
+    const zoomMenuLink=document.getElementById('zoomMenuOpen');
+    if(zoomMenuLink && d.zoomMeeting && typeof d.zoomMeeting==='object'){
+      zoomMenuLink.hidden=d.zoomMeeting.enabled===false;
+      zoomMenuLink.setAttribute('aria-hidden',d.zoomMeeting.enabled===false?'true':'false');
+    }
     const ha=document.getElementById('heroAcademicsLink');if(ha&&d.heroAcademicsText)ha.textContent=d.heroAcademicsText+' →';
     const hn=document.getElementById('heroNoticesLink');if(hn&&d.heroNoticesText)hn.textContent=d.heroNoticesText;
     const logos = d.logos || {};
@@ -955,46 +961,72 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
        const campusPhotos = (Array.isArray(d.gallery) ? d.gallery : []).filter(g => {
          const cat = String(g.category || g.type || '').toLowerCase();
          const title = String(g.title || g.name || '').toLowerCase();
-         return safeUrl(g.url || g.photo || g.imageUrl) && (cat.includes('campus') || /building|campus|college/.test(title));
+         return safeUrl(g.url || g.photo || g.imageUrl) && (cat==='campus' || cat==='college building & campus' || cat==='college building' || /building|campus|college/.test(title));
        }).map(g => safeUrl(g.url || g.photo || g.imageUrl)).filter((url, i, all) => url && all.indexOf(url) === i);
-       const slideUrls = [building || buildingImg.getAttribute('src'), ...campusPhotos].filter((url, i, all) => url && all.indexOf(url) === i).slice(0, 8);
+       const slideUrls = [building || buildingImg.getAttribute('src'), ...campusPhotos].filter((url, i, all) => url && all.indexOf(url) === i);
        let slider = heroBanner.querySelector('.hero-slider');
        if (!slider) {
          slider = document.createElement('div'); slider.className = 'hero-slider';
          buildingImg.replaceWith(slider);
        }
        if (slider._v5Timer) { clearInterval(slider._v5Timer); slider._v5Timer = null; }
-       slider.innerHTML = slideUrls.map((url, i) => `<img class="building-photo hero-slide${i===0?' is-primary active':''}" src="${esc(url)}" alt="${i===0?'TGTWR Junior College COE Boys, Narsapur campus building':'TGTWR Junior College campus photograph '+(i+1)}" loading="${i===0?'eager':'lazy'}" style="--slide-index:${i}">`).join('') + (slideUrls.length > 1 ? `<button type="button" class="hero-slider-arrow hero-slider-prev" data-slider-action="prev" aria-label="Previous campus photo" title="Previous photo">‹</button><button type="button" class="hero-slider-arrow hero-slider-next" data-slider-action="next" aria-label="Next campus photo" title="Next photo">›</button><div class="hero-slider-dots" aria-label="Campus photos">${slideUrls.map((url,i)=>`<button type="button" class="hero-slide-dot${i===0?' active':''}" data-slide="${i}" aria-label="Show campus photo ${i+1}" title="Show campus photo ${i+1}"></button>`).join('')}</div><span class="hero-slider-hint">Use arrows to change photos</span>` : '');
+       slider.innerHTML = slideUrls.map((url, i) => `<img class="building-photo hero-slide${i===0?' is-primary active':''}" src="${esc(url)}" alt="${i===0?'TGTWR Junior College COE Boys, Narsapur campus building':'TGTWR Junior College campus photograph '+(i+1)}" loading="${i===0?'eager':'lazy'}" style="--slide-index:${i}">`).join('') + (slideUrls.length > 1 ? `<button type="button" class="hero-slider-arrow hero-slider-prev" data-slider-action="prev" aria-label="Previous campus photo" title="Previous photo">‹</button><button type="button" class="hero-slider-arrow hero-slider-next" data-slider-action="next" aria-label="Next campus photo" title="Next photo">›</button><div class="hero-slider-dots" aria-label="Campus photos">${slideUrls.map((url,i)=>`<button type="button" class="hero-slide-dot${i===0?' active':''}" data-slide="${i}" aria-label="Show campus photo ${i+1}" title="Show campus photo ${i+1}"></button>`).join('')}</div><span class="hero-slider-hint">Photos change automatically • Use ‹ › or swipe to choose a photo</span>` : '');
        if (!slider.dataset.v5Bound) {
          slider.dataset.v5Bound = '1';
-         slider.addEventListener('click', e => {
-           const control = e.target.closest('[data-slide], [data-slider-action]'); if (!control) return;
-           const slides = [...slider.querySelectorAll('.hero-slide')]; if (slides.length < 2) return;
-           let current = slides.findIndex(img => img.classList.contains('active'));
-           if (current < 0) current = 0;
-           let next = control.hasAttribute('data-slide') ? Number(control.dataset.slide) : (current + (control.dataset.sliderAction === 'next' ? 1 : -1) + slides.length) % slides.length;
-           next = (next + slides.length) % slides.length;
-           slider.classList.add('manual-slide');
-           slides.forEach((img,i)=>img.classList.toggle('active',i===next));
-           slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===next));
-           if (slider._v5Timer) clearInterval(slider._v5Timer);
+         const syncSliderState = () => {
+           const slides=[...slider.querySelectorAll('.hero-slide')];if(!slides.length)return;
+           const current=Math.max(0,Math.min(slides.length-1,Math.round(slider.scrollLeft/Math.max(1,slider.clientWidth))));
+           slides.forEach((img,i)=>img.classList.toggle('active',i===current));
+           slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===current));
+         };
+         slider.addEventListener('scroll',()=>{if(slider._scrollSync)cancelAnimationFrame(slider._scrollSync);slider._scrollSync=requestAnimationFrame(syncSliderState);},{passive:true});
+         // Auto-advance the hero campus photos; pause while the visitor interacts.
+         const stopHeroAutoAdvance = () => {
+           if (slider._v5Timer) { clearInterval(slider._v5Timer); slider._v5Timer = null; }
+         };
+         const startHeroAutoAdvance = () => {
+           stopHeroAutoAdvance();
+           if (slider.querySelectorAll('.hero-slide').length < 2) return;
            slider._v5Timer = setInterval(() => {
-             const imgs=[...slider.querySelectorAll('.hero-slide')]; if(imgs.length<2)return;
-             const cur=imgs.findIndex(img=>img.classList.contains('active'));
-             const n=((cur<0?0:cur)+1)%imgs.length;
-             imgs.forEach((img,i)=>img.classList.toggle('active',i===n));
-             slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===n));
-           }, 5000);
+             if (document.hidden || slider.matches(':hover') || slider.contains(document.activeElement)) return;
+             const slides = [...slider.querySelectorAll('.hero-slide')];
+             if (slides.length < 2) return;
+             const current = Math.round(slider.scrollLeft / Math.max(1, slider.clientWidth));
+             const next = (current + 1) % slides.length;
+             slider.scrollTo({left: next * slider.clientWidth, behavior: 'smooth'});
+           }, 4500);
+         };
+         slider.addEventListener('mouseenter', stopHeroAutoAdvance);
+         slider.addEventListener('mouseleave', startHeroAutoAdvance);
+         slider.addEventListener('focusin', stopHeroAutoAdvance);
+         slider.addEventListener('focusout', () => { if (!slider.contains(document.activeElement)) startHeroAutoAdvance(); });
+         slider.addEventListener('touchstart', stopHeroAutoAdvance, {passive:true});
+         slider.addEventListener('touchend', () => { window.setTimeout(startHeroAutoAdvance, 2500); }, {passive:true});
+         slider.addEventListener('click', e => {
+           const control=e.target.closest('[data-slide], [data-slider-action]');if(!control)return;
+           const slides=[...slider.querySelectorAll('.hero-slide')];if(slides.length<2)return;
+           const current=Math.max(0,Math.min(slides.length-1,Math.round(slider.scrollLeft/Math.max(1,slider.clientWidth))));
+           let next=control.hasAttribute('data-slide')?Number(control.dataset.slide):(current+(control.dataset.sliderAction==='next'?1:-1)+slides.length)%slides.length;
+           next=(next+slides.length)%slides.length;
+           slider.scrollTo({left:next*slider.clientWidth,behavior:'smooth'});
          });
-       }
-       if (slideUrls.length > 1) {
-         slider._v5Timer = setInterval(() => {
-           const imgs=[...slider.querySelectorAll('.hero-slide')]; if(imgs.length<2)return;
-           const cur=imgs.findIndex(img=>img.classList.contains('active'));
-           const n=((cur<0?0:cur)+1)%imgs.length;
-           imgs.forEach((img,i)=>img.classList.toggle('active',i===n));
-           slider.querySelectorAll('.hero-slide-dot').forEach((b,i)=>b.classList.toggle('active',i===n));
-         }, 5000);
+         let touchStartX=0;
+         slider.addEventListener('touchstart',e=>{touchStartX=e.touches&&e.touches[0]?e.touches[0].clientX:0;},{passive:true});
+         slider.addEventListener('touchend',e=>{const x=e.changedTouches&&e.changedTouches[0]?e.changedTouches[0].clientX:touchStartX;const delta=x-touchStartX;if(Math.abs(delta)>45){const slides=[...slider.querySelectorAll('.hero-slide')];const cur=Math.round(slider.scrollLeft/Math.max(1,slider.clientWidth));const next=Math.max(0,Math.min(slides.length-1,cur+(delta<0?1:-1)));slider.scrollTo({left:next*slider.clientWidth,behavior:'smooth'});}},{passive:true});
+         syncSliderState();
+         startHeroAutoAdvance();
+       } else {
+         // render() may refresh the uploaded campus images; restart timer against the new slide list.
+         if (slider._v5Timer) { clearInterval(slider._v5Timer); slider._v5Timer = null; }
+         if (slider.querySelectorAll('.hero-slide').length > 1) {
+           slider._v5Timer = setInterval(() => {
+             if (document.hidden || slider.matches(':hover') || slider.contains(document.activeElement)) return;
+             const slides = [...slider.querySelectorAll('.hero-slide')];
+             if (slides.length < 2) return;
+             const current = Math.round(slider.scrollLeft / Math.max(1, slider.clientWidth));
+             slider.scrollTo({left: ((current + 1) % slides.length) * slider.clientWidth, behavior:'smooth'});
+           }, 4500);
+         }
        }
      }    // Optional leader profiles: show only records supplied and approved through public Admin data.
     if (Array.isArray(d.leaders) && d.leaders.length) {
@@ -1119,8 +1151,10 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
       const getUrl = g => safeUrl(g.url || g.photo || g.imageUrl);
       const catHtml = categories.map(cat => {
         const photos = d.gallery.filter(g => {
-          const catValue = String(g.category || g.type || '');
-          return catValue ? (catValue.toLowerCase().includes(cat.key) || cat.match.test(catValue)) : cat.match.test(getTitle(g));
+          const raw = String(g.category || g.type || '').toLowerCase().trim();
+          const aliases = {'library':'library','botany':'botany','botany laboratory':'botany','zoology':'zoology','zoology laboratory':'zoology','physics':'physics','physics laboratory':'physics','chemistry':'chemistry','chemistry laboratory':'chemistry','sports':'sports','sports & physical education':'sports','events':'events','events & celebrations':'events','campus':'campus','college building & campus':'campus','college building':'campus'};
+          const key = aliases[raw] || '';
+          return key ? key === cat.key : cat.match.test(getTitle(g));
         }).filter(g => getUrl(g));
         const photosHtml = photos.length ? photos.map(g => `<figure class="gallery-photo-item">${img(getUrl(g),getTitle(g),'gallery-photo-large')}<figcaption>${esc(getTitle(g))}</figcaption></figure>`).join('') : `<div class="no-photo">Photos will be added</div>`;
         return `<details class="gallery-category"><summary>${esc(cat.title)} <span class="directory-count">${photos.length} photo${photos.length===1?'':'s'}</span></summary><div class="category-body"><p>${esc(cat.desc)}</p><div class="category-photos">${photosHtml}</div></div></details>`;
@@ -1373,7 +1407,7 @@ nav .nav-links .emms { margin-left:0 !important; }
 
 
 
-<!-- V5.25 Zoom Meeting: isolated module; existing website features remain unchanged -->
+<style id="v526-admin-zoom-visibility">#zoomMenuOpen[hidden]{display:none!important}</style>\n<!-- V5.25 Zoom Meeting: isolated module; existing website features remain unchanged -->
 <style id="v525-zoom-meeting-styles">
 #zoomMeetingDialog{width:min(94vw,520px);max-width:520px;border:2px solid #b8c8d8;border-radius:18px;padding:0;color:#142b45;background:#fff;box-shadow:0 24px 80px #061b32aa}
 #zoomMeetingDialog::backdrop{background:rgba(4,20,38,.68);backdrop-filter:blur(3px)}
@@ -1720,4 +1754,12 @@ body.dark-mode #main .quick a,body.dark-mode #main .btn:not(.secondary){color:#f
 body.dark-mode #main .btn.secondary,body.dark-mode #main .callout strong{color:#ffe58a!important;-webkit-text-fill-color:#ffe58a!important}
 body.dark-mode #main .global-search-shell,body.dark-mode .global-search-shell{background:#0b2032!important;color:#eaf4ff!important}
 body.dark-mode #main [style*="color: #fff"],body.dark-mode #main [style*="color:#fff"],body.dark-mode #main [style*="color: white"],body.dark-mode #main [style*="color:white"]{color:#eaf4ff!important;-webkit-text-fill-color:#eaf4ff!important}
+
+/* V5.28 campus photo slider: swipe horizontally through every uploaded building/campus photo */
+.hero-slider{position:relative;display:flex;gap:0;width:100%;height:100%;min-height:220px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:thin;-webkit-overflow-scrolling:touch}.hero-slider .hero-slide{flex:0 0 100%;width:100%;height:100%;min-height:220px;object-fit:cover;scroll-snap-align:start;margin:0}.hero-slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:38px;height:42px;border:0;border-radius:9px;background:#08243bcc;color:#fff;font-size:28px;cursor:pointer}.hero-slider-prev{left:8px}.hero-slider-next{right:8px}.hero-slider-dots{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:6px;z-index:3}.hero-slider-dots button{width:9px;height:9px;padding:0;border:1px solid white;border-radius:50%;background:#ffffff88}.hero-slider-dots button.active{background:#fff;transform:scale(1.25)}
+
+/* V5.28 compact subject video cards */
+.subject-video-list{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))!important;align-items:start}.subject-video-item{padding:10px!important}.subject-video-item .video-frame{max-width:100%;aspect-ratio:16/9}.subject-video-item h3{font-size:1rem}
+
+.hero-slider{scroll-behavior:smooth;touch-action:pan-x pan-y}.hero-slider .hero-slide{display:block!important;position:relative!important;opacity:1!important;visibility:visible!important;transform:none!important}.hero-slider .hero-slide.active{opacity:1!important}
 </style>
