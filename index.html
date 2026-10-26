@@ -756,6 +756,16 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 .zoom-meeting-section{margin:18px 0 24px;scroll-margin-top:16px}.zoom-meeting-card{max-width:680px;margin:0 auto;padding:clamp(16px,3vw,28px)!important}.zoom-mode-switch{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.zoom-mode-switch .btn{margin:0;cursor:pointer}.zoom-mode-switch .zoom-mode.active{outline:3px solid #78b9ef;outline-offset:2px}.zoom-form{display:grid;gap:8px}.zoom-form label{font-weight:750;margin-top:6px}.zoom-form input{width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #9eb4c8;border-radius:9px;font:inherit;background:#fff;color:#132b42}.zoom-join-btn{background:#1769aa!important;color:#fff!important}.zoom-note{font-size:.88rem;color:var(--muted);line-height:1.5;margin-top:16px}.zoom-preset-panel{border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0}.zoom-preset-panel button:disabled{opacity:.55;cursor:not-allowed}.zoom-meeting-card .outline{background:transparent;color:var(--ink);border:1px solid var(--line);cursor:pointer;margin-top:8px}
 body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#102b40!important;color:#eaf4ff!important;border-color:#35566f!important}body.dark-mode .zoom-form input{background:#0b2032!important;color:#f2f7ff!important;border-color:#527087!important}body.dark-mode .zoom-note{color:#c1d2e1!important}
 @media(max-width:480px){.zoom-mode-switch{display:grid;grid-template-columns:1fr}.zoom-mode-switch .btn{width:100%;box-sizing:border-box}.zoom-meeting-card{padding:15px!important}}
+
+/* Zoom should never appear on initial page load; honor its hidden state even under later theme CSS. */
+.zoom-meeting-section[hidden], .zoom-in-site-modal[hidden]{display:none!important}
+.zoom-in-site-modal{position:fixed;inset:0;z-index:10050;background:rgba(3,18,34,.78);display:flex;align-items:center;justify-content:center;padding:12px}
+.zoom-in-site-dialog{width:min(1100px,100%);height:min(90vh,850px);background:#fff;color:#17324c;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 24px 80px #0005}
+.zoom-in-site-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.zoom-in-site-help{font-size:.9rem;color:#52677e;margin:0}
+#zoomInSiteFrame{width:100%;flex:1;min-height:180px;border:1px solid #cdddf0;border-radius:12px;background:#f3f7fb}
+.zoom-in-site-actions{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:600px){.zoom-in-site-dialog{height:94vh;padding:10px}.zoom-in-site-actions .btn{flex:1 1 100%;margin:0}}
 </style>
 
 </head>
@@ -814,6 +824,21 @@ body.dark-mode .zoom-meeting-card,body.dark-mode .zoom-preset-panel{background:#
     <button type="button" class="btn outline" id="zoomCloseBtn">Close</button>
   </div>
 </section>
+
+<div id="zoomInSiteModal" class="zoom-in-site-modal" hidden role="dialog" aria-modal="true" aria-labelledby="zoomInSiteTitle">
+  <div class="zoom-in-site-dialog">
+    <div class="zoom-in-site-header">
+      <strong id="zoomInSiteTitle">Join Zoom Meeting</strong>
+      <button type="button" id="zoomInSiteClose" class="btn outline" aria-label="Close meeting">Close</button>
+    </div>
+    <p class="zoom-in-site-help">Trying to open the meeting in this website. If Zoom does not allow the embedded meeting, use one of the optional buttons below.</p>
+    <iframe id="zoomInSiteFrame" title="Zoom meeting inside TGTWR COE Boys Narsapur website" allow="camera; microphone; fullscreen; display-capture; autoplay" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div class="zoom-in-site-actions">
+      <button type="button" class="btn" id="zoomOpenApp">Open in Zoom App</button>
+      <button type="button" class="btn secondary" id="zoomOpenOriginal">Open Original Zoom Meeting</button>
+    </div>
+  </div>
+</div>
 
 <div class="hero-banner">
   <img class="building-photo" src="assets/college-building.webp" alt="TGTWR Junior College COE Boys, Narsapur campus building" fetchpriority="high">
@@ -1430,13 +1455,37 @@ nav .nav-links .emms { margin-left:0 !important; }
   };
   if(window.tgtwrZoomMeetingSettings)window.applyTgtwrZoomMeetingSettings(window.tgtwrZoomMeetingSettings);
   function cleanId(value){return String(value||'').replace(/[^0-9]/g,'').slice(0,20);}
+  var zoomJoinUrl='';
   function joinZoom(id,pass){
     id=cleanId(id);
     if(id.length<9||id.length>13){alert('Please enter a valid Zoom Meeting ID (usually 9–13 digits).');return;}
-    var url='https://zoom.us/j/'+encodeURIComponent(id);
-    if(String(pass||'').trim())url+='?pwd='+encodeURIComponent(String(pass).trim());
-    window.open(url,'_blank','noopener,noreferrer');
+    var pwd=String(pass||'').trim();
+    zoomJoinUrl='https://zoom.us/j/'+encodeURIComponent(id)+(pwd?'?pwd='+encodeURIComponent(pwd):'');
+    var webUrl='https://app.zoom.us/wc/'+encodeURIComponent(id)+'/join'+(pwd?'?pwd='+encodeURIComponent(pwd):'');
+    var modal=document.getElementById('zoomInSiteModal');
+    var frame=document.getElementById('zoomInSiteFrame');
+    // Prefer the browser meeting experience inside this website. Zoom may block embedding
+    // or require its own sign-in/app; optional explicit buttons provide the supported fallback.
+    frame.src=webUrl;
+    modal.hidden=false;
+    document.body.style.overflow='hidden';
+    document.getElementById('zoomInSiteClose').focus();
   }
+  function closeZoomModal(){
+    var modal=document.getElementById('zoomInSiteModal');
+    modal.hidden=true;
+    document.getElementById('zoomInSiteFrame').src='about:blank';
+    document.body.style.overflow='';
+  }
+  document.getElementById('zoomInSiteClose').addEventListener('click',closeZoomModal);
+  document.getElementById('zoomOpenOriginal').addEventListener('click',function(){if(zoomJoinUrl)window.open(zoomJoinUrl,'_blank','noopener,noreferrer');});
+  document.getElementById('zoomOpenApp').addEventListener('click',function(){
+    if(!zoomJoinUrl)return;
+    var idMatch=zoomJoinUrl.match(/zoom\.us\/j\/([^?]+)/);
+    if(idMatch)window.location.href='zoommtg://zoom.us/join?confno='+encodeURIComponent(decodeURIComponent(idMatch[1]));
+    else window.open(zoomJoinUrl,'_blank','noopener,noreferrer');
+  });
+  document.getElementById('zoomInSiteModal').addEventListener('click',function(event){if(event.target===this)closeZoomModal();});
   function showMode(mode){
     var isPreset=mode==='preset';manualForm.hidden=isPreset;presetPanel.hidden=!isPreset;
     section.querySelectorAll('[data-zoom-mode]').forEach(function(btn){var active=btn.getAttribute('data-zoom-mode')===mode;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',active?'true':'false');});
