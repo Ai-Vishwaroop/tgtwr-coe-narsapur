@@ -2,6 +2,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta name="website-version" content="V6.1">
+
 <meta name="website-version" content="V6">
 
   <meta name="google-site-verification" content="XLdbiO-4FzN-Tq2p5b0n6wZIx7Z80MkeZHQyrRR8Ric" />
@@ -115,9 +117,9 @@ body.dark-mode .nav-theme-toggle{background:#f2c14e;color:#182a3a;border-color:#
 .leader-card{padding:9px!important}
 .leader-card h3{font-size:.82rem!important;line-height:1.25}
 .leader-card p{font-size:.72rem!important;line-height:1.3}
-.tgtwries-center{display:flex;flex-direction:column;justify-content:center;align-items:center;border:2px solid #b91c1c!important;background:#fff8f8!important}
+
 .tgtwries-wordmark{font-size:clamp(1rem,2vw,1.55rem);font-weight:950;color:#c1121f;letter-spacing:.04em;line-height:1.15;overflow-wrap:anywhere}
-.tgtwries-center p{font-weight:700!important;color:#b91c1c!important;margin-top:8px!important}
+
 @media(max-width:760px){
  .nav-inner{padding:7px 8px!important;gap:7px!important}
  .menu-toggle{width:40px!important;min-width:40px;height:40px!important}
@@ -257,7 +259,7 @@ main{max-width:1240px!important;padding-left:clamp(12px,2.2vw,26px)!important;pa
 #leaders{margin:0 0 18px;padding:18px 16px 14px;border-radius:22px;background:linear-gradient(125deg,#eaf8ff,#fff 48%,#fff7df);border:1px solid #d5eaf6;box-shadow:0 12px 30px #0d47740c}
 #leaders .section-head h2,#about .section-head h2,#vision .section-head h2,#academics .section-head h2,#administration .section-head h2,#notices .section-head h2,#achievements .section-head h2,#examinations .section-head h2,#gallery .section-head h2,#alumni-success .section-head h2,#contact .section-head h2{color:#073d70}
 .leader-card{background:linear-gradient(150deg,#fff,#eef8ff)!important;border:1px solid #d7e6f3!important;border-radius:18px!important;box-shadow:0 8px 20px #144a7210!important}
-.leader-card.tgtwries-center{background:linear-gradient(135deg,#fff3f1,#fff,#fff4cc)!important;border:2px solid #e7c55e!important}
+
 #about .card{background:linear-gradient(120deg,#eef8ff,#fff 60%,#fff8e9)!important;border-left:5px solid #0b9fc1!important}
 #vision .vision-card:nth-child(1){background:linear-gradient(135deg,#e8f4ff,#fff)!important;border-top:4px solid #178fcb!important}
 #vision .vision-card:nth-child(2){background:linear-gradient(135deg,#e8fff5,#fff)!important;border-top:4px solid #12aa87!important}
@@ -770,16 +772,46 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 </style>
 
 
-<style id="v6-admin-paragraph-readmore">
-.admin-managed-text { white-space: pre-wrap !important; overflow-wrap: anywhere; }
-.admin-text-readmore { display:inline-flex; align-items:center; gap:6px; margin-top:10px; padding:7px 12px; border:1px solid #0b6b91; border-radius:999px; background:#fff; color:#075985; font-weight:700; cursor:pointer; }
-.admin-text-readmore:focus-visible { outline:3px solid #f5bf27; outline-offset:2px; }
-#adminTextReadMoreDialog { position:fixed; inset:0; z-index:99999; display:none; align-items:center; justify-content:center; padding:18px; background:rgba(5,20,36,.68); }
-#adminTextReadMoreDialog.is-open { display:flex; }
-#adminTextReadMoreDialog .admin-text-modal { width:min(760px,100%); max-height:min(82vh,760px); overflow:auto; background:var(--card,#fff); color:var(--text,#17324a); border-radius:16px; padding:22px; box-shadow:0 20px 70px rgba(0,0,0,.3); }
-#adminTextReadMoreDialog .admin-text-modal-content { white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.7; }
-#adminTextReadMoreDialog .admin-text-modal-close { float:right; margin:0 0 12px 12px; }
-@media(prefers-reduced-motion:reduce){.admin-text-readmore{transition:none!important}}
+<style id="v6-stable-layout-readmore-leadership">
+/* Reserve layout space before images and dynamic Apps Script data arrive. */
+.hero-banner{display:grid!important;grid-template-columns:minmax(0,1.65fr) minmax(240px,.75fr)!important;align-items:stretch!important;min-height:clamp(250px,31vw,420px)!important;overflow:hidden!important}
+.hero-banner .building-photo{display:block!important;width:100%!important;height:100%!important;min-height:clamp(250px,31vw,420px)!important;max-height:none!important;aspect-ratio:16/9!important;object-fit:cover!important}
+.hero-message{min-width:0!important;min-height:clamp(250px,31vw,420px)!important;box-sizing:border-box!important}
+.hero-message p{overflow-wrap:anywhere}
+.leader-card{box-sizing:border-box!important;min-height:210px!important;height:100%!important}
+.leader-photo,.leader-placeholder{width:100px!important;height:112px!important;min-width:100px!important;min-height:112px!important;max-width:100px!important;max-height:112px!important;object-fit:cover!important;object-position:top center!important;flex-shrink:0!important}
+.leader-placeholder{display:grid!important;place-items:center!important;text-align:center!important}
+#leaders .leaders-side-title{font-size:clamp(.78rem,1.1vw,1rem);font-weight:800;color:#075985;margin:0 0 9px;text-align:left}
+#leaders .leaders-sides{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:16px;align-items:start}
+#leaders .leaders-side{min-width:0}
+#leaders .leaders-side-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+#leaders .leaders-side-right .leaders-side-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+#leaders .leader-card{min-width:0;padding:10px!important;overflow-wrap:anywhere}
+#leaders .leader-card h3{font-size:.84rem!important;line-height:1.25!important}
+#leaders .leader-card p{font-size:.74rem!important;line-height:1.3!important}
+.admin-expandable-text{white-space:pre-wrap!important;overflow-wrap:anywhere!important;max-height:7.2em;overflow:hidden;transition:max-height .22s ease}
+.admin-expandable-text.is-expanded{max-height:none!important;overflow:visible!important}
+.admin-readmore-button{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:7px 12px;border:1px solid #0b78a5;border-radius:999px;background:#fff;color:#075985;font-size:.82rem;font-weight:750;cursor:pointer}
+.admin-readmore-button:focus-visible{outline:3px solid #ffcc33;outline-offset:2px}
+.hero .panel,.card,.vision-card,#principalMessage{min-width:0}
+.hero .panel{min-height:210px}
+#about .card,#vision .vision-card,#principalMessage{box-sizing:border-box;min-height:190px}
+#principalMessage .principal-message-copy{white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:760px){
+ .hero-banner{grid-template-columns:minmax(0,1fr)!important;min-height:0!important}
+ .hero-banner .building-photo{height:auto!important;min-height:0!important;aspect-ratio:16/9!important}
+ .hero-message{min-height:0!important;padding:16px!important}
+ .hero-message h2{font-size:1.35rem!important}
+ #leaders .leaders-sides{grid-template-columns:minmax(0,1fr)!important;gap:14px}
+ #leaders .leaders-side-cards,#leaders .leaders-side-right .leaders-side-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #leaders .leader-photo,#leaders .leader-placeholder{width:76px!important;height:92px!important;min-width:76px!important;min-height:92px!important;max-width:76px!important;max-height:92px!important}
+ #leaders .leader-card{min-height:190px!important}
+ .hero .panel{min-height:0}
+}
+@media(max-width:390px){
+ #leaders .leaders-side-cards,#leaders .leaders-side-right .leaders-side-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){.admin-expandable-text{transition:none!important}}
 </style>
 
 </head>
@@ -821,12 +853,22 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
   <div class="hero-message"><p class="eyebrow" id="heroEyebrow">Empowering tribal youth</p><h2 id="heroTitle">Quality Education for a Brighter Tomorrow</h2><p id="heroDescription">Academic excellence, discipline and holistic development for every student.</p><div><a class="btn" id="heroAcademicsLink" href="#academics">Explore Academics →</a></div></div>
 </div>
 <section id="leaders"><div class="section-head"><h2>Leadership &amp; Governance</h2><p>Institutional leadership guiding quality education and administration</p></div>
-<div class="leaders-grid" id="leadersGrid">
-  <article class="leader-card leader-secretary"><div class="leader-placeholder">Official photo to be added</div><h3>Secretary</h3><p>TGTWRIES</p></article>
-  <article class="leader-card leader-coordinator"><div class="leader-placeholder">Official photo to be added</div><h3>Regional Coordinator</h3><p>Official designation to be confirmed</p></article>
-  <article class="leader-card tgtwries-center"><div class="tgtwries-wordmark">TGTWRIES</div><p>Telangana Tribal Welfare Residential Educational Institutions Society</p></article>
-  <article class="leader-card leader-minister"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Tribal Welfare Minister</h3><p>Government of Telangana</p></article>
-  <article class="leader-card leader-cm"><div class="leader-placeholder">Official photo to be added</div><h3>Hon’ble Chief Minister</h3><p>Government of Telangana</p></article>
+<div class="leaders-sides" id="leadersGrid">
+  <div class="leaders-side leaders-side-left">
+    <h3 class="leaders-side-title">TGTWRIES Officers</h3>
+    <div class="leaders-side-cards">
+      <article class="leader-card"><div class="leader-placeholder">Official photo</div><h3>Secretary</h3><p>TGTWRIES</p></article>
+      <article class="leader-card"><div class="leader-placeholder">Official photo</div><h3>Regional Coordinator</h3><p>TGTWRIES</p></article>
+      <article class="leader-card"><div class="leader-placeholder">Official photo</div><h3>Principal</h3><p>TGTWR COE (Boys), Narsapur</p></article>
+    </div>
+  </div>
+  <div class="leaders-side leaders-side-right">
+    <h3 class="leaders-side-title">Government Leadership</h3>
+    <div class="leaders-side-cards">
+      <article class="leader-card"><div class="leader-placeholder">Official photo</div><h3>Tribal Welfare Minister</h3><p>Government of Telangana</p></article>
+      <article class="leader-card"><div class="leader-placeholder">Official photo</div><h3>Chief Minister</h3><p>Government of Telangana</p></article>
+    </div>
+  </div>
 </div><p class="small">Leadership names and photographs will be published after official verification.</p></section>
 
 <div class="hero">
@@ -970,62 +1012,8 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     const soc = $('.society'); if (soc) soc.textContent = society;
     const addr = $('.address-line'); if (addr) addr.textContent = address;
     const mot = $('.motto'); if (mot) mot.textContent = motto;
-    
-    const v6PlainText = value => String(value == null ? '' : value).replace(/\r\n?/g, '\n');
-    const v6SetManagedText = (id, value, options={}) => {
-      const el = document.getElementById(id);
-      if (!el || value == null || value === '') return;
-      const text = v6PlainText(value);
-      el.textContent = text;
-      el.classList.add('admin-managed-text');
-      // Read More opens a separate overlay so the original website card/box dimensions do not change.
-      if (options.readMore && !el.parentElement.querySelector('[data-readmore-for="'+id+'"]')) {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'admin-text-readmore';
-        button.textContent = 'Read More';
-        button.setAttribute('data-readmore-for', id);
-        button.addEventListener('click', () => {
-          const dialog = document.getElementById('adminTextReadMoreDialog');
-          const title = document.getElementById('adminTextReadMoreTitle');
-          const content = document.getElementById('adminTextReadMoreContent');
-          if (!dialog || !title || !content) return;
-          title.textContent = options.title || 'Full text';
-          content.textContent = text;
-          dialog.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
-          document.getElementById('adminTextReadMoreClose')?.focus();
-        });
-        el.insertAdjacentElement('afterend', button);
-      } else if (options.readMore) {
-        const button = el.parentElement.querySelector('[data-readmore-for="'+id+'"]');
-        if (button) button.onclick = () => {
-          const dialog = document.getElementById('adminTextReadMoreDialog');
-          const title = document.getElementById('adminTextReadMoreTitle');
-          const content = document.getElementById('adminTextReadMoreContent');
-          if (!dialog || !title || !content) return;
-          title.textContent = options.title || 'Full text';
-          content.textContent = text;
-          dialog.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
-          document.getElementById('adminTextReadMoreClose')?.focus();
-        };
-      }
-    };
-    const setText=(id,val)=>v6SetManagedText(id,val);
-
+    const setText=(id,val)=>{const el=document.getElementById(id);if(el && val) el.textContent=val;};
     setText('heroEyebrow',d.heroEyebrow);setText('heroTitle',d.heroTitle);setText('heroDescription',d.heroDescription);setText('principalMessageHeading',d.principalMessageHeading);
-    // Admin V5.12 paragraph fields: preserve line breaks and provide Read More in a fixed-size layout.
-    v6SetManagedText('heroDescription', d.heroDescription, {readMore:true, title:'Homepage Description'});
-    const aboutParagraph = document.querySelector('#about .card p');
-    if (aboutParagraph && d.about) v6SetManagedText(aboutParagraph.id || (aboutParagraph.id='v6AboutText'), d.about, {readMore:true, title:'About Our Institution'});
-    const visionCard = document.querySelector('#vision .vision-card:nth-child(1) p');
-    if (visionCard && d.vision) v6SetManagedText(visionCard.id || (visionCard.id='v6VisionText'), d.vision, {readMore:true, title:'Our Vision'});
-    const missionCard = document.querySelector('#vision .vision-card:nth-child(2) p');
-    if (missionCard && d.mission) v6SetManagedText(missionCard.id || (missionCard.id='v6MissionText'), d.mission, {readMore:true, title:'Our Mission'});
-    const principalMessage = document.querySelector('#principalMessage .principal-message-copy');
-    if (principalMessage && d.principalMessage) v6SetManagedText(principalMessage.id || (principalMessage.id='v6PrincipalMessageText'), d.principalMessage, {readMore:true, title:'Principal’s Message'});
-
     const ha=document.getElementById('heroAcademicsLink');if(ha&&d.heroAcademicsText)ha.textContent=d.heroAcademicsText+' →';
     const hn=document.getElementById('heroNoticesLink');if(hn&&d.heroNoticesText)hn.textContent=d.heroNoticesText;
     const logos = d.logos || {};
@@ -1112,11 +1100,21 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     if (Array.isArray(d.leaders) && d.leaders.length) {
       const leadersGrid = $('#leadersGrid');
       if (leadersGrid) {
-        const rank = x => { const r=String(x.role||x.name||'').toLowerCase(); if(r.includes('secretary')) return 0; if(r.includes('regional')) return 1; if(r.includes('chief minister') || r.includes('chiefminister')) return 4; if(r.includes('minister')) return 3; return 2; };
-        const ordered = d.leaders.slice().sort((a,b)=>rank(a)-rank(b));
-        const cards = ordered.map(x => `<article class="leader-card">${safeUrl(x.photo) ? img(x.photo,x.name || x.role,'leader-photo') : '<div class="leader-placeholder">Official photo to be added</div>'}<h3>${esc(x.name || x.role || 'Leadership')}</h3><p>${esc(x.role || '')}</p>${x.organization ? `<p>${esc(x.organization)}</p>` : ''}</article>`);
-        cards.splice(Math.min(2,cards.length),0,'<article class="leader-card tgtwries-center"><div class="tgtwries-wordmark">TGTWRIES</div><p>Telangana Tribal Welfare Residential Educational Institutions Society</p></article>');
-        leadersGrid.innerHTML = cards.join('');
+        const list = d.leaders.slice();
+        const rank = x => {
+          const r=String(x.role||x.name||'').toLowerCase();
+          if(r.includes('secretary')) return 0;
+          if(r.includes('regional')) return 1;
+          if(r.includes('principal')) return 2;
+          if(r.includes('chief minister') || r.includes('chiefminister')) return 4;
+          if(r.includes('minister')) return 3;
+          return 2;
+        };
+        const card = x => `<article class="leader-card">${safeUrl(x.photo) ? img(x.photo,x.name || x.role,'leader-photo') : '<div class="leader-placeholder">Official photo</div>'}<h3>${esc(x.name || x.role || 'Leadership')}</h3><p>${esc(x.role || '')}</p>${x.organization ? `<p>${esc(x.organization)}</p>` : ''}</article>`;
+        const left = list.filter(x => !/chief\s*minister|chiefminister|minister/i.test(String(x.role||x.name||''))).sort((a,b)=>rank(a)-rank(b));
+        const right = list.filter(x => /chief\s*minister|chiefminister|minister/i.test(String(x.role||x.name||''))).sort((a,b)=>rank(a)-rank(b));
+        leadersGrid.className = 'leaders-sides';
+        leadersGrid.innerHTML = `<div class="leaders-side leaders-side-left"><h3 class="leaders-side-title">TGTWRIES Officers</h3><div class="leaders-side-cards">${left.map(card).join('') || '<p class="small">Officer details will be updated.</p>'}</div></div><div class="leaders-side leaders-side-right"><h3 class="leaders-side-title">Government Leadership</h3><div class="leaders-side-cards">${right.map(card).join('') || '<p class="small">Government leadership details will be updated.</p>'}</div></div>`;
       }
     }
     {
@@ -1509,30 +1507,6 @@ nav .nav-links .emms { margin-left:0 !important; }
 </script>
 
 
-<div id="adminTextReadMoreDialog" role="dialog" aria-modal="true" aria-labelledby="adminTextReadMoreTitle">
-  <div class="admin-text-modal">
-    <button type="button" class="admin-text-modal-close" id="adminTextReadMoreClose">✕ Close</button>
-    <h2 id="adminTextReadMoreTitle">Full text</h2>
-    <div id="adminTextReadMoreContent" class="admin-text-modal-content"></div>
-  </div>
-</div>
-
-<script id="v6-readmore-dialog-controls">
-(function(){
-  const close = () => {
-    const dialog = document.getElementById('adminTextReadMoreDialog');
-    if (!dialog) return;
-    dialog.classList.remove('is-open');
-    document.body.style.overflow = '';
-  };
-  document.addEventListener('click', event => {
-    if (event.target && (event.target.id === 'adminTextReadMoreClose' || event.target.id === 'adminTextReadMoreDialog')) close();
-  });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
-})();
-</script>
-
-</body></html>
 <style id="requested-final-layout-fixes">
 /* User-requested layout: hero text below full-width building image */
 .hero-banner{display:flex!important;flex-direction:column!important}
@@ -1805,3 +1779,52 @@ body.dark-mode #main [style*="color: #fff"],body.dark-mode #main [style*="color:
 
 .hero-slider{scroll-behavior:smooth;touch-action:pan-x pan-y}.hero-slider .hero-slide{display:block!important;position:relative!important;opacity:1!important;visibility:visible!important;transform:none!important}.hero-slider .hero-slide.active{opacity:1!important}
 </style>
+
+
+<script id="v6-stable-readmore-behavior">
+(function(){
+  const targets = [
+    ['.hero .panel:first-child p:not(.eyebrow)', 'Welcome to our institution'],
+    ['#about .card p', 'About Our Institution'],
+    ['#vision .vision-card:nth-child(1) p', 'Vision'],
+    ['#vision .vision-card:nth-child(2) p', 'Mission'],
+    ['#principalMessage .principal-message-copy', 'Principal’s Message']
+  ];
+  function bind(){
+    targets.forEach(([selector,label])=>{
+      document.querySelectorAll(selector).forEach((el,index)=>{
+        if(el.dataset.readmoreBound==='1')return;
+        const raw=(el.textContent||'').trim();
+        if(!raw || raw.length<120)return;
+        el.dataset.readmoreBound='1';
+        el.classList.add('admin-expandable-text');
+        const button=document.createElement('button');
+        button.type='button';
+        button.className='admin-readmore-button';
+        button.textContent='Read More';
+        button.setAttribute('aria-expanded','false');
+        button.addEventListener('click',()=>{
+          const expanded=el.classList.toggle('is-expanded');
+          button.textContent=expanded?'Read Less':'Read More';
+          button.setAttribute('aria-expanded',String(expanded));
+        });
+        el.insertAdjacentElement('afterend',button);
+      });
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();
+  window.addEventListener('load',bind);
+  const main=document.getElementById('main');
+  if(main&&window.MutationObserver){
+    let queued=false;
+    new MutationObserver(()=>{
+      if(queued)return;
+      queued=true;
+      requestAnimationFrame(()=>{queued=false;bind();});
+    }).observe(main,{childList:true,subtree:true,characterData:true});
+  }
+})();
+</script>
+
+</body>
+</html>
