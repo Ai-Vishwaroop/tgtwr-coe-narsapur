@@ -769,6 +769,19 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 @media(prefers-reduced-motion:reduce){.gallery-category[open] .category-body{animation:none!important}.hero-slider-dots button{transition:none!important}}
 </style>
 
+
+<style id="v6-admin-paragraph-readmore">
+.admin-managed-text { white-space: pre-wrap !important; overflow-wrap: anywhere; }
+.admin-text-readmore { display:inline-flex; align-items:center; gap:6px; margin-top:10px; padding:7px 12px; border:1px solid #0b6b91; border-radius:999px; background:#fff; color:#075985; font-weight:700; cursor:pointer; }
+.admin-text-readmore:focus-visible { outline:3px solid #f5bf27; outline-offset:2px; }
+#adminTextReadMoreDialog { position:fixed; inset:0; z-index:99999; display:none; align-items:center; justify-content:center; padding:18px; background:rgba(5,20,36,.68); }
+#adminTextReadMoreDialog.is-open { display:flex; }
+#adminTextReadMoreDialog .admin-text-modal { width:min(760px,100%); max-height:min(82vh,760px); overflow:auto; background:var(--card,#fff); color:var(--text,#17324a); border-radius:16px; padding:22px; box-shadow:0 20px 70px rgba(0,0,0,.3); }
+#adminTextReadMoreDialog .admin-text-modal-content { white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.7; }
+#adminTextReadMoreDialog .admin-text-modal-close { float:right; margin:0 0 12px 12px; }
+@media(prefers-reduced-motion:reduce){.admin-text-readmore{transition:none!important}}
+</style>
+
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -788,7 +801,7 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <a class="nav-emms" href="https://script.google.com/macros/s/AKfycbyxMEziqW6dSX4grrCkj-olyHpuKhCaFeWMdAn70Si7ZgZpLFu54GpHnbDlZ-csZN3flQ/exec" target="_blank" rel="noopener noreferrer">📘 EMMS LOGIN</a>
 </div>
 <div class="nav-links" id="navLinks">
-<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Latest Notices &amp; Circulars</a><a href="#examinations">Examinations &amp; Results</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#alumni-success">Alumni Success Stories</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a href="#" id="zoomMenuOpen">🎥 Zoom Meeting</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
+<a href="#home">Home</a><a href="#leaders">Leadership &amp; Governance</a><a href="#about">About Us</a><a href="#vision">Vision &amp; Mission</a><a href="#academics">Academics</a><a href="#administration">Administration</a><a href="#notices">Latest Notices &amp; Circulars</a><a href="#examinations">Examinations &amp; Results</a><a href="#useful-links">Useful Links</a><a href="#subject-videos">Subject Videos</a><a href="#gallery">Gallery</a><a href="#alumni-success">Alumni Success Stories</a><a href="#emms">EMMS Information</a><a href="#contact">Contact</a><a class="emms" href="https://script.google.com/macros/s/AKfycbzkQ_JtCCk-ylySWMNWoAKLEq0etUnltSKrkEI8eXxkbBg80pNxPP9KkiePzH83lfj7QQ/exec" target="_blank" rel="noopener noreferrer">🔐 ADMIN LOGIN ↗</a>
 </div></div></nav>
 <div class="top-updates-ticker" id="topUpdatesTicker" aria-label="Latest college updates">
   <span class="top-updates-label">LATEST UPDATES</span>
@@ -869,7 +882,8 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
 <section id="useful-links"><div class="section-head"><h2>Useful Links for Students</h2><p>Trusted learning resources, entrance examinations and scholarships</p></div><div class="cards" id="usefulLinksGrid"><article class="card">Useful links will be added by the college.</article></div></section>
 <section id="subject-videos"><div class="section-head"><h2>Subject-wise Video Resources</h2><p>Approved YouTube lessons and learning videos shared by subject staff</p></div><div class="cards" id="subjectVideosGrid"><article class="card">Video resources will be added by subject staff.</article></div></section>
 <section id="gallery"><div class="section-head"><h2>College Facilities &amp; Gallery</h2><p>Select a category to view approved photographs</p></div><div class="gallery-categories" id="galleryCategories">
-<details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details><details class="gallery-category" open><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Library</summary><div class="category-body"><p>Reading space, book collection, reference resources and learning facilities.</p><div class="category-photos"><div class="no-photo">Library photos will be added</div></div></div></details>
+<details class="gallery-category" open><summary>Botany Laboratory</summary><div class="category-body"><p>Plant specimens, microscopes, practical equipment and approved learning activities.</p><div class="category-photos"><div class="no-photo">Botany laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Zoology Laboratory</summary><div class="category-body"><p>Specimens, models, microscopes and practical learning resources.</p><div class="category-photos"><div class="no-photo">Zoology laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Physics Laboratory</summary><div class="category-body"><p>Physics apparatus, optics, electricity experiments and practical facilities.</p><div class="category-photos"><div class="no-photo">Physics laboratory photos will be added</div></div></div></details>
 <details class="gallery-category" open><summary>Chemistry Laboratory</summary><div class="category-body"><p>Laboratory apparatus, glassware, practical benches and safety equipment.</p><div class="category-photos"><div class="no-photo">Chemistry laboratory photos will be added</div></div></div></details>
@@ -956,16 +970,62 @@ body.dark-mode .staff-table th{background:#0b2035!important;color:#fff!important
     const soc = $('.society'); if (soc) soc.textContent = society;
     const addr = $('.address-line'); if (addr) addr.textContent = address;
     const mot = $('.motto'); if (mot) mot.textContent = motto;
-    const setText=(id,val)=>{const el=document.getElementById(id);if(el && val) el.textContent=val;};
+    
+    const v6PlainText = value => String(value == null ? '' : value).replace(/\r\n?/g, '\n');
+    const v6SetManagedText = (id, value, options={}) => {
+      const el = document.getElementById(id);
+      if (!el || value == null || value === '') return;
+      const text = v6PlainText(value);
+      el.textContent = text;
+      el.classList.add('admin-managed-text');
+      // Read More opens a separate overlay so the original website card/box dimensions do not change.
+      if (options.readMore && !el.parentElement.querySelector('[data-readmore-for="'+id+'"]')) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'admin-text-readmore';
+        button.textContent = 'Read More';
+        button.setAttribute('data-readmore-for', id);
+        button.addEventListener('click', () => {
+          const dialog = document.getElementById('adminTextReadMoreDialog');
+          const title = document.getElementById('adminTextReadMoreTitle');
+          const content = document.getElementById('adminTextReadMoreContent');
+          if (!dialog || !title || !content) return;
+          title.textContent = options.title || 'Full text';
+          content.textContent = text;
+          dialog.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          document.getElementById('adminTextReadMoreClose')?.focus();
+        });
+        el.insertAdjacentElement('afterend', button);
+      } else if (options.readMore) {
+        const button = el.parentElement.querySelector('[data-readmore-for="'+id+'"]');
+        if (button) button.onclick = () => {
+          const dialog = document.getElementById('adminTextReadMoreDialog');
+          const title = document.getElementById('adminTextReadMoreTitle');
+          const content = document.getElementById('adminTextReadMoreContent');
+          if (!dialog || !title || !content) return;
+          title.textContent = options.title || 'Full text';
+          content.textContent = text;
+          dialog.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          document.getElementById('adminTextReadMoreClose')?.focus();
+        };
+      }
+    };
+    const setText=(id,val)=>v6SetManagedText(id,val);
+
     setText('heroEyebrow',d.heroEyebrow);setText('heroTitle',d.heroTitle);setText('heroDescription',d.heroDescription);setText('principalMessageHeading',d.principalMessageHeading);
-    const zoomMenuLink=document.getElementById('zoomMenuOpen');
-    if(zoomMenuLink){
-      // Keep the Zoom menu entry available for manual Meeting ID use.
-      // Admin's enabled setting still controls whether a preset meeting is shown.
-      zoomMenuLink.hidden=false;
-      zoomMenuLink.removeAttribute('hidden');
-      zoomMenuLink.setAttribute('aria-hidden','false');
-    }
+    // Admin V5.12 paragraph fields: preserve line breaks and provide Read More in a fixed-size layout.
+    v6SetManagedText('heroDescription', d.heroDescription, {readMore:true, title:'Homepage Description'});
+    const aboutParagraph = document.querySelector('#about .card p');
+    if (aboutParagraph && d.about) v6SetManagedText(aboutParagraph.id || (aboutParagraph.id='v6AboutText'), d.about, {readMore:true, title:'About Our Institution'});
+    const visionCard = document.querySelector('#vision .vision-card:nth-child(1) p');
+    if (visionCard && d.vision) v6SetManagedText(visionCard.id || (visionCard.id='v6VisionText'), d.vision, {readMore:true, title:'Our Vision'});
+    const missionCard = document.querySelector('#vision .vision-card:nth-child(2) p');
+    if (missionCard && d.mission) v6SetManagedText(missionCard.id || (missionCard.id='v6MissionText'), d.mission, {readMore:true, title:'Our Mission'});
+    const principalMessage = document.querySelector('#principalMessage .principal-message-copy');
+    if (principalMessage && d.principalMessage) v6SetManagedText(principalMessage.id || (principalMessage.id='v6PrincipalMessageText'), d.principalMessage, {readMore:true, title:'Principal’s Message'});
+
     const ha=document.getElementById('heroAcademicsLink');if(ha&&d.heroAcademicsText)ha.textContent=d.heroAcademicsText+' →';
     const hn=document.getElementById('heroNoticesLink');if(hn&&d.heroNoticesText)hn.textContent=d.heroNoticesText;
     const logos = d.logos || {};
@@ -1427,41 +1487,6 @@ nav .nav-links .emms { margin-left:0 !important; }
 
 
 
-<style id="v526-admin-zoom-visibility">#zoomMenuOpen[hidden]{display:none!important}</style>\n<!-- V5.25 Zoom Meeting: isolated module; existing website features remain unchanged -->
-<style id="v525-zoom-meeting-styles">
-#zoomMeetingDialog{width:min(94vw,520px);max-width:520px;border:2px solid #b8c8d8;border-radius:18px;padding:0;color:#142b45;background:#fff;box-shadow:0 24px 80px #061b32aa}
-#zoomMeetingDialog::backdrop{background:rgba(4,20,38,.68);backdrop-filter:blur(3px)}
-#zoomMeetingDialog .zoom-head{padding:17px 20px;background:linear-gradient(115deg,#082e59,#0879bd);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:12px}
-#zoomMeetingDialog .zoom-head h2{font-size:1.2rem;margin:0}
-#zoomMeetingDialog .zoom-close{border:0;border-radius:8px;background:#ffffff22;color:#fff;font-size:1.5rem;width:38px;height:38px;cursor:pointer}
-#zoomMeetingDialog .zoom-body{padding:20px}
-#zoomMeetingDialog label{display:block;font-weight:750;font-size:.9rem;margin:12px 0 6px}
-#zoomMeetingDialog input{width:100%;padding:12px;border:1px solid #c6d6e5;border-radius:10px;font:inherit;box-sizing:border-box}
-#zoomMeetingDialog .zoom-preset{border:1px solid #d2e4f5;border-radius:12px;background:#f2f8ff;padding:13px;margin-bottom:16px}
-#zoomMeetingDialog .zoom-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-#zoomMeetingDialog .zoom-actions button,#zoomMeetingDialog .zoom-actions a{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:9px;padding:11px 14px;font:inherit;font-weight:800;text-decoration:none;cursor:pointer}
-#zoomMeetingDialog .zoom-join{background:#0879bd;color:#fff}#zoomMeetingDialog .zoom-secondary{background:#e7f0f8;color:#123b5b}
-#zoomMeetingDialog .zoom-muted{font-size:.82rem;color:#52677a;overflow-wrap:anywhere;margin:8px 0 0}
-#zoomMeetingDialog .zoom-status{min-height:1.2em;font-size:.86rem;color:#12633b;margin-top:10px}
-body.dark-mode #zoomMeetingDialog{background:#17283a;color:#edf5ff;border-color:#45627c}
-body.dark-mode #zoomMeetingDialog .zoom-preset{background:#20384e;border-color:#45627c}
-body.dark-mode #zoomMeetingDialog input{background:#102235;color:#fff;border-color:#45627c}
-body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
-@media(max-width:420px){#zoomMeetingDialog .zoom-body{padding:14px}#zoomMeetingDialog .zoom-actions>*{flex:1 1 100%}}
-</style>
-<dialog id="zoomMeetingDialog" aria-labelledby="zoomMeetingDialogTitle">
-  <div class="zoom-head"><h2 id="zoomMeetingDialogTitle">🎥 College Zoom Meeting</h2><button class="zoom-close" id="zoomDialogClose" type="button" aria-label="Close Zoom Meeting">×</button></div>
-  <div class="zoom-body">
-    <div id="zoomPresetPanel" class="zoom-preset" hidden><strong id="zoomPresetTitle">College Meeting</strong><p class="zoom-muted">Admin-configured meeting</p><div class="zoom-actions"><button type="button" class="zoom-join" id="zoomPresetJoin">Join Preset Meeting ↗</button><button type="button" class="zoom-secondary" id="zoomUsePreset">Use this ID</button></div><p id="zoomPresetPasscode" class="zoom-muted" hidden></p></div>
-    <p class="zoom-muted">Enter a meeting ID manually, or use the preset meeting configured by the college administrator.</p>
-    <label for="zoomManualId">Manual Zoom Meeting ID</label><input id="zoomManualId" inputmode="numeric" autocomplete="off" maxlength="20" placeholder="Enter meeting ID (numbers only)">
-    <label for="zoomManualPasscode">Passcode (if required)</label><input id="zoomManualPasscode" autocomplete="off" maxlength="100" placeholder="Enter meeting passcode">
-    <div class="zoom-actions"><button type="button" class="zoom-join" id="zoomManualJoin">Join Meeting ↗</button><button type="button" class="zoom-secondary" id="zoomCopyDetails">Copy Meeting Details</button></div>
-    <div id="zoomMeetingStatus" class="zoom-status" role="status" aria-live="polite"></div>
-    <p class="zoom-muted">Only join meetings shared by the college. Zoom may ask you to enter the passcode in its app.</p>
-  </div>
-</dialog>
-
 <script id="v6-gallery-folder-behavior">
 (function(){
   if(window.__v6GalleryFolderBehaviorInit)return;
@@ -1483,52 +1508,27 @@ body.dark-mode #zoomMeetingDialog .zoom-muted{color:#c0d0df}
 })();
 </script>
 
-<script id="v525-zoom-meeting-module">
+
+<div id="adminTextReadMoreDialog" role="dialog" aria-modal="true" aria-labelledby="adminTextReadMoreTitle">
+  <div class="admin-text-modal">
+    <button type="button" class="admin-text-modal-close" id="adminTextReadMoreClose">✕ Close</button>
+    <h2 id="adminTextReadMoreTitle">Full text</h2>
+    <div id="adminTextReadMoreContent" class="admin-text-modal-content"></div>
+  </div>
+</div>
+
+<script id="v6-readmore-dialog-controls">
 (function(){
-  if(window.__v525ZoomMeetingInit)return;window.__v525ZoomMeetingInit=true;
-  var dialog=document.getElementById('zoomMeetingDialog'),menu=document.getElementById('zoomMenuOpen');
-  if(!dialog||!menu)return;
-  var preset={title:'College Zoom Meeting',meetingId:'',passcode:'',enabled:false};
-  var $=function(id){return document.getElementById(id)};
-  function cleanId(v){return String(v||'').replace(/\D/g,'').slice(0,20)}
-  function setStatus(t){$('zoomMeetingStatus').textContent=t||''}
-  function openDialog(e){if(e)e.preventDefault();setStatus('');if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','')}
-  function join(id,passcode){id=cleanId(id);if(!id){setStatus('Enter a valid Zoom Meeting ID first.');return}
-    if(id.length<9){setStatus('Please check the Meeting ID. It usually contains 9–11 digits.');return}
-    var url='https://zoom.us/j/'+encodeURIComponent(id);
-    if(passcode){setStatus('Opening Zoom. If prompted, enter the passcode shown here: '+passcode)}
-    window.open(url,'_blank','noopener,noreferrer');
-  }
-  function updatePreset(d){
-    var z=d&&d.zoomMeeting&&typeof d.zoomMeeting==='object'?d.zoomMeeting:null;
-    if(!z)return;
-    preset={title:String(z.title||'College Zoom Meeting'),meetingId:cleanId(z.meetingId),passcode:String(z.passcode||''),enabled:z.enabled!==false};
-    var panel=$('zoomPresetPanel');
-    panel.hidden=!(preset.enabled&&preset.meetingId);
-    $('zoomPresetTitle').textContent=preset.title;
-    var pc=$('zoomPresetPasscode');pc.hidden=!preset.passcode;pc.textContent=preset.passcode?'Passcode: '+preset.passcode:'';
-  }
-  menu.addEventListener('click',openDialog);
-  $('zoomDialogClose').addEventListener('click',function(){if(dialog.close)dialog.close();else dialog.removeAttribute('open')});
-  dialog.addEventListener('click',function(e){if(e.target===dialog&&dialog.close)dialog.close()});
-  $('zoomManualId').addEventListener('input',function(){this.value=cleanId(this.value)});
-  $('zoomManualJoin').addEventListener('click',function(){join($('zoomManualId').value,$('zoomManualPasscode').value.trim())});
-  $('zoomPresetJoin').addEventListener('click',function(){join(preset.meetingId,preset.passcode)});
-  $('zoomUsePreset').addEventListener('click',function(){$('zoomManualId').value=preset.meetingId;$('zoomManualPasscode').value=preset.passcode;setStatus('Preset meeting details filled in.')});
-  $('zoomCopyDetails').addEventListener('click',function(){
-    var id=cleanId($('zoomManualId').value),pc=$('zoomManualPasscode').value.trim();
-    if(!id){setStatus('Enter a Meeting ID before copying details.');return}
-    var details='Zoom Meeting ID: '+id+(pc?'\nPasscode: '+pc:'')+'\nJoin URL: https://zoom.us/j/'+id;
-    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(details).then(function(){setStatus('Meeting details copied.')}).catch(function(){setStatus(details)});
-    else setStatus(details);
-  });
-  var prior=window.tgtwrWebsiteDataCallback;
-  window.tgtwrWebsiteDataCallback=function(result){
-    if(typeof prior==='function')prior(result);
-    var d=result&&result.data&&typeof result.data==='object'?result.data:result;updatePreset(d);
+  const close = () => {
+    const dialog = document.getElementById('adminTextReadMoreDialog');
+    if (!dialog) return;
+    dialog.classList.remove('is-open');
+    document.body.style.overflow = '';
   };
-  // If the original data callback is already called before this module executes,
-  // the preset remains hidden safely until the next public-data refresh.
+  document.addEventListener('click', event => {
+    if (event.target && (event.target.id === 'adminTextReadMoreClose' || event.target.id === 'adminTextReadMoreDialog')) close();
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') close(); });
 })();
 </script>
 
